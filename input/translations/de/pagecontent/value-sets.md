@@ -38,6 +38,12 @@ vollständig).
 > Seite, wenn Ihr Modul keine definiert.]
 {: .ig-highlight .ig-highlight-grey}
 
+<!-- source: Systemische-Therapie-Terminologien.page.md (Simplifier-Guide,
+     TechnischeImplementierung/FHIR-Profile/Systemische-Therapie/) — eine
+     Gruppenseite zur CodeSystem-/ValueSet-Familie der Systemischen Therapie und
+     daher hier als Abschnitt statt als Artefakt-Intro-Note. FQL-Blöcke, die
+     Name/Status/Version/Code-Anzahl abfragten, wurden entfernt - der
+     IG-Publisher stellt diese Angaben auf den Artefaktseiten dar. -->
 ### Terminologien der Systemischen Therapie
 
 #### Übersicht
@@ -161,6 +167,124 @@ Die folgenden oBDS-Einträge haben weder ATC- noch UNII-Codes:
 ```fsh
 * medicationCodeableConcept from MII_VS_Onko_Systemische_Therapie_Substanzen (extensible)
 ```
+
+<!-- source: Weitere-Klassifikationen-Terminologien.page.md (Simplifier-Guide,
+     TechnischeImplementierung/FHIR-Profile/Weitere-Klassifikationen/) — eine
+     Gruppenseite, die die CodeSystem- und ValueSet-Familie hinter dem Profil
+     Weitere Klassifikationen beschreibt; sie landet daher hier als Abschnitt und
+     nicht als Intro-Note eines Artefakts (der Quelltext spricht weiterhin von
+     "dieser Seite"). FQL-Blöcke, die Konzepte, ValueSets und Profilelemente
+     aufgelistet haben, wurden entfernt; der IG Publisher stellt diese auf den
+     Artefaktseiten dar. -->
+### Terminologien der Weiteren Klassifikationen
+
+Diese Seite dokumentiert die Terminologien für weitere Klassifikationen in der Onkologie, einschließlich hämatologischer und organspezifischer Staging-Systeme.
+
+<!-- DERIVED:bridge source=Weitere-Klassifikationen-Terminologien.page.md gate=B -->
+> **Written during migration - review before release.** Dieser Abschnitt behandelt
+> nur die Terminologie-Artefakte. Das Profil, das sie bindet, ist auf einer eigenen
+> Seite dokumentiert: [Weitere Klassifikationen](StructureDefinition-mii-pr-onko-weitere-klassifikationen.html);
+> dessen Intro beschreibt die Klassifikationssysteme klinisch und stellt das
+> code+method+value-Pattern vollständig dar.
+{: .ig-highlight .ig-highlight-blue}
+
+#### Hintergrund
+
+<!-- Quelldefekt, unverändert übernommen: dieser Absatz bricht zweimal mitten im
+     Satz ab ("... oder Ann Arbor bei" und "Die Plattform 65c stellt"), schreibt
+     "Nottingham" als "Nottigham", und der erste Satz ist in der Quelle
+     grammatikalisch defekt ("definiert ... aus"). Bei der Migration nicht
+     korrigiert - bitte prüfen. -->
+Der oBDS definiert hauptsächlich TNM als Stagingsystem aus, viele weitere krankheits- ode rorganspezifischen Staging- und Gradingsysteme werden im oBDS über das Freitextfeld Weitere Klassifikationen abgebildet. Dazu gehören z.B. das Nottigham Grading beim Brustkrebs oder Ann Arbor bei
+Die Plattform 65c stellt
+Einige der Staging-Systeme sind international gebräuchlich und bereits in CodeSystems wie SNOMED-CT und NCIt/UMLS enthalten, während andere primär im deutschen/deutschsprachigen Kontext verwendet werden.
+
+Auch wenn für einige Staging-Systeme ein SNOMED-Code vorhanden ist und dieser für die Interoperabilität besser ist als ein eigenen CodeSystem, haben wir uns für die Abbildung gemäß des oBDS entschieden, da ggfs. die Daten an den Standorten direkt in diesem Format vorliegen. Eine SNOMED-Annotierung kann hier in zukünftigen Versionen via ConceptMaps angestrebt werden.
+
+#### Hierarchisches CodeSystem für Klassifikationssysteme
+
+Das **Weitere Klassifikationen CodeSystem** nutzt eine hierarchische Struktur zur Organisation verschiedener Staging- und Klassifikationssysteme. Es wird als `mii-cs-onko-weitere-klassifikationen-obds` veröffentlicht.
+
+<!-- Quelldefekt: die Quellseite führt die Überschriften "Struktur des
+     hierarchischen Ansatzes" und "Alle Klassifikationssysteme (Elternkonzepte)"
+     ohne jeden Inhalt - die Konzeptliste wurde nie geschrieben. Die leeren
+     Überschriften wurden weggelassen; die DERIVED-Zusammenfassung unten nennt den
+     Inhalt der veröffentlichten Artefakte. -->
+
+#### ValueSets mit descendant-of Filter
+
+Die ValueSets nutzen **descendant-of Filter** für wartbare Terminologie-Verwaltung.
+
+<!-- Quelldefekt: die Quellseite nennt mii-vs-onko-weitere-klassifikationen das
+     "Haupt-ValueSet für alle Klassifikationswerte" und bezeichnet den Filter-
+     Operator als "descendant-of". In den veröffentlichten Artefakten liegen die
+     Klassifikationswerte in mii-vs-onko-weitere-klassifikationen-auspraegungen,
+     der Filter-Operator ist "is-a", und mii-vs-onko-weitere-klassifikationen
+     enthält die Klassifikationssysteme. Bei der Migration nicht korrigiert -
+     bitte prüfen. -->
+
+<!-- DERIVED:summary source=Weitere-Klassifikationen-Terminologien.page.md gate=B -->
+> **Written during migration - review before release.** Die Quellseite hat die
+> Konzepte und die ValueSets über generierte Abfragen aufgelistet, die nicht in
+> diesen Guide übernommen werden. Die veröffentlichte Familie besteht aus: dem
+> CodeSystem
+> [Weitere Klassifikationen oBDS](CodeSystem-mii-cs-onko-weitere-klassifikationen-obds.html),
+> das 20 Klassifikationssysteme als oberste Konzepte und deren 161
+> Klassifikationswerte als Unterkonzepte enthält; dem ValueSet
+> [Weitere Klassifikationen](ValueSet-mii-vs-onko-weitere-klassifikationen.html),
+> das die Klassifikationssysteme selbst aus SNOMED CT und dem NCI Thesaurus
+> aufzählt; und dem ValueSet
+> [Weitere Klassifikationen - Auspraegungen](ValueSet-mii-vs-onko-weitere-klassifikationen-auspraegungen.html),
+> das die Werte je Klassifikationssystem über einen Filter auf das oBDS-CodeSystem
+> auswählt. Überschrift und Einleitungssatz oben geben die Quellseite wieder, die
+> die Werte dem ersten der beiden ValueSets zuordnet und den Filter-Operator
+> `descendant-of` nennt - bitte vor dem Release abgleichen.
+{: .ig-highlight .ig-highlight-blue}
+
+#### mCODE STU4 Pattern Integration
+
+Die Implementierung folgt dem **mCODE STU4 code+method+value Pattern**.
+
+**Beispiel-Implementierung:**
+
+<!-- Quelldefekt, unverändert übernommen: der Block unten nennt die Instanz
+     mii-exa-onko-weitere-klassifikationen-binet und den Alias
+     $mii-cs-onko-weitere-klassifikationen; die veröffentlichten Artefakte sind
+     mii-exa-onko-weitere-klassifikationen-4 und das CodeSystem
+     mii-cs-onko-weitere-klassifikationen-obds. Bei der Migration nicht korrigiert -
+     bitte prüfen. -->
+
+```
+Instance: mii-exa-onko-weitere-klassifikationen-binet
+InstanceOf: MII_PR_Onko_Weitere_Klassifikationen
+
+// Allgemeiner Code für Staging
+* code = $sct#385388004 "Tumorstadium-Befund"
+
+// Spezifische Methode
+* method = $mii-cs-onko-weitere-klassifikationen#binet "BINET Staging System"
+
+// Tatsächlicher Wert
+* valueCodeableConcept = $mii-cs-onko-weitere-klassifikationen#binet-a "BINET A"
+```
+
+#### Mapping zu oBDS
+
+Die Weitere Klassifikationen entsprechen dem **oBDS Feld 9 "Weitere Klassifikationen"**.
+
+#### SNOMED CT Mappings
+
+Für einige Klassifikationssysteme existieren SNOMED CT Äquivalente:
+
+- BINET → SNOMED CT: 1149214008 (Binet chronic lymphocytic leukemia staging)
+- Ann Arbor → SNOMED CT: 254373007 (Ann Arbor lymphoma staging)
+- WHO Grade → SNOMED CT: 277612008 (WHO tumor grade)
+
+#### Beispiele
+
+- FIGO Stadium IVB (Ovariale Tumore): [mii-exa-onko-weitere-klassifikationen-1](Observation-mii-exa-onko-weitere-klassifikationen-1.html)
+- Ann Arbor Stadium IIIX: [mii-exa-onko-weitere-klassifikationen-2](Observation-mii-exa-onko-weitere-klassifikationen-2.html)
+- FIGO Grad 2: [mii-exa-onko-weitere-klassifikationen-3](Observation-mii-exa-onko-weitere-klassifikationen-3.html)
 
 <!-- source: Terminologien.page.md (Simplifier-Guide,
      TechnischeImplementierung/Terminologien.page.md) — ValueSet-relevanter Teil;

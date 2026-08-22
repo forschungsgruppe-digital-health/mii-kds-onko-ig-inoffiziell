@@ -5,6 +5,10 @@ Das Profil unterstützt sowohl brusterhaltende Therapien als auch Mastektomien s
 
 **Kommentierungshinweis**: Zu diskutieren ist, ob präoperative Markierung als separate Extraressource (wie derzeit implementiert) oder einfach als usedCode mit präoperativ- und intraoperativ-Slices modelliert werden sollte.
 
+<!-- DERIVED:bridge source=Mamma-Operation-Procedure.page.md gate=B -->
+> **Written during migration - review before release.** Die Quellseite gab als `subject` die Canonical `.../StructureDefinition/mii-pr-onko-mamma-intraoperatives-imaging-specimen` an, die in diesem Leitfaden nicht als Artefakt existiert. Inhaltlich beschreibt sie das Procedure-Profil zur Mamma-Operation; diese Notiz wurde daher [MII_PR_Onko_Mamma_Operation](StructureDefinition-mii-pr-onko-mamma-operation.html) zugeordnet und das `_profile`-Suchbeispiel unten auf diese Canonical umgestellt. Bitte das gemeinte Profil bestätigen.
+{: .ig-highlight .ig-highlight-blue}
+
 ### Verknüpfungen zu anderen Ressourcen
 
 Das Profil ist eng mit anderen onkologischen Ressourcen verknüpft:

@@ -2,12 +2,19 @@
 <!--
   HOME PAGE — GERMAN TRANSLATION of the source page input/pagecontent/index.md
   (English is the IG's default language). The structure follows the standard MII
-  module IG page set (MII IG template and kerndatensatz-basis). Replace the
-  {{...}} placeholders and the bracketed [TODO ...] prompts with your module's
-  real content, then delete these HTML comments. Keep the section headings — a
-  reviewer expects them. See docs/recipes/add-translation.md; keep this file in
-  step with the English source.
+  module IG page set (MII IG template and kerndatensatz-basis). See
+  docs/recipes/add-translation.md; keep this file in step with the English
+  source.
 -->
+
+<!-- DERIVED:bridge source=Index.page.md gate=B -->
+> **Written during migration - review before release.** Dieser Leitfaden ist
+> eine **inoffizielle Probe-Migration** des MII-Kerndatensatz-Moduls
+> *Onkologie* v2026.0.3 auf die FGDH-Vorlage für MII-KDS-Module. Er ist kein
+> MII-Artefakt, er ist nicht von der Medizininformatik-Initiative autorisiert,
+> und nichts davon ist veröffentlicht. Verbindlich bleibt die offizielle
+> MII-Spezifikation.
+{: .ig-highlight .ig-highlight-blue}
 
 ### Einleitung
 
@@ -18,9 +25,47 @@ FHIR-Profile, Extensions und Terminologie-Ressourcen in ihrer verbindlichen
 Form. Der MII-Kerndatensatz dient der standardisierten Nutzung klinischer
 Routinedaten für die medizinische Forschung.
 
-> [TODO: Beschreiben Sie in ein bis zwei Sätzen den fachlichen Gegenstand Ihres
-> Moduls — welche Daten es abdeckt und wofür sie genutzt werden.]
-{: .ig-highlight .ig-highlight-grey}
+<!-- source: BeschreibungModulOnko.page.md -->
+Das Modul Onkologie dient der Erfassung von Datenpunkten. In seiner ersten
+Version orientiert sich das Modul am ADT/GEKID Basisdatensatz, der die Basis
+für die nationalen Krebsregister bildet. Das umfasst diagnostische und
+histologische Parameter sowie Angaben zu Behandlung, Tumor-Staging zu Beginn
+und im Verlauf, sowie die Erfassung von Nebenwirkungen und Erkennung von
+Metastasen.
+
+### Inhalt und Zweck der Modellierung
+
+<!-- source: BeschreibungModulOnko.page.md -->
+Das KDS-Modul Onkologie hat das Ziel, die onkologischen Daten, die in der
+Primärversorgung und bei der Krebsregistermeldung anfallen, korrekt abzubilden
+und mit anderen Datenquellen in Beziehung zu bringen.
+
+Fokus der ersten Implementierungsversion ist die Überführung der im oBDS
+anfallenden Registerdaten für die Sekundärdatennutzung mit dem FDPG und anderen
+Projekten im Rahmen von PM4Onko. Daher sind in dieser ersten Version nur die
+Datenpunkte enthalten, die klinisch-diagnostische oder therapeutischen
+Charakter haben. Administrative (z.B. Meldung, Melder) oder
+personenidentifizierende (Person, Tumorzuordnung) Datenpunkte sind nicht
+innerhalb des Betrachtungsrahmens.
+
+Der oBDS sieht neben dem Basisdatensatz eine Erhebung von organspezifischen
+Datenfeldern vor. Im ersten Umsetzungsschritt wurde auf die Umsetzung der
+organspezifischen Module (Mamma, Darm, Prostata, Melanom) verzichtet.
+
+### Mapping auf offene Datenstandards
+
+<!-- source: BeschreibungModulOnko.page.md -->
+Der onkologischen Basisdatensatz enthält ValueSets, die primär durch ADT/GEKID
+definiert wurden und keinen direkten Bezug zu offenen Datenstandards und
+-terminologien wie SNOMED-CT oder LOINC haben. Die Kodierung der
+Antwortmöglichkeiten wurden in der gleichen Art und Weise übernommen, wie Sie
+auch in den Primärsystemen vorliegen. Gleichzeitig stellt dieser
+Implementierungsleitfaden ein vorläufiges Mapping der Felder und
+Antwortmöglichkeiten auf SNOMED-CT (sowie ggfs. anderer Terminologien) als FHIR
+ConceptMap bereit. Die Landeskrebsregister streben mit dem BfArM für Ende 2024
+die Erstellung eines offiziellen nationalen Mappings der oBDS-Krebsregisterdaten
+auf SNOMED-CT an. Sobald dieses offiziell veröffentlicht ist, wird das hier
+enthaltene Mapping entsprechend geupdated.
 
 | Veröffentlichung |               |
 |------------------|---------------|
@@ -91,13 +136,26 @@ MII-Zulip [mii.zulipchat.com](https://mii.zulipchat.com/) im Stream
 Anmerkungen und Kritik werden als *Issues* auf
 [GitHub](https://github.com/forschungsgruppe-digital-health/mii-kds-onko-ig-inoffiziell/issues) entgegengenommen.
 
-> [TODO: Nennen Sie die fachlichen Ansprechpartner:innen Ihres Moduls.]
-{: .ig-highlight .ig-highlight-grey}
+<!-- source: Index.page.md -->
+* Thomas Debertshäuser, Berlin Institute of Health (Charité)
+* Martin Boeker (DIFUTURE)
+* Sylvia Thun, Berlin Institute of Health (Charité)
+* Karoline Buckow, TMF – Technologie- und Methodenplattform für die vernetzte medizinische Forschung e.V.
+* Franziska Klepka, TMF – Technologie- und Methodenplattform für die vernetzte medizinische Forschung e.V.
 
 ### Autor:innen (in alphabetischer Reihenfolge)
 
-> [TODO: Listen Sie die Autor:innen des Moduls mit Institution auf.]
-{: .ig-highlight .ig-highlight-grey}
+<!-- source: Index.page.md -->
+* Christian Gulden (BZKF / Erlangen)
+* Jori Kern (DKFZ Heidelberg)
+* Julian Saß, Berlin Institute of Health (Charité)
+* Margaux Gatrio, Berlin Institute of Health (Charité)
+* Lotte Schwiening, Berlin Institute of Health (Charité)
+* Paul Müller, Berlin Institute of Health (Charité)
+* Nina Haffer, Berlin Institute of Health (Charité)
+* Sophie Klopfenstein, Berlin Institute of Health (Charité)
+* Thomas Debertshäuser, Berlin Institute of Health (Charité)
+* Yuan Peng, Institut für Medizinische Informatik und Biometrie (TU Dresden)
 
 ### Urheberrecht und Lizenz
 

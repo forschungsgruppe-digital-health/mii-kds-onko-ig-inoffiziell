@@ -15,6 +15,10 @@ StructureDefinition-mii-pr-onko-anzahl-untersuchte-sentinel-lymphknoten-intro	de
 StructureDefinition-mii-pr-onko-anzahl-untersuchte-sentinel-lymphknoten-intro	de	bridge	Lymphknotenuntersuchung-Observation.page.md	B	19	**Written during migration - review before release.** Dieses Profil bildet den Datenpunkt *Untersuchte Sentinel-Lymphkno
 StructureDefinition-mii-pr-onko-genetische-variante-intro	default	bridge	Genetische-Variante-Observation.page.md	B	179	**Written during migration - review before release.** The instance `mii-exa-onko-genetische-variante-braf` in this guide
 StructureDefinition-mii-pr-onko-genetische-variante-intro	de	bridge	Genetische-Variante-Observation.page.md	B	171	**Written during migration - review before release.** Die Instanz `mii-exa-onko-genetische-variante-braf` in diesem Leit
+StructureDefinition-mii-pr-onko-krk-mrt-mesorektale-faszie-intro	default	bridge	KRK-MRT-Mesorektale-Faszie-Observation.page.md	B	6	**Written during migration - review before release.** The source page declared its subject as the canonical `.../Structu
+StructureDefinition-mii-pr-onko-krk-mrt-mesorektale-faszie-intro	de	bridge	KRK-MRT-Mesorektale-Faszie-Observation.page.md	B	6	**Written during migration - review before release.** Die Quellseite gab als `subject` die Canonical `.../StructureDefin
+StructureDefinition-mii-pr-onko-mamma-operation-intro	default	bridge	Mamma-Operation-Procedure.page.md	B	8	**Written during migration - review before release.** The source page declared its subject as the canonical `.../Structu
+StructureDefinition-mii-pr-onko-mamma-operation-intro	de	bridge	Mamma-Operation-Procedure.page.md	B	8	**Written during migration - review before release.** Die Quellseite gab als `subject` die Canonical `.../StructureDefin
 StructureDefinition-mii-pr-onko-nebenwirkung-adverse-event-intro	default	bridge	Nebenwirkung-AdverseEvent.page.md	B	10	**Written during migration - review before release.** The last paragraph breaks off mid-sentence in the source page ("..
 StructureDefinition-mii-pr-onko-nebenwirkung-adverse-event-intro	default	summary	Nebenwirkung-AdverseEvent.page.md	B	14	**Written during migration - review before release.** The source page listed every search parameter individually with an
 StructureDefinition-mii-pr-onko-nebenwirkung-adverse-event-intro	de	bridge	Nebenwirkung-AdverseEvent.page.md	B	10	**Written during migration - review before release.** Der letzte Absatz bricht in der Quellseite mitten im Satz ab ("...
@@ -75,16 +79,29 @@ StructureDefinition-mii-pr-onko-verlauf-intro	default	bridge	Verlauf-Observation
 StructureDefinition-mii-pr-onko-verlauf-intro	default	bridge	Verlauf-Observation.page.md	B	116	**Written during migration - review before release.** The instance `mii-exa-onko-verlauf-tumor` in this guide illustrate
 StructureDefinition-mii-pr-onko-verlauf-intro	de	bridge	Verlauf-Observation.page.md	B	94	**Written during migration - review before release.** Suchparameter 2 oben trägt die Canonical von `mii-pr-onko-allgemei
 StructureDefinition-mii-pr-onko-verlauf-intro	de	bridge	Verlauf-Observation.page.md	B	105	**Written during migration - review before release.** Die Instanz `mii-exa-onko-verlauf-tumor` in diesem Leitfaden veran
+changes	default	bridge	Release-Notes.page.md	B	77	**Written during migration - review before release.** The release notes below are German by origin and are reproduced he
+changes	de	bridge	Release-Notes.page.md	B	85	**Written during migration - review before release.** Die folgenden Release Notes sind ihrem Ursprung nach deutsch und s
+guidance	default	bridge	AnwendungsflleInformationsmodell/Index.page.md	B	74	**Written during migration - review before release.** The source guide opened this chapter with a page that was delibera
+guidance	default	summary	BezugZuNationalenStandards.page.md	B	383	**Written during migration - review before release.** The source page rendered the Modellvorhaben data set as a generate
+guidance	de	bridge	AnwendungsflleInformationsmodell/Index.page.md	B	74	**Written during migration - review before release.** Der Quell-Guide eröffnete dieses Kapitel mit einer absichtlich lee
+guidance	de	summary	BezugZuNationalenStandards.page.md	B	385	**Written during migration - review before release.** Die Quellseite stellte den Datenkranz des Modellvorhabens als gene
 implementer-guidance	default	bridge	Index.page.md	B	13	**Written during migration - review before release.** The source guide opened its technical-implementation chapter with 
 implementer-guidance	default	bridge	QA-Validierung.page.md	B	171	**Written during migration - review before release.** The counts, filter statistics and error lists in this section are 
 implementer-guidance	de	bridge	Index.page.md	B	11	**Written during migration - review before release.** Der Quell-Guide eröffnete sein Kapitel zur technischen Implementie
 implementer-guidance	de	bridge	QA-Validierung.page.md	B	173	**Written during migration - review before release.** Die Zahlen, Filterstatistiken und Fehlerlisten dieses Abschnitts s
 index	default	bridge	Index.page.md	B	12	**Written during migration - review before release.** This guide is an **unofficial try-run migration** of the MII Core 
+index	de	bridge	Index.page.md	B	10	**Written during migration - review before release.** Dieser Leitfaden ist eine **inoffizielle Probe-Migration** des MII
+logical-models	default	summary	AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md	B	20	**Written during migration - review before release.** The source page rendered each of the three logical models below as
+logical-models	de	summary	AnwendungsflleInformationsmodell/Datenstzeinkl.Beschreibungen.page.md	B	18	**Written during migration - review before release.** Die Quellseite stellte jedes der drei folgenden logischen Modelle 
 profiles	default	bridge	Index.page.md	B	22	**Written during migration - review before release.** The oBDS-to-SNOMED-CT mappings of this module are published as Con
 profiles	default	summary	Index.page.md	B	53	**Written during migration - review before release.** The TNM artefacts form one family. The grouping profile [TNM Klass
 profiles	default	summary	Index.page.md	B	72	**Written during migration - review before release.** The KDS module Onkologie currently comprises four organ-specific m
 profiles	de	bridge	Index.page.md	B	22	**Written during migration - review before release.** Die oBDS-SNOMED-CT-Mappings dieses Moduls werden als ConceptMap-Ar
 profiles	de	summary	Index.page.md	B	54	**Written during migration - review before release.** Die TNM-Artefakte bilden eine Familie. Das Gruppierungsprofil [TNM
 profiles	de	summary	Index.page.md	B	74	**Written during migration - review before release.** Das KDS-Modul Onkologie umfasst derzeit vier organspezifische Modu
-value-sets	default	summary	Terminologien.page.md	B	166	**Written during migration - review before release.** Condensed from the source guide's *Terminologien* page, which desc
-value-sets	de	summary	Terminologien.page.md	B	170	**Written during migration - review before release.** Verdichtet aus der Seite *Terminologien* des Quell-Guides, die jed
+value-sets	default	bridge	Weitere-Klassifikationen-Terminologien.page.md	B	178	**Written during migration - review before release.** This section covers the terminology artefacts only. The profile th
+value-sets	default	summary	Weitere-Klassifikationen-Terminologien.page.md	B	218	**Written during migration - review before release.** The source page listed the concepts and the ValueSets through gene
+value-sets	default	summary	Terminologien.page.md	B	285	**Written during migration - review before release.** Condensed from the source guide's *Terminologien* page, which desc
+value-sets	de	bridge	Weitere-Klassifikationen-Terminologien.page.md	B	183	**Written during migration - review before release.** Dieser Abschnitt behandelt nur die Terminologie-Artefakte. Das Pro
+value-sets	de	summary	Weitere-Klassifikationen-Terminologien.page.md	B	226	**Written during migration - review before release.** Die Quellseite hat die Konzepte und die ValueSets über generierte 
+value-sets	de	summary	Terminologien.page.md	B	294	**Written during migration - review before release.** Verdichtet aus der Seite *Terminologien* des Quell-Guides, die jed

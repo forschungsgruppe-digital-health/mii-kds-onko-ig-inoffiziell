@@ -3,6 +3,10 @@ This profile describes the distance to the mesorectal fascia in imaging procedur
 
 The profile is based on a FHIR Observation resource and covers both the quantitative measurement and the reason for a missing distance measurement. The distance is given as a Quantity value in millimetres.
 
+<!-- DERIVED:bridge source=KRK-MRT-Mesorektale-Faszie-Observation.page.md gate=B -->
+> **Written during migration - review before release.** The source page declared its subject as the canonical `.../StructureDefinition/mii-pr-onko-krk-abstand-mesorektale-fascie`, which does not exist as an artefact in this guide; the profile is published here as [MII_PR_Onko_KRK_MRT_Mesorektale_Faszie](StructureDefinition-mii-pr-onko-krk-mrt-mesorektale-faszie.html). This note was attached to that artefact and the `_profile` search example below was re-pointed accordingly. Note that the example instance still carries the older spelling (`mii-exa-onko-krk-abstand-mesorektale-fascie`).
+{: .ig-highlight .ig-highlight-blue}
+
 ### Links to other resources
 
 The MRI assessment of the mesorectal fascia is an important imaging observation:

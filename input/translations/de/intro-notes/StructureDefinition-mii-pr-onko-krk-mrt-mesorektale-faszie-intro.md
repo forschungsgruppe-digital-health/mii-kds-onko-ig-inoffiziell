@@ -3,6 +3,10 @@ Dieses Profil beschreibt den Abstand zur mesorektalen Faszie bei bildgebenden Ve
 
 Das Profil basiert auf einer FHIR Observation-Ressource und beinhaltet sowohl die Quantitätsmessung als auch die Begründung für fehlende Abstandsmessungen. Der Abstand wird als Quantity-Wert in Millimetern angegeben.
 
+<!-- DERIVED:bridge source=KRK-MRT-Mesorektale-Faszie-Observation.page.md gate=B -->
+> **Written during migration - review before release.** Die Quellseite gab als `subject` die Canonical `.../StructureDefinition/mii-pr-onko-krk-abstand-mesorektale-fascie` an, die in diesem Leitfaden nicht als Artefakt existiert; das Profil wird hier als [MII_PR_Onko_KRK_MRT_Mesorektale_Faszie](StructureDefinition-mii-pr-onko-krk-mrt-mesorektale-faszie.html) publiziert. Diese Notiz wurde diesem Artefakt zugeordnet und das `_profile`-Suchbeispiel unten entsprechend umgestellt. Zu beachten: die Beispielinstanz trägt weiterhin die ältere Schreibweise (`mii-exa-onko-krk-abstand-mesorektale-fascie`).
+{: .ig-highlight .ig-highlight-blue}
+
 ### Verknüpfungen zu anderen Ressourcen
 
 Die MRT-Bewertung der mesorektalen Faszie ist eine wichtige bildgebende Beobachtung:

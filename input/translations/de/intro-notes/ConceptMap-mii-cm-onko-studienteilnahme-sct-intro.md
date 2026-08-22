@@ -3,5 +3,5 @@
      Quelle: Studienteilnahme.page.md (Simplifier-Guide, TechnischeImplementierung/oBDS-SNOMED-CT-Mapping). -->
 
 <!-- DERIVED:summary source=Studienteilnahme.page.md gate=B -->
-> **Written during migration - review before release.** Diese ConceptMap bildet die oBDS-Antwortliste zur Studienteilnahme auf SNOMED-CT ab. Zu jedem Eintrag sind unten der Quellcode, der Zielcode, das Äquivalenzlevel und ein Kommentar dargestellt.
+> **Written during migration - review before release.** Diese ConceptMap bildet die oBDS-Antwortliste zur Studienteilnahme (Ja, Nein, Unbekannt) auf SNOMED-CT ab.
 {: .ig-highlight .ig-highlight-blue}

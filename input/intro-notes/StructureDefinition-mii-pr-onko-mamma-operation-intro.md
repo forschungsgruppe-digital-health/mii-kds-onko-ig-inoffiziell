@@ -5,6 +5,10 @@ The profile supports breast-conserving therapies as well as mastectomies, togeth
 
 **Comment note**: it is open for discussion whether pre-operative marking should be modelled as a separate additional resource (as currently implemented) or simply as usedCode with pre-operative and intraoperative slices.
 
+<!-- DERIVED:bridge source=Mamma-Operation-Procedure.page.md gate=B -->
+> **Written during migration - review before release.** The source page declared its subject as the canonical `.../StructureDefinition/mii-pr-onko-mamma-intraoperatives-imaging-specimen`, which does not exist as an artefact in this guide. Its content describes the breast surgery Procedure profile, so this note was attached to [MII_PR_Onko_Mamma_Operation](StructureDefinition-mii-pr-onko-mamma-operation.html) and the `_profile` search example below was re-pointed to that canonical. Please confirm the intended profile.
+{: .ig-highlight .ig-highlight-blue}
+
 ### Links to other resources
 
 The profile is closely linked to the other oncology resources:
