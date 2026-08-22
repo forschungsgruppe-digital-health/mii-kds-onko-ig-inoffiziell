@@ -14,34 +14,34 @@
 # │ rulesets library), input/resources and tests/.                                     │
 # │                                                                                    │
 # │ ── ACTIVE ────────────────────────────────────────────────────────────────         │
-# │   {{MODULE_SLUG}}         lowercase module short name, e.g. `base`, `person`,      │
+# │   onko         lowercase module short name, e.g. `base`, `person`,      │
 # │                           `icu`. Drives packageId, id, and the canonical — and     │
 # │                           the resource id inside input/resources/Parameters-       │
 # │                           expansion-manifest.json. It is also the only             │
 # │                           placeholder that appears in FILE NAMES — three:          │
 # │                           input/translations/de/ImplementationGuide-mii-ig-        │
-# │                           {{MODULE_SLUG}}.po and the IG intro page                 │
-# │                           ImplementationGuide-mii-ig-{{MODULE_SLUG}}.md in         │
+# │                           onko.po and the IG intro page                 │
+# │                           ImplementationGuide-mii-ig-onko.md in         │
 # │                           input/pagecontent/ + its German mirror. All three        │
 # │                           must be RENAMED as well as substituted                   │
 # │                           (docs/recipes/create-a-new-module.md step 4; .po         │
 # │                           details: docs/recipes/add-translation.md §5).            │
-# │   {{MODULE_NAME}}         CamelCase computable name part, e.g. `Base` →            │
+# │   Onko         CamelCase computable name part, e.g. `Base` →            │
 # │                           name: MII_IG_Base.                                       │
-# │   {{MODULE_TITLE}}        human-readable title part, e.g.                          │
+# │   Onkologie        human-readable title part, e.g.                          │
 # │                           `Core Dataset Base` → title: MII Implementation          │
 # │                           Guide Core Dataset Base.                                 │
-# │   {{MODULE_DESCRIPTION}}  one-sentence English description of the module.          │
-# │   {{CALVER_VERSION}}      MII CalVer YYYY.n.n, e.g. 2026.0.1 (NOT SemVer;          │
+# │   Medizininformatik Initiative - Kerndatensatzmodul Onkologie: FHIR profiles for oncological diagnosis, therapy, staging and outcome data, aligned with the oBDS  one-sentence English description of the module.          │
+# │   2026.0.3      MII CalVer YYYY.n.n, e.g. 2026.0.1 (NOT SemVer;          │
 # │                           see the MII Module Release Workflow). Also pins the      │
 # │                           versioned canonicals in input/fsh/rulesets/.             │
-# │   {{CALVER_YEAR}}         the release sequence year, e.g. 2026.                    │
-# │   {{RELEASE_DATE}}        ISO date YYYY-MM-DD; go-publish.yml requires it to       │
+# │   2026         the release sequence year, e.g. 2026.                    │
+# │   2026-03-29        ISO date YYYY-MM-DD; go-publish.yml requires it to       │
 # │                           equal the publication date.                              │
-# │   {{COPYRIGHT_START_YEAR}}  first copyright year, e.g. 2019.                       │
-# │   {{APPROVAL_DATE}}       ISO date this release was approved; see docs/release.md. │
-# │   {{MODULE_AUTHOR_EMAIL}} contact email of the module author.                      │
-# │   {{TOPIC_NCI_CODE}}      NCI Thesaurus code for the module's topic (basis        │
+# │   2021  first copyright year, e.g. 2019.                       │
+# │   2026-03-29       ISO date this release was approved; see docs/release.md. │
+# │   office@medizininformatik-initiative.de contact email of the module author.                      │
+# │   C3262      NCI Thesaurus code for the module's topic (basis        │
 # │                           declares seven: C15607, C154624, C25218, C16960,         │
 # │                           C25190, C81239, C25717). Read by the artifact-topic      │
 # │                           extension below AND by every profile via                 │
@@ -73,7 +73,7 @@
 
 # id pattern per the MII naming convention: mii-ig-<slug>
 # (for example, kerndatensatz-basis uses `mii-ig-base`).
-id: mii-ig-{{MODULE_SLUG}}
+id: mii-ig-onko-de-v2026  # source id, carried unchanged
 # Canonical pattern per the MII convention:
 # https://www.medizininformatik-initiative.de/fhir/modul-<slug>
 # (for example, kerndatensatz-basis uses
@@ -81,28 +81,30 @@ id: mii-ig-{{MODULE_SLUG}}
 # The final value is set per module; the publication WEBSITE deliberately
 # differs (GitHub Pages under the creating org — "canonical-mismatch" in the
 # publication setup). Do not point the canonical at github.io.
-canonical: https://www.medizininformatik-initiative.de/fhir/modul-{{MODULE_SLUG}}
+canonical: https://www.medizininformatik-initiative.de/fhir/ext/modul-onko  # source canonical (Erweiterungsmodul /ext/ space)
 # name pattern per the MII convention: MII_IG_<Name>
 # (for example, kerndatensatz-basis uses `MII_IG_Base`).
-name: MII_IG_{{MODULE_NAME}}
+name: MII_IG_Onko_DE  # source name, carried unchanged
 # title pattern: "MII Implementation Guide <Title>" (for example,
 # kerndatensatz-basis uses "MII Implementation Guide Core Dataset Base").
-title: MII Implementation Guide {{MODULE_TITLE}}
-description: "{{MODULE_DESCRIPTION}}"
+# Source-declared title, carried unchanged (spec 2.2); the ledger records two other
+# readings (package.json 'MII IG Onkologie', README 'MII Kerndatensatz Modul Onkologie').
+title: "MII IG Kerndatensatz-Modul Onkologie"
+description: "Medizininformatik Initiative - Kerndatensatzmodul Onkologie: FHIR profiles for oncological diagnosis, therapy, staging and outcome data, aligned with the oBDS"
 status: active # draft | active | retired | unknown
 # MII modules use CalVer YYYY.n.n (e.g. 2026.0.1) per the MII Module Release
 # Workflow — NOT SemVer. Only the template tooling repos use SemVer.
-version: "{{CALVER_VERSION}}"
+version: "2026.0.3"
 # packageId pattern per the MII naming convention:
 # de.medizininformatikinitiative.kerndatensatz.<slug> (for example,
 # kerndatensatz-basis uses de.medizininformatikinitiative.kerndatensatz.base).
-packageId: de.medizininformatikinitiative.kerndatensatz.{{MODULE_SLUG}}
+packageId: de.medizininformatikinitiative.kerndatensatz.onkologie
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
-copyrightYear: "{{COPYRIGHT_START_YEAR}}+"
-releaseLabel: Release
-license: CC-BY-4.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
+copyrightYear: "2021+"
+releaseLabel: release # source-declared
+license: CC0-1.0 # source-declared; template default CC-BY-4.0 not applied (spec 2.2)
 # Must equal the publication date; go-publish.yml validates this.
-date: "{{RELEASE_DATE}}"
+date: "2026-03-29"
 jurisdiction: urn:iso:std:iso:3166#DE "Germany" # https://www.hl7.org/fhir/valueset-jurisdiction.html
 # NUM-DIZ takes over IG development and maintenance when MII funding ends
 # (end-2026), so NUM-DIZ is the publisher shown in the footer's
@@ -130,7 +132,7 @@ extension:
   # Date this release was approved by whoever governs the module
   # (for example, kerndatensatz-basis records 2024-03-07).
   - url: http://hl7.org/fhir/StructureDefinition/resource-approvalDate
-    valueDate: "{{APPROVAL_DATE}}"
+    valueDate: "2026-03-29"
   - url: http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability
     valueCode: shareable
   - url: http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability
@@ -145,21 +147,21 @@ extension:
   - url: http://hl7.org/fhir/StructureDefinition/package-source
     extension:
       - url: packageId
-        valueId: de.medizininformatikinitiative.kerndatensatz.{{MODULE_SLUG}}
+        valueId: de.medizininformatikinitiative.kerndatensatz.onkologie
       - url: version
-        valueString: "{{CALVER_VERSION}}"
+        valueString: "2026.0.3"
       - url: uri
-        valueUri: https://www.medizininformatik-initiative.de/fhir/modul-{{MODULE_SLUG}}
+        valueUri: https://www.medizininformatik-initiative.de/fhir/ext/modul-onko
   # Year this release sequence became effective
   # (for example, kerndatensatz-basis records "2026").
   - url: http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod
     valuePeriod:
-      start: "{{CALVER_YEAR}}"
+      start: "2026"
   - url: http://hl7.org/fhir/StructureDefinition/artifact-author
     valueContactDetail:
       telecom:
         - system: email
-          value: "{{MODULE_AUTHOR_EMAIL}}"
+          value: "office@medizininformatik-initiative.de"
   # The MII-wide governance bodies below apply to every MII KDS module — for
   # example, kerndatensatz-basis records the same National Steering Committee as
   # reviewer and endorser. Adjust only if your module's governance differs.
@@ -213,7 +215,7 @@ extension:
   # name the same resource.
   - url: http://hl7.org/fhir/StructureDefinition/cqf-expansionParameters
     valueReference:
-      reference: Parameters/mii-param-{{MODULE_SLUG}}-manifest
+      reference: Parameters/mii-param-onko-manifest
   # `semver` is what the MII modules record here even though MII module versions
   # are CalVer YYYY.n.n (which parses as three numeric fields) — for example,
   # kerndatensatz-basis records `semver`. Do not "correct" it without an
@@ -225,7 +227,7 @@ extension:
   - url: http://hl7.org/fhir/StructureDefinition/artifact-usage
     valueMarkdown: "Use this ImplementationGuide resource as a computable definition of all the parts of the corresponding module of the Medical Informatics Initiative core data set."
   - url: http://hl7.org/fhir/StructureDefinition/artifact-purpose
-    valueMarkdown: "Provide the computable publication unit for the MII Core Dataset {{MODULE_TITLE}} module, enabling implementers to discover, validate, version, and apply the specification consistently."
+    valueMarkdown: "Provide the computable publication unit for the MII Core Dataset Onkologie module, enabling implementers to discover, validate, version, and apply the specification consistently."
   # Module topic(s), coded with the NCI Thesaurus (for example,
   # kerndatensatz-basis declares seven: C15607, C154624, C25218, C16960,
   # C25190, C81239, C25717 — verified against its main branch). Replace the
@@ -234,7 +236,7 @@ extension:
     valueCodeableConcept:
       coding:
         - system: http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl
-          code: "{{TOPIC_NCI_CODE}}"
+          code: "C3262"
 
 # The dependencies property corresponds to IG.dependsOn. The key is the
 # package id and the value is the version (for advanced use cases the value
@@ -244,30 +246,22 @@ extension:
 # `main`. Fixed versions only — never `current`/`dev` (the go-publish workflow and the convention
 # check reject floating versions; the dependency checker proposes bumps).
 dependencies:
-  # German base profiles (kerndatensatz-basis pins the same 1.5.4).
-  de.basisprofil.r4: 1.5.4
-  # MII cross-module meta package (kerndatensatz-basis pins the same 2026.0.0).
+  # Source pins RESOLVED: the source (and its published manifest) float six of these
+  # (1.5.x / 2026.0.x), which is not reproducible and which release check M7 rejects.
+  # Each is resolved WITHIN its constraint against the registry on 2026-08-22 and is a
+  # Gate-A decision, recorded in migration-log/identity-claims.tsv.
+  de.basisprofil.r4: 1.5.4                                    # 1.5.x -> highest 1.5.z (NOT 1.6.0)
   de.medizininformatikinitiative.kerndatensatz.meta: 2026.0.0
-  # R5→R4 cross-version extensions (kerndatensatz-basis pins the same 0.1.0).
-  # basis needs it for R5 extensions — for example Encounter.plannedStartDate;
-  # remove it if your module defines no R5 cross-version extensions.
-  hl7.fhir.uv.xver-r5.r4: 0.1.0
-  # Canonical Resource Management Infrastructure — required by the CRMI
-  # profiles claimed under meta.profile above (kerndatensatz-basis pins the
-  # same 2.0.0).
+  de.medizininformatikinitiative.kerndatensatz.base: 2026.0.1
+  de.medizininformatikinitiative.kerndatensatz.biobank: 2026.0.0   # published manifest pinned this exactly
+  de.medizininformatikinitiative.kerndatensatz.medikation: 2026.0.1
+  de.medizininformatikinitiative.kerndatensatz.molgen: 2026.0.4
+  de.medizininformatikinitiative.kerndatensatz.studie: 2026.0.2    # source pinned exactly
+  # Template machinery, recorded at Gate A (not source identity):
   hl7.fhir.uv.crmi: 2.0.0
-  # HL7 Terminology (THO) — pinned DIRECTLY on purpose. The IG Publisher's
-  # auto-add guard reads only THIS IG's own dependsOn (PublisherIGLoader,
-  # verified at the pinned 2.2.11): without a direct pin every build silently
-  # injects the LATEST THO release; a transitive pin (e.g. in the meta
-  # package) cannot control the version. scripts/meta-pin-drift.mjs warns
-  # when this pin drifts from what the pinned meta package ships (meta
-  # 2026.0.0 pins none yet), and the Monday dependency check proposes newer
-  # releases like for every other pin.
   hl7.terminology.r4: 7.3.0
-  # HL7 Extensions Pack — same rationale and same drift watch as
-  # hl7.terminology.r4 above.
   hl7.fhir.uv.extensions.r4: 5.3.0
+
 #
 #
 # The pages property corresponds to IG.definition.page. SUSHI can
@@ -294,7 +288,7 @@ dependencies:
 # separate scaffolding step); OPTIONAL entries your module does not need are
 # removed per docs/optional-pages.md.
 # Every `title:` below is also a msgid in the IG-level translation catalogue
-# input/translations/de/ImplementationGuide-mii-ig-{{MODULE_SLUG}}.po — if you
+# input/translations/de/ImplementationGuide-mii-ig-onko.po — if you
 # add, rename or delete a page here, update that catalogue in the same commit,
 # or the German rendering falls back to the English title for that page.
 pages:
@@ -349,13 +343,13 @@ pages:
   # (ImplementationGuide-<id>.html); this entry gives it a hand-authored intro
   # — dependency table, cross-version analysis, global profiles, copyrights —
   # the kerndatensatz-basis idiom (ImplementationGuide-mii-ig-base.md there).
-  # BOTH this entry's key and the two source files carry {{MODULE_SLUG}} in
+  # BOTH this entry's key and the two source files carry onko in
   # their NAME: like the IG-level .po catalogue, rename
-  # input/pagecontent/ImplementationGuide-mii-ig-{{MODULE_SLUG}}.md and its
+  # input/pagecontent/ImplementationGuide-mii-ig-onko.md and its
   # German mirror under input/translations/de/pagecontent/ when you set your
   # slug (docs/recipes/create-a-new-module.md step 4). The CI self-check
   # substitutes and renames all of them for the template repo's own preview.
-  ImplementationGuide-mii-ig-{{MODULE_SLUG}}.md:
+  ImplementationGuide-mii-ig-onko.md:
     title: MII ImplementationGuide Resource
 
   translationinfo.md:
@@ -440,7 +434,7 @@ parameters:
   # with the cqf-expansionParameters extension above and with the file in
   # input/resources/ — see input/resources/README.md.
   path-expansion-params: '../../input/resources/Parameters-expansion-manifest.json'
-  pin-manifest: 'mii-param-{{MODULE_SLUG}}-manifest'
+  pin-manifest: 'mii-param-onko-manifest'
   suppress-mappings:
     - http://hl7.org/v3
     - http://hl7.org/v3/cda
@@ -457,7 +451,7 @@ parameters:
   # FHIR validation test cases (for example, kerndatensatz-basis does the same).
   # A minimal working harness ships in
   # tests/profiles/ — see tests/README.md. It stays COMMENTED OUT in the template
-  # repo: the fixtures' canonicals still carry {{MODULE_SLUG}}, which the CI
+  # repo: the fixtures' canonicals still carry onko, which the CI
   # self-check substitution does not reach (it rewrites sushi-config.yaml, ig.ini
   # and the narrative pages only). Replace the placeholders in tests/profiles/,
   # then uncomment:

@@ -1,0 +1,17 @@
+<!-- markdownlint-disable MD041 -->
+<!-- Deutsche Fassung (Quellsprache) von
+     input/intro-notes/StructureDefinition-mii-ex-onko-tnm-cp-praefix-intro.md;
+     Wortlaut übernommen aus Extension-TNM-Prefix-c-p.page.md
+     (MII IG Modul Onkologie 2026.x). -->
+Der c/p/u Präfix wird in der TNM-Klassifikation benutzt, um die Methode der
+Klassifikation anzugeben:
+
+- **c** (clinical): Klinische Klassifikation, basierend auf klinischen Angaben
+  vor Therapiebeginn
+- **p** (pathological): Pathologische Klassifikation, basierend auf
+  pathohistologischer Untersuchung nach operativer Entfernung
+- **u** (ultrasound): Klassifikation mittels Ultraschall (z.B. endoskopischer
+  Ultraschall)
+
+In der vorliegenden Profilierung nutzen die Profile der T-,N- und M-Kategorie
+alle die gleiche Extension.

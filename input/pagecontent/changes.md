@@ -14,7 +14,7 @@
 ### Changelog
 
 This page records the changes between the released versions of the
-**{{MODULE_TITLE}}** module, newest version first. It follows
+**Onkologie** module, newest version first. It follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the KDS calendar
 versioning scheme described on the [Versioning](version-history.html) page.
 
@@ -73,13 +73,13 @@ section, so the prose explanation and the technical diff sit side by side.</p>
 
 ---
 
-#### Version {{CALVER_VERSION}}
+#### Version 2026.0.3
 
-**Date:** {{RELEASE_DATE}}
+**Date:** 2026-03-29
 
 ##### Added
 
-* First publication of the **{{MODULE_TITLE}}** module.
+* First publication of the **Onkologie** module.
 
 > [TODO: Replace this section with the real entries of your first release, and
 > add a new section on top for every subsequent version. For a module with

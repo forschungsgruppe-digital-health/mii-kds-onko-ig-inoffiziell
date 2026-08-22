@@ -14,7 +14,7 @@
 ### Änderungshistorie
 
 Diese Seite hält die Änderungen zwischen den veröffentlichten Versionen des
-Moduls **{{MODULE_TITLE}}** fest, die neueste Version zuerst. Sie folgt
+Moduls **Onkologie** fest, die neueste Version zuerst. Sie folgt
 [Keep a Changelog](https://keepachangelog.com/de/1.1.0/) und dem
 KDS-CalVer-Schema, das die Seite [Versionierung](version-history.html)
 beschreibt.
@@ -81,13 +81,13 @@ werden können.</p>
 
 ---
 
-#### Version {{CALVER_VERSION}}
+#### Version 2026.0.3
 
-**Datum:** {{RELEASE_DATE}}
+**Datum:** 2026-03-29
 
 ##### Hinzugefügt
 
-* Erstveröffentlichung des Moduls **{{MODULE_TITLE}}**.
+* Erstveröffentlichung des Moduls **Onkologie**.
 
 > [TODO: Ersetzen Sie diesen Abschnitt durch die echten Einträge Ihres ersten
 > Releases und ergänzen Sie für jede weitere Version oben einen neuen Abschnitt.

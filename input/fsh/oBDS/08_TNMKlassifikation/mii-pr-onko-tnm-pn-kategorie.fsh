@@ -1,0 +1,57 @@
+Profile: MII_PR_Onko_TNM_Pn_Kategorie
+Parent: Observation
+Id: mii-pr-onko-tnm-pn-kategorie
+Title: "MII PR Onkologie TNM Pn-Kategorie"
+Description: "TNM-Klassifikation: TNM Pn-Kategorie. Perineuralinvasion."
+* insert PR_CS_VS_Version
+* insert Publisher
+* ^status = #active
+* meta.profile 0..* MS
+* encounter 0..1 MS
+
+* status MS
+* code MS
+* code = $SCT#371513001
+* code.coding.code 1.. MS
+* code.coding.system 1.. MS
+* subject 1..1 MS
+* subject only Reference(Patient)
+* effective[x] MS
+* effective[x] only dateTime
+* effectiveDateTime MS
+* effectiveDateTime obeys tnm-datum
+* insert Label(effectiveDateTime, TNM-Datum, Datum der TNM-Klassifikation nach 8.1 oBDS 2021)
+* insert Translation(effectiveDateTime ^short, de-DE, TNM-Datum )
+* insert Translation(effectiveDateTime ^definition, de-DE, Datum der TNM-Klassifikation nach 8.1 oBDS 2021 )
+
+* method MS
+* method.coding MS
+* method.coding ^short = "TNM Version"
+* method.coding ^definition = "Gibt an, nach welcher Version des TNM klassifiziert wurde."
+* method from mii-vs-onko-tnm-version (required)
+* insert Translation(method.coding ^short, de-DE, TNM Version )
+* insert Translation(method.coding ^definition, de-DE, Version nach 8.2 oBDS 2021 )
+
+* value[x] MS
+* value[x] only CodeableConcept
+* valueCodeableConcept from MII_VS_Onko_TNM_Pn_Kategorie_Werte (required)
+* valueCodeableConcept.coding ^short = "TNM Pn-Kategorie"
+* valueCodeableConcept.coding ^definition = "Perineuralinvasion."
+* valueCodeableConcept.coding.code 1.. MS
+* valueCodeableConcept.coding.system 1.. MS
+* insert Translation(valueCodeableConcept.coding ^short, de-DE, TNM Pn-Kategorie )
+* insert Translation(valueCodeableConcept.coding ^definition, de-DE, TNM Perineuralinvasion nach  8.15 oBDS 2021 )
+
+
+
+// Referenz zu Primärtumor
+* focus MS
+* focus only Reference(MII_PR_Onko_Diagnose_Primaertumor)
+
+
+Mapping: FHIR-oBDS-TNM_Pn_Kategorie
+Id: oBDS
+Title: "Mapping FHIR zu oBDS"
+Source: MII_PR_Onko_TNM_Pn_Kategorie
+* effectiveDateTime -> "8.1" "TNM Datum"
+* valueCodeableConcept.coding.code -> "8.15" "TNM Pn-Kategorie"

@@ -1,0 +1,7 @@
+<!-- markdownlint-disable MD041 -->
+<!-- Deutsche Fassung (Quellsprache) von Extension-ICD-O-3-Morphologie.page.md (MII IG Modul Onkologie, Simplifier).
+     Die Überschrift der Quellseite lautete "Extensions von Operation" — ein Überbleibsel einer anderen Seite; entfernt, den Titel rendert der Publisher.
+     Englisches Pendant: input/intro-notes/StructureDefinition-mii-ex-onko-histology-morphology-behavior-icdo3-intro.md -->
+
+- Diese Extension ersetzt den vorheringen ICD-O-3-Slice in der MII-Diagnose.
+- In der ursprünglichen Profilierung wurde auf dem ICD-O-3-Slice des `Condition.code`-Elements aufgebaut. Gleichzeitig enthält das `Condition.code`-Feld auch die ICD-10-Kodierung der onkologischen Diagnose. In der Kommentierungsphase wurde jedoch angemerkt, dass eine ICD-O-3-Morphologie ein inhaltlich anderes klinisches Konzept beschreibt als eine ICD-10-kodierte Diagnose. Ein Darstellung im gleichen CodeableConcept widerspricht daher gängigen FHIR-Modellierungskonventionen. Daher wurde sich für eine Modellierung als Extension vergleichbar mit mCode entschieden. Die Abbildung der ICD-O-3-Topographie über `Condition.bodySite` ist davon nicht beeinträchtigt. Weitere Histologien, die im Rahmen einer Verlaufskontrolle vorgenommen werden, sollen weiterhin über das Verlaufshistologieprofil (Observation.bodySite und Observation.valueCodeableConcept) abgebildet werden; die vorliegende Extension findet darin keine Verwendung.

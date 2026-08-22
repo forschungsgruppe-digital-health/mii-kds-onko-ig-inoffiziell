@@ -1,0 +1,7 @@
+<!-- markdownlint-disable MD041 -->
+<!-- source: Lokalisation-Fernmetastasen.page.md (Simplifier guide, TechnischeImplementierung/oBDS-SNOMED-CT-Mapping).
+     German mirror: input/translations/de/intro-notes/ConceptMap-mii-cm-onko-fernmetastasen-sct-intro.md -->
+
+<!-- DERIVED:summary source=Lokalisation-Fernmetastasen.page.md gate=B -->
+> **Written during migration - review before release.** This ConceptMap maps the oBDS answer list for the localisation of distant metastases onto SNOMED-CT. The source code, the target code, the equivalence level and a comment are shown for each entry below.
+{: .ig-highlight .ig-highlight-blue}

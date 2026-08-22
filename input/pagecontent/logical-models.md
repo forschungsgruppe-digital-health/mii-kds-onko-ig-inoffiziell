@@ -3,7 +3,7 @@
      German mirror: input/translations/de/pagecontent/logical-models.md. -->
 ### Logical Models
 
-The logical data models of the **{{MODULE_TITLE}}** module describe the domain dataset independently of its concrete FHIR representation.
+The logical data models of the **Onkologie** module describe the domain dataset independently of its concrete FHIR representation.
 
 > [TODO: Add the logical models, or delete this page.]
 {: .ig-highlight .ig-highlight-grey}

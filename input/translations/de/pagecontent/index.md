@@ -12,7 +12,7 @@
 ### Einleitung
 
 Diese Spezifikation beschreibt die FHIR-Repräsentation des
-Kerndatensatz-(KDS-)Moduls **{{MODULE_TITLE}}** der Medizininformatik-Initiative
+Kerndatensatz-(KDS-)Moduls **Onkologie** der Medizininformatik-Initiative
 (MII). Sie beschreibt die Anwendungsfälle des Moduls sowie die zugehörigen
 FHIR-Profile, Extensions und Terminologie-Ressourcen in ihrer verbindlichen
 Form. Der MII-Kerndatensatz dient der standardisierten Nutzung klinischer
@@ -24,8 +24,8 @@ Routinedaten für die medizinische Forschung.
 
 | Veröffentlichung |               |
 |------------------|---------------|
-| Datum            | {{RELEASE_DATE}} |
-| Version          | {{CALVER_VERSION}} (CalVer `JJJJ.n.n`) |
+| Datum            | 2026-03-29 |
+| Version          | 2026.0.3 (CalVer `JJJJ.n.n`) |
 | Status           | active        |
 | Realm            | DE            |
 
@@ -57,7 +57,7 @@ Dieser Implementierungsleitfaden richtet sich an:
 - **[Profile](profiles.html)** und die weiteren
   **[Artefakt-Seiten](artifacts.html)** — die technischen Artefakte.
 - **[Beispiele](examples.html)** — Beispielinstanzen.
-- **[Abhängigkeiten](ImplementationGuide-mii-ig-{{MODULE_SLUG}}.html)** — die
+- **[Abhängigkeiten](ImplementationGuide-mii-ig-onko.html)** — die
   ImplementationGuide-Ressource mit Abhängigkeitstabelle, versionsübergreifender
   Analyse und Urheberrechtshinweisen.
 
@@ -89,7 +89,7 @@ Fragen zu dieser Publikation können im HL7-FHIR-Zulip
 MII-Zulip [mii.zulipchat.com](https://mii.zulipchat.com/) im Stream
 `MII-Kerndatensatz` gestellt werden.
 Anmerkungen und Kritik werden als *Issues* auf
-[GitHub](https://github.com/{{GITHUB_ORG}}/{{REPO_NAME}}/issues) entgegengenommen.
+[GitHub](https://github.com/forschungsgruppe-digital-health/mii-kds-onko-ig-inoffiziell/issues) entgegengenommen.
 
 > [TODO: Nennen Sie die fachlichen Ansprechpartner:innen Ihres Moduls.]
 {: .ig-highlight .ig-highlight-grey}
@@ -101,7 +101,7 @@ Anmerkungen und Kritik werden als *Issues* auf
 
 ### Urheberrecht und Lizenz
 
-© {{COPYRIGHT_START_YEAR}}+ TMF e. V., Charlottenstraße 42, 10117 Berlin
+© 2021+ TMF e. V., Charlottenstraße 42, 10117 Berlin
 
 Dieses Werk ist lizenziert unter der
 [Creative Commons Namensnennung 4.0 International Lizenz (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.de).

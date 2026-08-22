@@ -1,0 +1,31 @@
+2026-08-22T19:41:44Z	packageId	P	package/package.json	de.medizininformatikinitiative.kerndatensatz.onkologie	2.1	package-identity
+2026-08-22T19:41:44Z	version	P	package/package.json	2026.0.3	2.1	package-identity
+2026-08-22T19:41:44Z	description	P	package/package.json	MII Kerndatensatz Modul Onkologie v2026.0.3 - Snapshot- und Packaging-Korrekturen (AppleDouble-Bereinigung), Dependency-Updates. Release Notes: https://simpl...	2.1	package-identity
+2026-08-22T19:41:44Z	fhirVersions	P	package/package.json	["4.0.1"]	2.1	package-identity
+2026-08-22T19:41:44Z	jurisdiction	P	package/package.json	http://unstats.un.org/unsd/methods/m49/m49.htm#276	2.1	package-identity
+2026-08-22T19:41:44Z	title	P	package/package.json	MII IG Onkologie	2.1	package-identity
+2026-08-22T19:41:44Z	license	P	package/package.json	CC0-1.0	2.1	package-identity
+2026-08-22T19:41:44Z	homepage	P	package/package.json	https://www.medizininformatik-initiative.de/	2.1	package-identity
+2026-08-22T19:41:44Z	dependency:de.basisprofil.r4	P	package/package.json (source pin)	1.5.x	2.1	package-identity
+2026-08-22T19:41:44Z	dependency:de.medizininformatikinitiative.kerndatensatz.base	P	package/package.json (source pin)	2026.0.x	2.1	package-identity
+2026-08-22T19:41:44Z	dependency:de.medizininformatikinitiative.kerndatensatz.biobank	P	package/package.json (source pin)	2026.0.0	2.1	package-identity
+2026-08-22T19:41:44Z	dependency:de.medizininformatikinitiative.kerndatensatz.medikation	P	package/package.json (source pin)	2026.0.x	2.1	package-identity
+2026-08-22T19:41:44Z	dependency:de.medizininformatikinitiative.kerndatensatz.meta	P	package/package.json (source pin)	2026.0.x	2.1	package-identity
+2026-08-22T19:41:44Z	dependency:de.medizininformatikinitiative.kerndatensatz.molgen	P	package/package.json (source pin)	2026.0.x	2.1	package-identity
+2026-08-22T19:41:44Z	dependency:de.medizininformatikinitiative.kerndatensatz.studie	P	package/package.json (source pin)	2026.0.2	2.1	package-identity
+2026-08-22T19:41:44Z	title	R	README.md first heading	MII Kerndatensatz Modul Onkologie	2.1	repo-identity
+2026-08-22T19:41:59Z	id	R	sushi-config.yaml	mii-ig-onko-de-v2026	2.1	sushi-config
+2026-08-22T19:41:59Z	canonical	R	sushi-config.yaml	https://www.medizininformatik-initiative.de/fhir/ext/modul-onko	2.1	sushi-config
+2026-08-22T19:41:59Z	name	R	sushi-config.yaml	MII_IG_Onko_DE	2.1	sushi-config
+2026-08-22T19:41:59Z	title	R	sushi-config.yaml	MII IG Kerndatensatz-Modul Onkologie	2.1	sushi-config
+2026-08-22T19:41:59Z	version	R	sushi-config.yaml	2026.0.3	2.1	sushi-config
+2026-08-22T19:41:59Z	status	R	sushi-config.yaml	active	2.1	sushi-config
+2026-08-22T19:41:59Z	releaseLabel	R	sushi-config.yaml	release	2.1	sushi-config
+2026-08-22T19:41:59Z	license	R	sushi-config.yaml	CC0-1.0	2.1	sushi-config
+2026-08-22T19:43:18Z	dependency:de.basisprofil.r4	R	sushi-config.yaml + registry resolution 2026-08-22	1.5.4	2.1	pin-resolution
+2026-08-22T19:43:18Z	dependency:de.medizininformatikinitiative.kerndatensatz.meta	R	sushi-config.yaml + registry resolution 2026-08-22	2026.0.0	2.1	pin-resolution
+2026-08-22T19:43:18Z	dependency:de.medizininformatikinitiative.kerndatensatz.base	R	sushi-config.yaml + registry resolution 2026-08-22	2026.0.1	2.1	pin-resolution
+2026-08-22T19:43:18Z	dependency:de.medizininformatikinitiative.kerndatensatz.biobank	R	sushi-config.yaml + registry resolution 2026-08-22	2026.0.1	2.1	pin-resolution
+2026-08-22T19:43:18Z	dependency:de.medizininformatikinitiative.kerndatensatz.medikation	R	sushi-config.yaml + registry resolution 2026-08-22	2026.0.1	2.1	pin-resolution
+2026-08-22T19:43:18Z	dependency:de.medizininformatikinitiative.kerndatensatz.molgen	R	sushi-config.yaml + registry resolution 2026-08-22	2026.0.4	2.1	pin-resolution
+2026-08-22T19:43:18Z	dependency:de.medizininformatikinitiative.kerndatensatz.studie	R	sushi-config.yaml + registry resolution 2026-08-22	2026.0.2	2.1	pin-resolution

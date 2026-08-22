@@ -9,22 +9,66 @@
   (see docs/recipes/add-translation.md) — keep both in step.
 -->
 
+<!-- DERIVED:bridge source=Index.page.md gate=B -->
+> **Written during migration - review before release.** This guide is an
+> **unofficial try-run migration** of the MII Core Dataset module *Onkologie*
+> v2026.0.3 onto the FGDH MII KDS module template. It is not an MII artefact, it
+> is not endorsed by the Medizininformatik-Initiative, and nothing here is
+> published. The normative specification remains the official MII guide.
+{: .ig-highlight .ig-highlight-blue}
+
 ### Introduction
 
 This specification describes the FHIR representation of the Core Dataset (CDS)
-module **{{MODULE_TITLE}}** of the Medical Informatics Initiative (MII). It
+module **Onkologie** of the Medical Informatics Initiative (MII). It
 covers the module's use cases and the associated FHIR profiles, extensions and
 terminology resources in their normative form. The MII Core Dataset enables the
 standardized secondary use of routine clinical data for medical research.
 
-> [TODO: In one or two sentences, describe what your module covers and what the
-> data is used for.]
-{: .ig-highlight .ig-highlight-grey}
+<!-- source: BeschreibungModulOnko.page.md -->
+The Onkologie module serves the recording of data points. In its first version
+the module follows the ADT/GEKID basic data set, which forms the basis for the
+national cancer registries. This covers diagnostic and histological parameters
+as well as information on treatment, tumour staging at the outset and over the
+course of the disease, and the recording of adverse events and the detection of
+metastases.
+
+### Content and purpose of the modelling
+
+<!-- source: BeschreibungModulOnko.page.md -->
+The KDS module Onkologie has the goal of correctly representing the oncological
+data that arises in primary care and in cancer registry reporting, and of
+relating it to other data sources.
+
+The focus of the first implementation version is the transfer of the registry
+data arising in the oBDS for secondary use with the FDPG and other projects in
+the context of PM4Onko. This first version therefore contains only those data
+points that are clinical-diagnostic or therapeutic in character. Administrative
+(e.g. report, reporting party) or person-identifying (person, tumour assignment)
+data points are outside the scope under consideration.
+
+Besides the basic data set, the oBDS provides for the collection of
+organ-specific data fields. In the first implementation step the organ-specific
+modules (Mamma, Darm, Prostata, Melanom) were not implemented.
+
+### Mapping to open data standards
+
+<!-- source: BeschreibungModulOnko.page.md -->
+The oncological basic data set contains ValueSets that were primarily defined by
+ADT/GEKID and have no direct relation to open data standards and terminologies
+such as SNOMED CT or LOINC. The coding of the answer options was adopted in the
+same way as it is also present in the primary systems. At the same time, this
+implementation guide provides a preliminary mapping of the fields and answer
+options onto SNOMED CT (and, where applicable, other terminologies) as a FHIR
+ConceptMap. Together with the BfArM, the federal state cancer registries are
+aiming to produce an official national mapping of the oBDS cancer registry data
+onto SNOMED CT by the end of 2024. As soon as that is officially published, the
+mapping contained here will be updated accordingly.
 
 | Publication |               |
 |-------------|---------------|
-| Date        | {{RELEASE_DATE}} |
-| Version     | {{CALVER_VERSION}} (CalVer `YYYY.n.n`) |
+| Date        | 2026-03-29 |
+| Version     | 2026.0.3 (CalVer `YYYY.n.n`) |
 | Status      | active        |
 | Realm       | DE            |
 
@@ -53,7 +97,7 @@ standardized secondary use of routine clinical data for medical research.
 - **[Profiles](profiles.html)** and the further
   **[artifact pages](artifacts.html)** — the technical artifacts.
 - **[Examples](examples.html)** — example instances.
-- **[Dependencies](ImplementationGuide-mii-ig-{{MODULE_SLUG}}.html)** — the
+- **[Dependencies](ImplementationGuide-mii-ig-onko.html)** — the
   ImplementationGuide resource with the dependency table, cross-version
   analysis and copyright statements.
 
@@ -84,19 +128,32 @@ Questions about this publication can be asked on the HL7 FHIR Zulip
 on the MII Zulip [mii.zulipchat.com](https://mii.zulipchat.com/) in the
 `MII-Kerndatensatz` stream.
 Comments and issues are welcome as *Issues* on
-[GitHub](https://github.com/{{GITHUB_ORG}}/{{REPO_NAME}}/issues).
+[GitHub](https://github.com/forschungsgruppe-digital-health/mii-kds-onko-ig-inoffiziell/issues).
 
-> [TODO: Name your module's domain contacts.]
-{: .ig-highlight .ig-highlight-grey}
+<!-- source: Index.page.md -->
+* Thomas Debertshäuser, Berlin Institute of Health (Charité)
+* Martin Boeker (DIFUTURE)
+* Sylvia Thun, Berlin Institute of Health (Charité)
+* Karoline Buckow, TMF – Technologie- und Methodenplattform für die vernetzte medizinische Forschung e.V.
+* Franziska Klepka, TMF – Technologie- und Methodenplattform für die vernetzte medizinische Forschung e.V.
 
 ### Authors (in alphabetical order)
 
-> [TODO: List the module's authors with their institution.]
-{: .ig-highlight .ig-highlight-grey}
+<!-- source: Index.page.md -->
+* Christian Gulden (BZKF / Erlangen)
+* Jori Kern (DKFZ Heidelberg)
+* Julian Saß, Berlin Institute of Health (Charité)
+* Margaux Gatrio, Berlin Institute of Health (Charité)
+* Lotte Schwiening, Berlin Institute of Health (Charité)
+* Paul Müller, Berlin Institute of Health (Charité)
+* Nina Haffer, Berlin Institute of Health (Charité)
+* Sophie Klopfenstein, Berlin Institute of Health (Charité)
+* Thomas Debertshäuser, Berlin Institute of Health (Charité)
+* Yuan Peng, Institut für Medizinische Informatik und Biometrie (TU Dresden)
 
 ### Copyright and License
 
-© {{COPYRIGHT_START_YEAR}}+ TMF e. V., Charlottenstraße 42, 10117 Berlin
+© 2021+ TMF e. V., Charlottenstraße 42, 10117 Berlin
 
 This work is licensed under the
 [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).

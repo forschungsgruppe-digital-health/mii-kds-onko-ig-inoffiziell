@@ -9,14 +9,14 @@
 > *optional*. Entscheiden Sie für Ihr Modul: Seite **behalten** — Inhalte
 > ausfüllen und dieses Banner samt `OPTIONAL-PAGE`-Marker-Kommentar löschen (in
 > dieser Datei UND in der englischen Quellseite) — oder Seite **entfernen**,
-> nach der Schritt-für-Schritt-Anleitung in [`docs/optional-pages.md`](https://github.com/{{GITHUB_ORG}}/{{REPO_NAME}}/blob/main/docs/optional-pages.md) dieses
+> nach der Schritt-für-Schritt-Anleitung in [`docs/optional-pages.md`](https://github.com/forschungsgruppe-digital-health/mii-kds-onko-ig-inoffiziell/blob/main/docs/optional-pages.md) dieses
 > Repositories. Ein Release darf dieses Banner nicht enthalten
 > (Konventions-Check M9).
 {: .ig-highlight .ig-highlight-grey}
 
 ### Operationen
 
-Diese Seite listet die FHIR-Operationen, die das Modul **{{MODULE_TITLE}}**
+Diese Seite listet die FHIR-Operationen, die das Modul **Onkologie**
 definiert (Namenskonvention `MII_OD_<Modul>_<Name>`), sofern definiert.
 
 > [TODO: Listen Sie die Operationen mit ihren Aufruf-Kontexten auf — oder

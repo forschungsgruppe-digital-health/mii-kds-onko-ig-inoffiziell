@@ -45,7 +45,7 @@
 #            secrets are present, otherwise the public HL7 fallback with a
 #            ::notice. The build never hard-fails for lack of the credential.
 #
-# Demo version: the demo IG's `version` comes from the {{CALVER_VERSION}}
+# Demo version: the demo IG's `version` comes from the 2026.0.3
 #            placeholder, substituted by scripts/self-check-substitute.sh. For a
 #            branch preview that is a fixed draft value. HERE the script is
 #            given SELF_CHECK_RELEASE_TAG, so the value becomes

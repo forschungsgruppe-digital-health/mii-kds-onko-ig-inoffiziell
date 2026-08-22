@@ -3,7 +3,7 @@
      Unterseiten-Struktur folgt kerndatensatz-basis. -->
 
 Dieser Abschnitt bündelt die fachlichen Hinweise zur Umsetzung und Nutzung des
-Moduls **{{MODULE_TITLE}}**.
+Moduls **Onkologie**.
 
 ### Allgemeine Umsetzungshinweise
 
@@ -11,7 +11,7 @@ Moduls **{{MODULE_TITLE}}**.
   des Moduls, beschrieben als logische Modelle. (Dieser Eintrag teilt sein Ziel
   mit *Artefakte → Logische Modelle*; keiner der Anker der Artefakt-Übersicht
   ist als Linkziel nutzbar — siehe
-  [`docs/page-structure.md`](https://github.com/{{GITHUB_ORG}}/{{REPO_NAME}}/blob/main/docs/page-structure.md) in diesem Repository.)
+  [`docs/page-structure.md`](https://github.com/forschungsgruppe-digital-health/mii-kds-onko-ig-inoffiziell/blob/main/docs/page-structure.md) in diesem Repository.)
 * **[UML-Diagramme](uml-diagrams.html)** — visuelle Darstellung der Datenmodelle
   und ihrer Beziehungen.
 
