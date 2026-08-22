@@ -1,0 +1,1017 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Guidance - MII IG Kerndatensatz-Modul Onkologie v2026.0.3</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+    <link href="assets/css/project.css" rel="stylesheet"/>
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Branding override for the fhir2.base.template CSS placeholder
+     (base ships includes/fragment-css.html as a single comment; it is included
+     in <head> AFTER all base stylesheets, so the linked files win the
+     cascade).
+     Load model (docs/styleguide.md §1/§10): bootstrap-accessibility.css
+     (PayPal Bootstrap Accessibility Plugin v1.0.7, vendored + pinned - §8)
+     patches Bootstrap-3 component styling for accessibility (focus outlines,
+     alert contrast) and loads FIRST so the template's own rules can override;
+     then template-base.css carries the
+     brand-INDEPENDENT rule blocks and always loads; then EXACTLY ONE palette
+     file follows - num-diz.css, the DEFAULT design, unless the consuming IG
+     ships input/data/brand.json with { "design": "mii" } (read as
+     site.data.brand.design via the base's input/data -> _data pre-process),
+     which selects mii.css instead. Only the exact value 'mii' selects the
+     MII design; anything else - including no brand.json at all and unknown
+     values - renders NUM-DIZ. Both palettes declare the same variable set
+     (scripts/brand-switch.test.mjs). -->
+<link href="assets/css/bootstrap-accessibility.css" rel="stylesheet"/>
+<link href="assets/css/template-base.css" rel="stylesheet"/>
+
+<link href="assets/css/num-diz.css" rel="stylesheet"/>
+
+
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+    <script type="text/javascript" src="assets/js/direction-management.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="fhir-logo" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="fhir-logo" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="fhir-logo" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"2"}
+    h3,h4,h5,h6{--heading-prefix:"2.0"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Branding override for the fhir2.base.template header placeholder
+     (base ships includes/fragment-header.html as a single comment; it is included
+     inside "#segment-header > .container", before the #ig-status block).
+     Language handling: only the asset and its descriptive alt text switch on
+     include.lang (the pattern kerndatensatz-basis uses); no translatable UI
+     strings are hard-coded.
+     Brand handling: the project logo additionally switches on
+     site.data.brand.design (input/data/brand.json in the consuming IG, see
+     docs/styleguide.md §10). Only the exact value 'mii' selects the MII
+     logos - anything else, including no brand.json at all, falls through to
+     the NUM-DIZ default.
+     Two logos, mirroring kerndatensatz-basis: the HL7 FHIR logo (links to the
+     FHIR spec) in #family-nav, and the project logo in #project-nav.
+     fhir-logo-www.png is shipped by fhir2.base.template
+     (content/assets/images/), so it resolves from the inherited assets without
+     shipping it here. -->
+<div id="family-nav">
+  <a id="family-logo" no-external="true" href="https://hl7.org/fhir">
+    <img height="50" alt="HL7 FHIR" src="assets/images/fhir-logo-www.png"/>
+  </a>
+</div>
+<div id="project-nav">
+
+  <a id="project-logo" no-external="true" href="https://www.netzwerk-universitaetsmedizin.de/forschung/num-diz">
+
+    <img height="50" alt="NUM-DIZ (Network of University Medicine — Data Integration Center)" src="assets/images/logo-num-diz-en.svg"/>
+
+  </a>
+
+</div>
+<!-- Font-size control (A / A+ / A++): three reader-selectable levels; level A
+     is the untouched default. Logic in assets/js/font-size-control.js, the
+     zoom mapping + button styling in template-base.css ("font-size control"
+     block). All three buttons read "A" — the button's own font size shows the level; labels are language-neutral; only the aria texts switch
+     on include.lang. REMOVAL: delete this block, the js file and the CSS
+     block - one commit, styleguide §5a. -->
+
+<div class="ig-fontsize" role="group" aria-label="Font size">
+  <button type="button" data-level="0" aria-pressed="true" aria-label="Font size: default">A</button>
+  <button type="button" data-level="1" aria-pressed="false" aria-label="Font size: larger">A</button>
+  <button type="button" data-level="2" aria-pressed="false" aria-label="Font size: largest">A</button>
+</div>
+
+<script src="assets/js/font-size-control.js" defer></script>
+<!-- PayPal Bootstrap Accessibility Plugin v1.0.7 (vendored + pinned, §8):
+     patches the Bootstrap-3 components the publisher renders - navbar
+     dropdowns gain ARIA menu semantics + arrow-key navigation, tab panels
+     (structure-tabs) the full ARIA tabs pattern, alerts live-region
+     announcements. `defer` guarantees it executes AFTER the parser-inserted
+     bootstrap.min.js at the end of the body. Vendored from
+     paypal/bootstrap-accessibility-plugin @ v1.0.7 (the admin-ch fork was
+     evaluated and rejected: 151 commits behind upstream, its 6 deltas are
+     site-specific tab tweaks). REMOVAL: delete this tag, both vendored
+     assets and the fragment-css link - guard test pins the hashes. -->
+<script src="assets/js/bootstrap-accessibility.min.js" defer></script>
+<!-- Back-to-top button: appears after one viewport of scrolling (logic in
+     assets/js/back-to-top.js, styling in template-base.css "back-to-top"
+     block). Rendered here inside #segment-header, which is OUTSIDE the
+     data-fontsize zoom regions, so the fixed button never scales. REMOVAL:
+     this block, the js file and the CSS block - one commit, styleguide §8. -->
+
+<button type="button" class="ig-back-to-top" aria-label="Back to top">↑</button>
+
+<script src="assets/js/back-to-top.js" defer></script>
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">MII IG Kerndatensatz-Modul Onkologie</span>
+            <br/>
+            <span style="display:inline-block;">2026.0.3 - 
+
+
+
+  <img alt="Germany flag" src="assets/images/deu.svg" height="16" title="Germany"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- Menu in the IG's DEFAULT language (English).
+     The IG Publisher renders the navigation from this file. To translate it,
+     ship a per-language copy at input/translations/<lang>/includes/menu.xml —
+     this is the mechanism the HL7 reference IG FHIR/multi-lang-test-ig uses and
+     the ONLY way to get a TRANSLATED menu: the `menu:` property in
+     sushi-config.yaml generates a single menu.xml that cannot be translated.
+     Rules: keep the href targets identical across languages; dropdown parents
+     must link to a REAL page (href="#" is rejected by the template's menu QA);
+     only one sub-menu level is supported.
+
+     STRUCTURE: this menu implements the TF-KDS-agreed module menu (see
+     docs/page-structure.md for the full structure with cardinalities).
+     Entries marked OPTIONAL (0..1) below may be removed per module — the
+     removal procedure per entry is in docs/optional-pages.md in this
+     repository. Entries without a marker are mandatory (1..1).
+
+     LINK-ONLY ENTRIES (no page of their own):
+     - "Datasets and Descriptions" points at the Logical Models page
+       (logical-models.html) — the module's datasets ARE its logical models.
+       NEITHER Artifacts-Summary anchor is usable for the TF-KDS "Sec.
+       15.0.2" target: the numeric #2 is POSITIONAL (grouping index — wrong
+       section whenever the artifact mix differs from the full standard set),
+       and the browser-generated NAMED AnchorJS anchor
+       (#structures-logical-models) is invisible to the IG Publisher's link
+       validator — it injects a marker anchor into the menu (rendered as an
+       EMPTY menu entry) and logs a broken-link ERROR on every page's QA.
+       Full analysis: docs/page-structure.md, "Datasets and Descriptions".
+     - The four Conformance entries point at the KDS-wide conformance rules of
+       the Meta module (kerndatensatz-meta). INTERIM: the Meta module has no
+       published IG rendering yet (only a CI build with no conformance pages),
+       so these link to the authoritative meta-wiki sections; switch them to
+       the Meta IG's menu entries once a stable rendering exists (Gate item in
+       docs/page-structure.md). -->
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Home</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="guidance.html" class="dropdown-toggle">Guidance<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="guidance.html">Guidance</a></li>
+      <!-- OPTIONAL (0..1) — see docs/optional-pages.md -->
+      <li><a href="researcher-guidance.html">Guidance for Researchers (optional)</a></li>
+      <li><a href="implementer-guidance.html">Guidance for Implementers</a></li>
+      <!-- link-only entry: Logical-Models section of the Artifacts Summary (see header note) -->
+      <li><a href="logical-models.html">Datasets and Descriptions</a></li>
+      <li><a href="uml-diagrams.html">UML Diagrams</a></li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <!-- The parent and the first four entries link to the KDS-wide conformance
+         rules of the Meta module (INTERIM: meta-wiki; see header note). -->
+    <a data-toggle="dropdown" href="https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki/Conformance" class="dropdown-toggle">Conformance<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki/Conformance">Conformance</a></li>
+      <li><a href="https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki/Conformance#anforderungsdokumentation">General Requirements</a></li>
+      <li><a href="https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki/Conformance#must-support-ms">Must Support</a></li>
+      <li><a href="https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki/Conformance#fehlende-daten">Handling Missing Data</a></li>
+      <li><a href="security-and-privacy.html">Security and Privacy</a></li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="artifacts.html" class="dropdown-toggle">Artifacts<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="artifacts.html">Artifacts Summary</a></li>
+      <li><a href="profiles.html">Profiles</a></li>
+      <!-- OPTIONAL (0..1) — see docs/optional-pages.md -->
+      <li><a href="extensions.html">Extensions (optional)</a></li>
+      <li><a href="capability-statements.html">Capability Statements</a></li>
+      <!-- OPTIONAL (0..1) — see docs/optional-pages.md -->
+      <li><a href="search-parameters.html">Search Parameters (optional)</a></li>
+      <!-- OPTIONAL (0..1) — see docs/optional-pages.md -->
+      <li><a href="operations.html">Operations (optional)</a></li>
+      <li><a href="logical-models.html">Logical Models</a></li>
+      <!-- OPTIONAL (0..1) — see docs/optional-pages.md -->
+      <li><a href="value-sets.html">Value Sets (optional)</a></li>
+      <!-- OPTIONAL (0..1) — see docs/optional-pages.md -->
+      <li><a href="code-systems.html">Code Systems (optional)</a></li>
+      <li><a href="examples.html">Examples</a></li>
+    </ul>
+  </li>
+  <li><a href="downloads.html">Downloads</a></li>
+  <li><a href="changes.html">Changelog</a></li>
+  <li class="dropdown">
+    <!-- The parent deliberately links the MANDATORY child (Versioning): the
+         Metadata Overview page is optional, and a parent pointing at it would
+         have to be re-targeted when that page is removed. -->
+    <a data-toggle="dropdown" href="version-history.html" class="dropdown-toggle">Metadata<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <!-- OPTIONAL (0..1) — see docs/optional-pages.md -->
+      <li><a href="metadata.html">Metadata Overview (optional)</a></li>
+      <li><a href="version-history.html">Versioning</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+
+              
+
+
+
+
+<div style="float: var(--ig-right);padding: 8px 0px;" id="language">
+  <div id="select_flg" class="flaglist" style="background-image: url(assets/images/icon_arrow_down.png);background-position: 133px 3px;">
+    <div><img class="flag" alt="flag en" src="assets/images/lang-en.png"/>English</div>
+  </div>
+  <div style="float: var(--ig-right); margin: 2px 0px; padding: 1px 0;color: var(--btn-text-color);font-size:12px">Language:</div>
+ 	<div id="flaglist" class="flaglist" style="display: none;position: absolute;right: 0;z-index: 100;background-image: url(assets/images/icon_arrow_up.png);background-position: 133px 3px;">
+    <div><img class="flag" alt="flag en" src="assets/images/lang-en.png"/>English</div>
+
+    <div><a href="../de/guidance.html"><img class="flag" src="assets/images/lang-de.png" alt="flag de"/>Deutsch</a></div>
+
+  </div>
+</div>
+
+
+
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Guidance</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">MII IG Kerndatensatz-Modul Onkologie - Local Development build (v2026.0.3) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Guidance</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#general-implementation-guidance" id="markdown-toc-general-implementation-guidance">General Implementation Guidance</a></li>
+  <li><a href="#audience-specific-guidance" id="markdown-toc-audience-specific-guidance">Audience-Specific Guidance</a></li>
+  <li><a href="#context-within-the-overall-project-and-relations-to-other-modules" id="markdown-toc-context-within-the-overall-project-and-relations-to-other-modules">Context within the overall project and relations to other modules</a></li>
+  <li><a href="#use-cases-and-information-model" id="markdown-toc-use-cases-and-information-model">Use cases and information model</a></li>
+  <li><a href="#deviations-from-the-obds" id="markdown-toc-deviations-from-the-obds">Deviations from the oBDS</a></li>
+  <li><a href="#relation-to-national-standards" id="markdown-toc-relation-to-national-standards">Relation to national standards</a></li>
+  <li><a href="#relation-to-international-standards" id="markdown-toc-relation-to-international-standards">Relation to international standards</a></li>
+  <li><a href="#references" id="markdown-toc-references">References</a></li>
+</ul>
+
+</div>
+<!-- markdownlint-disable MD041 -->
+<!-- Source: kerndatensatz-basis input/pagecontent/guidance.md (MII module page set).
+     "Guidance" overview page. The sub-page structure follows kerndatensatz-basis.
+     German mirror: input/translations/de/pagecontent/guidance.md — keep both in
+     step. The domain sections below carry the narrative of the source guide's
+     top-level pages and of its "Anwendungsfälle / Informationsmodell" chapter. -->
+
+<p>This section collects the domain guidance for implementing and using the
+<strong>Onkologie</strong> module.</p>
+
+<h3 id="general-implementation-guidance">General Implementation Guidance</h3>
+
+<ul>
+  <li><strong><a href="logical-models.html">Datasets and Descriptions</a></strong> — the module's data
+elements, described as logical models. (This entry shares its target with
+<em>Artifacts → Logical Models</em>; neither Artifacts-Summary anchor is usable as
+a link target — see
+<a href="https://github.com/forschungsgruppe-digital-health/mii-kds-onko-ig-inoffiziell/blob/main/docs/page-structure.md"><code class="language-plaintext highlighter-rouge">docs/page-structure.md</code></a> in this repository.)</li>
+  <li><strong><a href="uml-diagrams.html">UML Diagrams</a></strong> — visual representation of the data
+models and their relationships.</li>
+</ul>
+
+<h3 id="audience-specific-guidance">Audience-Specific Guidance</h3>
+
+<ul>
+  <li><strong><a href="researcher-guidance.html">Guidance for Researchers</a></strong> — for researchers
+using the module's data.</li>
+  <li><strong><a href="implementer-guidance.html">Guidance for Implementers</a></strong> — technical
+guidance for DIC implementers.</li>
+</ul>
+
+<!-- source: KontextimGesamtprojektBezgezuanderenModulen.page.md -->
+<h3 id="context-within-the-overall-project-and-relations-to-other-modules">Context within the overall project and relations to other modules</h3>
+
+<p>The KDS module Onkologie makes comprehensive use of the base modules of the MII.</p>
+
+<ul>
+  <li>The oncological primary diagnosis is based on the MII module
+<strong><a href="https://simplifier.net/mii-basismodul-diagnose-2024">Diagnose</a></strong></li>
+  <li>The therapy documentation of operations, radiotherapy and general information
+on systemic therapies is based on the MII module
+<strong><a href="https://simplifier.net/mii-basismodul-prozedur-2024">Prozedur</a></strong></li>
+  <li>The specific coding of active substances as part of the systemic therapy is
+based on the MII module
+<strong><a href="https://simplifier.net/mii-basismodul-medikation-2024">Medikation</a></strong>.</li>
+</ul>
+
+<p>Because the data collection for the oBDS is based on the cancer registry
+reports, a representation via the modules named above is only partly possible.</p>
+
+<p>For a more far-reaching linking of the oncological registry data the following
+KDS modules are particularly relevant.</p>
+
+<ul>
+  <li><a href="https://simplifier.net/medizininformatikinitiative-modulpathologie">Pathologiebefundbericht</a></li>
+  <li><a href="https://simplifier.net/medizininformatikinitiative-modulbiobank">Biobank</a></li>
+  <li><a href="https://simplifier.net/medizininformatikinitiative-modulomics">Molekulargenetischer Befundbericht</a></li>
+  <li><a href="https://simplifier.net/Medizininformatik-Initiative-Modul-Bildgebung">Bildgebung</a>
+(not yet implemented, integration planned for version 2027)</li>
+</ul>
+
+<p>In the long term a close interlocking with the modules named above is planned.
+In the first versions 2025 and 2026 it is, however, completely optional. There
+is one main reason for this: the generation of FHIR resources from other modules
+partly requires the existence of data that is not part of the oBDS in that form.
+(Example: on creation, the Bioprobe module mandatorily requires the availability
+to be stated.) Because FHIR resources can at present (as of July 2025) not yet
+be delivered from primary systems across the board, and because not every DIZ
+site is necessarily able to generate all KDS modules, in whole or in part, in
+ETL pipelines, the use of other MII modules is intended but optional.</p>
+
+<p>Beyond that, the KDS module Onkologie forms the basis for the
+<a href="https://simplifier.net/mii-erweiterungsmodul-molekulares-tumorboard">KDS-Modul Molekulares Tumorboard</a>,
+in which deeper oncologically relevant questions such as guideline treatment,
+next-generation sequencing and personalized therapies can be represented in
+detail. Required adjustments (e.g. a more precise adaptation of the therapy
+recommendations) were specified for the MTB module and adopted into version
+v2026.</p>
+
+<h3 id="use-cases-and-information-model">Use cases and information model</h3>
+
+<!-- DERIVED:bridge source=AnwendungsflleInformationsmodell/Index.page.md gate=B -->
+<blockquote class="ig-highlight ig-highlight-blue">
+  <p><strong>Written during migration - review before release.</strong> The source guide opened
+this chapter with a page that was deliberately left blank. The two
+sub-sections below carry the chapter's content: the example scenario that
+shows how the module is applied, and the UML overviews of the information
+model. The data elements of the dataset itself are described on
+<a href="logical-models.html">Logical Models</a>.</p>
+</blockquote>
+
+<!-- source: AnwendungsflleInformationsmodell/BeschreibungvonSzenarienfrdieAnwendungderModule.page.md -->
+<h4 id="description-of-scenarios-for-applying-the-modules">Description of scenarios for applying the modules</h4>
+
+<p>The oBDS serves as the basis for the cancer registry reports to the federal
+state cancer registries.</p>
+
+<p>The present profiling of the oBDS has the ambition of making the data that
+arises in cancer registration usable for other fields of research.</p>
+
+<p>The FHIR representation of the example below makes clear that information on
+imaging procedures, on detailed treatment and irradiation schemes and on genetic
+variants exists in more detailed form outside the cancer registry data. The
+present FHIR profiling thereby makes an important contribution to incorporating
+as much information as possible for oncological research.</p>
+
+<h5 id="application-scenario-of-a-guideline-conform-treatment">Application scenario of a guideline-conform treatment</h5>
+
+<p>Disclaimer: The course of therapy corresponds to one possible guideline-conform
+therapy; the data and the course are constructed for test purposes, similarities
+with actual courses of disease are coincidental.</p>
+
+<h6 id="textual-representation-of-the-example-course-of-therapy">Textual representation of the example course of therapy</h6>
+
+<ul>
+  <li>
+    <p>Kim Musterperson, born 14.03.1956</p>
+  </li>
+  <li>
+    <p>10.06.2021 CT abdomen with contrast medium: suspected peritoneal
+carcinomatosis, ascites throughout the abdominal cavity, mass in the right
+ovary. Mesenteric retroperitoneal lymph node metastases, suspected liver
+metastasis</p>
+  </li>
+  <li>15.06.2021 Ascites puncture: with malignant tumour cells. Cytologically
+possible ovarian carcinoma.</li>
+  <li>
+    <p>22.06.2021 CT thorax: no indication of metastases.</p>
+  </li>
+  <li>Tumour board 25.06.2021: Unambiguous CT correlate and cytological initial
+diagnosis of ovarian carcinoma.
+    <ul>
+      <li>Neoadjuvant chemotherapy with 3 cycles of Carboplatin/Paclitaxel, interval
+debulking in the further course.
+        <ul>
+          <li>05.07.21-25.07.21 C1 Carboplatin AUC5 d1, Paclitaxel 175 mg/m2, d1,
+repeat d21</li>
+          <li>26.07.21-15.08.21 C2 Carboplatin AUC5 d1, Paclitaxel 175 mg/m2, d1,
+repeat d21</li>
+          <li>16.08.21-05.09.21 C3 Carboplatin AUC5 d1, Paclitaxel 175 mg/m2, d1,
+repeat d21</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>15.09.21 CT thorax/abdomen: assessment
+increasing peritoneal carcinomatosis, retroperitoneal lymph nodes suspicious for
+metastases. Suspected constant liver metastasis</p>
+  </li>
+  <li>
+    <p>16.09.21 Tumour board:
+Clear tumour progression. Operation for histological confirmation already
+planned, aim for optimal debulking.</p>
+  </li>
+  <li>
+    <p>30.09.2021 Operation
+Interval debulking by longitudinal laparotomy, tumour resection by
+hysterectomy, bilateral adnexectomy, and atypical liver segment resection
+(segments II and V). Postoperatively: R0.</p>
+  </li>
+  <li>Pathology report
+    <ul>
+      <li>Histology: resection specimen of 30.09.2021</li>
+      <li>Neoplasm of the ovary (status post neoadjuvant therapy) (ICD-10-C56) ovary
+NOS (ICD-O-C56.9) examined material: resection specimen WHO type: serous
+adenocarcinoma (ICD-O M-8441/3)</li>
+      <li>Local tumour extent: ovarian tumour on the left with a maximum size of
+2.2 cm and a tumour-infiltrated capsule with evidence of tumour cells on
+the ovarian surface, proportion of vital tumour cells approximately 80 %.</li>
+      <li>UICC classification (8th edition): ypT3c. pM1b (HEP) L1. V0. Pn0 FIGO: IVB</li>
+      <li>Immunohistochemistry: (example for a few markers, a real report contains
+many more) Occasional strong nuclear expression of the progesterone
+receptor. Positivity for P16 in the tumour. The proliferation index by
+MIB-1 is at most 38 %. Microscopy: partial evidence of mucin.</li>
+      <li>Comment: The immunohistochemical marker profile fits a high-grade serous
+adenocarcinoma of the ovary (status post neoadjuvant chemotherapy)</li>
+    </ul>
+  </li>
+  <li>Tumour board 25.10.2021:
+    <ul>
+      <li>Macroscopic complete resection achieved through the operation.</li>
+      <li>However, progression under neoadjuvant therapy.</li>
+      <li>Therefore switch to Carboplatin/Gemcitabine</li>
+      <li>Presentation to human genetics recommended</li>
+    </ul>
+  </li>
+  <li>Systemic therapy
+    <ul>
+      <li>08.11.21-28.11.21 C1 Carboplatin AUC 4 d1, Gemcitabine 1000mg/m2 d1+d8
+repeat d22</li>
+      <li>29.11.21-19.12.21 C2 Carboplatin AUC 4 d1, Gemcitabine 1000mg/m2 d1+d8
+repeat d22</li>
+      <li>20.12.21-09.01.22 C3 Carboplatin AUC 4 d1, Gemcitabine 1000mg/m2 d1+d8
+repeat d22</li>
+    </ul>
+  </li>
+  <li>15.01.22 CT: abdomen:
+    <ul>
+      <li>Regression of the known peritoneal carcinomatosis</li>
+      <li>Liver without clear indication of metastasis; status post atypical liver
+segment resection, most likely scarring changes</li>
+      <li>Assessment: regressive findings, status post interim operative debulking</li>
+    </ul>
+  </li>
+  <li>20.01.22 Tumour board:
+    <ul>
+      <li>Maintenance therapy with Niraparib in BRCA wild type</li>
+      <li>Restaging in 3 months with CT thorax/abdomen and tumour markers</li>
+    </ul>
+  </li>
+  <li>25.01.22 Start of Niraparib 300mg d1-28 repeat d28</li>
+</ul>
+
+<h6 id="graphical-representation-of-the-example-course-of-therapy">Graphical representation of the example course of therapy</h6>
+
+<p><img src="https://raw.githubusercontent.com/medizininformatik-initiative/kerndatensatzmodul-onkologie/refs/heads/dev/implementation-guides/ImplementationGuide-2026.x-DE/Images/MII_Onko_Example_Patient.svg" width="100%" /></p>
+
+<p>The image file can be viewed and downloaded separately
+<a href="https://raw.githubusercontent.com/medizininformatik-initiative/kerndatensatzmodul-onkologie/refs/heads/dev/implementation-guides/ImplementationGuide-2026.x-DE/Images/MII_Onko_Example_Timeline.svg">here (Github)</a>
+for better display (provided as <code class="language-plaintext highlighter-rouge">.svg</code>).</p>
+
+<!-- source: AnwendungsflleInformationsmodell/UML.page.md -->
+<h4 id="uml">UML</h4>
+
+<p>The following UML diagram shows the implemented contents and cardinalities of
+the oBDS that were implemented by the KDS module Onkologie in accordance with
+its specifications.</p>
+
+<div style="width: 100%; overflow-x: auto;">
+<img src="https://raw.githubusercontent.com/medizininformatik-initiative/kerndatensatzmodul-onkologie/dev/implementation-guides/ImplementationGuide-2026.x-DE/Images/onco_merged.svg" style="width: 100%; height: auto;" />
+</div>
+
+<p>The image file can be viewed and downloaded separately
+<a href="https://raw.githubusercontent.com/medizininformatik-initiative/kerndatensatzmodul-onkologie/dev/implementation-guides/ImplementationGuide-2026.x-DE/Images/onco_merged.svg">here (Github)</a>
+for better display (provided as <code class="language-plaintext highlighter-rouge">.svg</code>).</p>
+
+<h5 id="organ-specific-modules--uml-diagrams">Organ-specific modules — UML diagrams</h5>
+
+<p>In addition to the overarching UML diagram, every organ-specific module has its
+own detailed architecture diagrams:</p>
+
+<ul>
+  <li><strong>Mamma module</strong> — breast-carcinoma-specific profiles and their relationships</li>
+  <li><strong>Prostata module</strong> — prostate-carcinoma-specific profiles and their
+relationships</li>
+  <li><strong>KRK module</strong> — colorectal-carcinoma-specific profiles and their
+relationships</li>
+  <li><strong>Malignes Melanom module</strong> — malignant-melanoma-specific profiles and their
+relationships</li>
+</ul>
+
+<!-- source: Abweichungen-zum-oBDS.page.md -->
+<h3 id="deviations-from-the-obds">Deviations from the oBDS</h3>
+
+<p>The present implementation guide describes an implementation of the oBDS in
+FHIR. A pure 1:1 representation of the complete dataset is sensible neither in
+content nor technically. Here are the most important deviations:</p>
+
+<h4 id="contents">Contents</h4>
+
+<p>The KDS module Onkologie contains those groups of the oBDS that mainly comprise
+clinical-diagnostic and therapeutic data points.</p>
+
+<p>Several groups were therefore <strong>not</strong> implemented in FHIR. This comprises:</p>
+
+<ul>
+  <li>The person-related groups
+    <ul>
+      <li>Group 3: patient master data</li>
+      <li>Group 4: reporting-party master data</li>
+      <li>Group 7: submitter</li>
+      <li>Group 22: surgeon</li>
+      <li>Group 25: additional contacts</li>
+    </ul>
+  </li>
+  <li>the administrative and report-related groups
+    <ul>
+      <li>Group 1: report</li>
+      <li>Group 2: centre</li>
+      <li>Group 21: remarks</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The organ-specific modules were not part of the first profiling, but have been
+part of the Onkologie module since version 2026.</p>
+<ul>
+  <li>These are:
+    <ul>
+      <li>Modul Prostata</li>
+      <li>Modul Mamma</li>
+      <li>Modul Melanom</li>
+      <li>Modul Kolon</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="cardinalities">Cardinalities</h4>
+
+<p>The oBDS has mainly been optimized for data reporting to the cancer registries.</p>
+
+<p>In the first versions the cardinalities were largely adopted from the oBDS, but
+are in part set "more softly" in order to gain access to a broader data basis,
+especially as a first step.</p>
+
+<h4 id="integration-of-terminologies-and-code-systems">Integration of terminologies and code systems</h4>
+
+<p>In order to guarantee the evaluability by the Forschungsdatenportal Gesundheit
+(FDPG), the statement of the medication in systemic therapy requires a coding by
+means of ATC. Free text remains possible as an additional statement.</p>
+
+<h4 id="validation">Validation</h4>
+
+<p>The oBDS XML schema 3.0.2 provides for a number of validations that check data
+quality and completeness. These are technically <strong>not</strong> implemented in the first
+version. It can be assumed that the oBDS data in the primary systems of tumour
+documentation are validated at least to the extent that an export into the XML
+format is possible. Further validations (e.g. mutually exclusive data fields)
+could be carried out in the future if required. This would be necessary if the
+present KDS module were to serve, beyond its current purpose, as a basis for
+data collection for primary systems.</p>
+
+<h4 id="contents-of-the-modules-and-profiles">Contents of the modules and profiles</h4>
+
+<p>In the oBDS the data fields are bound to the reporting structure. Groups that
+have different cardinalities are frequently held in different groups. For
+example, Tumorkonferenz and Therapieempfehlungen are in two different groups,
+because one tumour conference can refer to several therapy recommendations.
+Both groups can, however, be represented without difficulty in the FHIR resource
+CarePlan, so that these were merged into one FHIR profile. Important changes in
+excerpt below:</p>
+
+<ul>
+  <li>the diagnosis contains parts of the histology group (ICD-O topology, ICD-O
+morphology)</li>
+  <li>the Tumorkonferenz group was merged into the group
+Tumorkonferenz/Therapieempfehlung</li>
+  <li>the Allgemeiner Leistungszustand can be coded both as ECOG and as Karnofsky
+(an original merging of the data points was discarded after the commenting
+phase).</li>
+</ul>
+
+<!-- source: BezugZuNationalenStandards.page.md -->
+<h3 id="relation-to-national-standards">Relation to national standards</h3>
+
+<p>The described Basisdatensatz Onkologie is a dataset that follows the oBDS and
+thereby the German cancer registry data models.</p>
+
+<hr />
+
+<h5 id="informationssysteme-im-krankenhaus-isik">Informationssysteme im Krankenhaus (ISiK)</h5>
+
+<p>ISiK describes a standard that is to be used by hospital systems for the
+exchange among each other. ISiK itself contains few content-related requirements
+and bindings that are relevant for the collection of oncological data. Because
+of its growing importance in the hospital sector, conformity was attended to
+during the profiling.</p>
+
+<ul>
+  <li>The Diagnose and Prozedur profiles are part of the ISiK base modules
+<a href="https://simplifier.net/guide/isik-basis-v4?version=current">https://simplifier.net/guide/isik-basis-v4?version=current</a></li>
+  <li>Medikation is part of the ISiK medication module
+<a href="https://simplifier.net/guide/isik-medikation-v4?version=current">https://simplifier.net/guide/isik-medikation-v4?version=current</a></li>
+</ul>
+
+<h5 id="medizinische-informationsobjekte-mios">Medizinische Informationsobjekte (MIOs)</h5>
+
+<p>MIOs are relevant as structured data elements in the context of the electronic
+patient record (ePA). The first large building block is to be a provision of
+structured medication data. At the time the profiling was created (Jan–Apr 2024)
+the profiles for Medikation / Medikationsplan were still being profiled and could
+therefore not be taken into account in the present specification. It should be
+noted, however, that the medication list and the tumour documentation are
+currently still separate ecosystems. A long-term harmonization of comparable
+profiles is being coordinated and driven forward from 2025 by the KIG of the
+gematik. The implementation guide for the "ePA Medication Service" is here:
+<a href="https://simplifier.net/guide/medication-service?version=1.1.0">https://simplifier.net/guide/medication-service?version=1.1.0</a>
+Link to the concrete profile EPA MedicationStatement
+<a href="https://simplifier.net/epa-medication/epamedicationstatement">https://simplifier.net/epa-medication/epamedicationstatement</a></p>
+
+<hr />
+
+<h4 id="national-preliminary-work">National preliminary work</h4>
+
+<h5 id="german-oncological-data-standard-gold">German OncoLogical Data Standard (GOLD)</h5>
+
+<p>The GOLD project was initiated by Vision-Zero e.V. and aims at representing a
+complete oncological patient journey. The data model and the associated profiles
+were derived from existing data models from care, research and industry in
+Germany and abroad. Proposals for the harmonization of various specifications
+were developed and agreed with German experts. The first FHIR profiles, with a
+focus on diagnosis and classifications such as the TNM classification, as well
+as imaging and course of disease, have been incorporated into several further
+projects, e.g. the Basisprofile Onkologie of HL7 Deutschland and the MII module
+Befunde bildgebender Verfahren. The current version can be found here:
+<a href="https://vision-zero-oncology.github.io/GOLD/">https://vision-zero-oncology.github.io/GOLD/</a></p>
+
+<h5 id="basisprofile-onkologie-of-hl7-deutschland">Basisprofile Onkologie of HL7 Deutschland</h5>
+
+<p>In the Basisprofile Deutschland, profiling work was delivered in particular in
+2022 as a basis for the uniform use of FHIR resources in the oncological sector.
+<a href="https://simplifier.net/BasisprofileOnkologie">https://simplifier.net/BasisprofileOnkologie</a>
+Work on the Basisprofile has been dormant since the commenting phase in 2022.
+The Basisprofile Onkologie of HL7 now refer to the present KDS module Onkologie
+of the MII.</p>
+
+<h5 id="deutsches-konsortium-für-translationale-krebsforschung">Deutsches Konsortium für Translationale Krebsforschung</h5>
+
+<p>The internal data model of the DKTK uses oBDS data prepared from the tumour
+documentation systems in FHIR format as an exchange medium (available at
+<a href="https://simplifier.net/oncology">https://simplifier.net/oncology</a>). The original information model of the KDS
+module Onkologie was strongly oriented towards the DKTK model. The profiling
+differs, however, in that the DKTK profiles are self-contained, whereas an MII
+module is intended to work as well as possible with the MII base modules
+(above all Diagnose, Prozedur, Medikation) and with already existing KDS modules.
+One of the main modelling decisions was therefore the use of the MII Diagnose
+and MII Medikation, as well as the representation of operations, radiotherapies
+and systemic / watchful-waiting therapies as MII Prozeduren.</p>
+
+<h5 id="modellvorhaben-genomsequenzierung">Modellvorhaben Genomsequenzierung</h5>
+
+<p>The Modellvorhaben Genomsequenzierung under §64e SGB V provides for the
+collection of a data set around a next-generation sequencing (NGS) of
+oncological patients. The data set contains information on the diagnostic and
+therapeutic history, the molecular-genetic description of the tumour, the
+recommendations on study participation and systemic therapies, as well as
+follow-up information on therapies actually carried out and on therapy response
+/ vital status.</p>
+
+<p>There is a similar data set for rare diseases, which will in future be
+represented in the module Seltene Erkrankungen.</p>
+
+<p>A mapping of the data elements onto the MII KDS is currently being worked on.</p>
+
+<!-- DERIVED:summary source=BezugZuNationalenStandards.page.md gate=B -->
+<blockquote class="ig-highlight ig-highlight-blue">
+  <p><strong>Written during migration - review before release.</strong> The source page rendered
+the Modellvorhaben data set as a generated element tree and the mapping as a
+generated table excerpt. Neither carries over to this guide: the data set is
+published as the logical model
+<a href="StructureDefinition-mii-lm-mvgenomseq-onkologie.html">MVGenomSeq Onkologie</a>
+and the mapping as the ConceptMap
+<a href="ConceptMap-mii-cm-onkologie-to-mvgenomseq.html">mii-cm-onkologie-to-mvgenomseq</a>,
+each of which renders its full content on its own artifact page.</p>
+</blockquote>
+
+<!-- source: BezugZuInternationalenStandards.page.md -->
+<h3 id="relation-to-international-standards">Relation to international standards</h3>
+
+<p>The described Basisdatensatz Onkologie is a dataset that rests on the oBDS and
+thereby on the German cancer registry data models.</p>
+
+<p>In the FHIR modelling, the FHIR profiling of other national oncological data
+models from abroad was considered.</p>
+
+<hr />
+
+<h4 id="mcode-usa">mCODE, USA</h4>
+
+<p><a href="https://hl7.org/fhir/us/mcode/">https://hl7.org/fhir/us/mcode/</a>
+The model is currently in its fourth iteration. The data elements it contains
+can be divided into:</p>
+
+<ul>
+  <li>patient information</li>
+  <li>characterization of the disease</li>
+  <li>state of health</li>
+  <li>genomic data</li>
+  <li>treatment information</li>
+  <li>outcomes</li>
+</ul>
+
+<h5 id="influences-of-mcode-on-the-data-modelling">Influences of mCODE on the data modelling</h5>
+
+<ol>
+  <li>mCODE captures the individual components of the <strong>TNM classification</strong> via
+individual FHIR Observations, which are then grouped by means of a Stage
+Group resource. Besides TNM there is a number of important tumour staging
+classifications / scores that were explicitly created as FHIR profiles. We
+likewise recommend this approach in the ongoing profiling of the
+organ-specific modules of the oBDS (e.g. Gleason score)</li>
+  <li>mCODE codes the details of individual <strong>irradiation units</strong> via extensions.
+With CodeX Radiation Therapy there is a module derived from mCODE that deals
+explicitly with the modelling of irradiation schemes
+(<a href="https://hl7.org/fhir/us/codex-radiation-therapy/">https://hl7.org/fhir/us/codex-radiation-therapy/</a>) — this is, however,
+considerably more detailed than the oBDS.</li>
+  <li>mCODE captures the genomic data with the HL7 FHIR Genomics Report, which was
+developed by the HL7 FHIR Clinical Genomics Working Group. In its current
+version the oBDS contains only sparse information on <strong>genetic variants</strong>. If
+detailed information on the molecular-genetic investigations, variants and
+therapeutic consequences is available at the site, the Molekulargenetischer
+Befundbericht of the MII, which is likewise based on the HL7 Genomics Report,
+can be used.</li>
+  <li>Representation of further classifications (above all for further grading and
+staging systems)</li>
+</ol>
+
+<h5 id="decisive-differences-mcode---obds">Decisive differences mCODE - oBDS</h5>
+
+<ol>
+  <li>mCODE and the data elements referenced by mCODE (comorbidities, vital
+parameters, ethnicity etc.) are based to a large extent on the US-American
+FHIR base modules from us-core and are therefore not directly applicable in
+Germany.</li>
+  <li>In the data modelling, clinical decision-making such as the recommendations
+of an interdisciplinary tumour board is not represented.</li>
+  <li>The intention is to work with actual treatment data, which is why many FHIR
+resources are more detailed than the data situation in the oBDS allows. Exact
+times of drug administration and dose statements, for example, are not part of
+the oBDS, but are part of mCODE.</li>
+  <li>Overall, mCODE is optimized for a prospective data collection, and can be
+continuously updated during treatment. In this the basic structure differs
+considerably from the retrospectively documented German cancer registry data,
+whose contents can vary by report type (diagnosis, operation, course of
+disease etc.).</li>
+</ol>
+
+<hr />
+
+<h4 id="osiris-france">OSIRIS, France</h4>
+
+<p>The French common data model "Interoperability and data sharing of clinical and
+biological data in oncology" (OSIRIS) comprises two independent core datasets: a
+clinical and a genomic part. A third part with a dataset on imaging and
+radiotherapy is currently being worked on. Because the focus of the oBDS is on
+the clinical data, commonalities and differences with the clinical dataset are
+to be summarized briefly here.</p>
+
+<p>The OSIRIS dataset models the temporal representation above all around so-called
+"Tumor Events". Tumor Events are either initial diagnoses or follow-up
+observations.</p>
+
+<p>Further information can be read at:
+<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8140800/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8140800/</a></p>
+
+<p>English version of the dataset available at:
+<a href="https://github.com/InstitutNationalduCancer/OSIRIS/blob/v1.1.05/documentation/ModeleCliniqueOSIRIS-english_version.pdf">https://github.com/InstitutNationalduCancer/OSIRIS/blob/v1.1.05/documentation/ModeleCliniqueOSIRIS-english_version.pdf</a></p>
+
+<p><a href="https://github.com/InstitutNationalduCancer/OSIRIS/blob/master/documentation/MPD_OSIRIS_model_v1.1.05.png">https://github.com/InstitutNationalduCancer/OSIRIS/blob/master/documentation/MPD_OSIRIS_model_v1.1.05.png</a></p>
+
+<!-- source: Referenzen.page.md -->
+<h3 id="references">References</h3>
+
+<p>The KDS module Onkologie is based on the onkologischer Basisdatensatz (oBDS) in
+the version published in the Bundesanzeiger in 2021. The contents are publicly
+available.</p>
+
+<ul>
+  <li>Website of the oBDS with all relevant data fields, descriptions and answer
+options: <a href="https://basisdatensatz.de/basisdatensatz">https://basisdatensatz.de/basisdatensatz</a></li>
+  <li>The oBDS: XML schema in version 3.03; here in particular the statements on the
+hierarchy, the field IDs and data validation
+    <ul>
+      <li>current version: <a href="https://basisdatensatz.de/xml/oBDS_v3.0.3.xsd">https://basisdatensatz.de/xml/oBDS_v3.0.3.xsd</a></li>
+      <li>older versions available at <a href="https://basisdatensatz.de/xml/">https://basisdatensatz.de/xml/</a></li>
+    </ul>
+  </li>
+  <li>Confluence-based implementation guide of the Krebsregister-Plattform §65c
+<a href="https://plattform65c.atlassian.net/wiki/spaces/UMK/overview">https://plattform65c.atlassian.net/wiki/spaces/UMK/overview</a>, in particular:
+    <ul>
+      <li><a href="https://plattform65c.atlassian.net/wiki/spaces/UMK/pages/15532576/Datenmodell">https://plattform65c.atlassian.net/wiki/spaces/UMK/pages/15532576/Datenmodell</a>
+for the general data model</li>
+      <li><a href="https://plattform65c.atlassian.net/wiki/spaces/UMK/pages/15532143/Meldungsinhalte">https://plattform65c.atlassian.net/wiki/spaces/UMK/pages/15532143/Meldungsinhalte</a>
+and all sub-pages for detailed views and data model diagrams of the
+individual report contents</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Older preliminary work on representing the oBDS as an information model exists
+on the ART-DECOR platform, which currently does not fully reflect the present
+state. It can be reached
+<a href="https://art-decor.org/art-decor/decor-datasets--mide-?id=2.16.840.1.113883.3.1937.777.24.1.1&amp;effectiveDate=2018-06-05T12%3A44%3A12&amp;conceptId=2.16.840.1.113883.3.1937.777.24.2.62&amp;conceptEffectiveDate=2018-06-06T06%3A13%3A32">here</a>.</p>
+
+<hr />
+<p>For the KDS-wide conformance requirements see the
+<a href="https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki/Conformance">Conformance rules of the Meta module</a>;
+for the technical artifacts see <a href="profiles.html">Profiles</a>.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+  <script type="text/javascript" src="assets/js/flags.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+
+
+
+          IG © 2021+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.netzwerk-universitaetsmedizin.de">NUM-DIZ</a>.  
+          Package de.medizininformatikinitiative.kerndatensatz.onkologie#2026.0.3 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
+          Generated <span title="Sat, Aug 22, 2026 22:11+0000">2026-08-22</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+            <!-- Branding override for the fhir2.base.template footer fragment.
+     Unlike header/css, the base footer fragment is NOT an empty placeholder: it
+     renders "Links: Table of Contents | QA Report [| feedback dashboards]".
+     The base uses site.data.stringsBase[include.lang][...] for the labels. The
+     reason this override supplies its own is the Imprint label: the base ships no
+     stringsBase key for it and a child template cannot add one (docs/styleguide.md
+     section 6), and the same include.lang branch then has to carry the other
+     labels too. (The blank-label problem that first motivated this is separately
+     mitigated: this repo vendors the base's own German catalogs into
+     translations/ — see translations/README.md.) The override preserves the base
+     links (TOC, QA, feedback dashboards) and appends the project information links.
+     NUM-DIZ takes over IG development and maintenance when MII funding ends
+     (end-2026), so the NUM-DIZ website link renders BEFORE the MII website link —
+     in BOTH brand designs and both languages; the MII links stay because the
+     modules remain MII content. Both anchors are the SITE ROOTS with the bare
+     domain as anchor text (TF-KDS feedback 2026-08-14: aligned anchor style;
+     domains are language-neutral, styleguide §6).
+     Imprint: points at the NUM-DIZ website's legal pages since 2026-08-14
+     (TF-KDS: NUM-DIZ takes over from MII in 2027, so legal-aspect links use
+     the NUM-DIZ counterpart where one exists) - German /impressum and English
+     /en/legal-notice (both verified HTTP 200 on 2026-08-14). -->
+
+          Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="../qa.html">QA Report</a>
+                 
+                 | <a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://www.netzwerk-universitaetsmedizin.de/">netzwerk-universitaetsmedizin.de</a>
+                 | <a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://www.medizininformatik-initiative.de/">medizininformatik-initiative.de</a>
+                 | <a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://www.netzwerk-universitaetsmedizin.de/en/legal-notice">Legal notice</a>
+                 <br/>
+                 <!-- HL7 trademark attribution (required wherever the FHIR flame
+                      renders - the header shows it on every page; see HL7's
+                      trademark guidelines; permission request tracked in issue #109). The sentence is
+                      HL7's prescribed formula and stays in English on every
+                      language's pages (legal wording, styleguide §6). -->
+                 <span>HL7®, FHIR® and the FHIR flame design are registered trademarks of Health Level Seven International. Their use does not constitute endorsement by HL7.</span>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

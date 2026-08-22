@@ -1,0 +1,130 @@
+# MII EX Onko Strahlentherapie Bestrahlung Einzeldosis - MII IG Kerndatensatz-Modul Onkologie v2026.0.3
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **MII EX Onko Strahlentherapie Bestrahlung Einzeldosis**
+
+## Extension: MII EX Onko Strahlentherapie Bestrahlung Einzeldosis 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/StructureDefinition/mii-ex-onko-strahlentherapie-bestrahlung-einzeldosis | *Version*:2026.0.3 |
+| Active as of 2026-08-22 | *Computable Name*:MII_EX_Onko_Strahlentherapie_Bestrahlung_Einzeldosis |
+
+Strahlentherapie: Einzeldosis einer Bestrahlung
+
+**Context of Use**
+
+The irradiation (Bestrahlung) extensions capture all information that is relevant for individual irradiation units and that is not already covered by the overarching Strahlentherapie procedure profile.
+
+The single dose (Einzeldosis) states the single dose per day (the most frequent dose, not the boost) with which the target area was irradiated.
+
+**Usage info**
+
+**Usages:**
+
+* Use this Extension: [MII PR Onkologie Strahlentherapie Nuklearmedizin](StructureDefinition-mii-pr-onko-strahlentherapie-bestrahlung-nuklearmedizin.md) and [MII PR Onkologie Strahlentherapie](StructureDefinition-mii-pr-onko-strahlentherapie-bestrahlung-strahlentherapie.md)
+* Examples for this Extension: [Procedure/mii-exa-onko-strahlentherapie-2014-mamma-mit-lk](Procedure-mii-exa-onko-strahlentherapie-2014-mamma-mit-lk.md), [Procedure/mii-exa-onko-strahlentherapie-2014-prostata-mit-lk](Procedure-mii-exa-onko-strahlentherapie-2014-prostata-mit-lk.md), [Procedure/mii-exa-onko-strahlentherapie-2021-mamma-lymphknoten](Procedure-mii-exa-onko-strahlentherapie-2021-mamma-lymphknoten.md), [Procedure/mii-exa-onko-strahlentherapie-2021-mamma-primaer](Procedure-mii-exa-onko-strahlentherapie-2021-mamma-primaer.md) and [Procedure/mii-exa-onko-strahlentherapie-bestrahlung-strahlentherapie-1](Procedure-mii-exa-onko-strahlentherapie-bestrahlung-strahlentherapie-1.md)
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/de.medizininformatikinitiative.kerndatensatz.onkologie|current/StructureDefinition/StructureDefinition-mii-ex-onko-strahlentherapie-bestrahlung-einzeldosis.json)
+
+### Formal Views of Extension Content
+
+ [Description of Profiles, Differentials, Snapshots, and their representations](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](../StructureDefinition-mii-ex-onko-strahlentherapie-bestrahlung-einzeldosis.csv), [Excel](../StructureDefinition-mii-ex-onko-strahlentherapie-bestrahlung-einzeldosis.xlsx), [Schematron](../StructureDefinition-mii-ex-onko-strahlentherapie-bestrahlung-einzeldosis.sch) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "mii-ex-onko-strahlentherapie-bestrahlung-einzeldosis",
+  "url" : "https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/StructureDefinition/mii-ex-onko-strahlentherapie-bestrahlung-einzeldosis",
+  "version" : "2026.0.3",
+  "name" : "MII_EX_Onko_Strahlentherapie_Bestrahlung_Einzeldosis",
+  "title" : "MII EX Onko Strahlentherapie Bestrahlung Einzeldosis",
+  "status" : "active",
+  "date" : "2026-08-22T22:11:44+00:00",
+  "publisher" : "NUM-DIZ",
+  "_publisher" : {
+    "extension" : [{
+      "extension" : [{
+        "url" : "lang",
+        "valueCode" : "de"
+      },
+      {
+        "url" : "content",
+        "valueString" : "NUM-DIZ"
+      }],
+      "url" : "http://hl7.org/fhir/StructureDefinition/translation"
+    }]
+  },
+  "contact" : [{
+    "name" : "NUM-DIZ",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.netzwerk-universitaetsmedizin.de"
+    }]
+  }],
+  "description" : "Strahlentherapie: Einzeldosis einer Bestrahlung",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "DE",
+      "display" : "Germany"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "kind" : "complex-type",
+  "abstract" : false,
+  "context" : [{
+    "type" : "element",
+    "expression" : "Procedure"
+  }],
+  "type" : "Extension",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "Extension",
+      "path" : "Extension",
+      "short" : "MII EX Onko Strahlentherapie Bestrahlung Einzeldosis",
+      "definition" : "Strahlentherapie: Einzeldosis einer Bestrahlung"
+    },
+    {
+      "id" : "Extension.extension",
+      "path" : "Extension.extension",
+      "max" : "0"
+    },
+    {
+      "id" : "Extension.url",
+      "path" : "Extension.url",
+      "fixedUri" : "https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/StructureDefinition/mii-ex-onko-strahlentherapie-bestrahlung-einzeldosis"
+    },
+    {
+      "id" : "Extension.value[x]",
+      "path" : "Extension.value[x]",
+      "short" : "Strahlentherapie Einzeldosis pro Tag (Dosis)",
+      "definition" : "Gibt an, mit welcher Einzeldosis (häufigste Dosis, nicht Boost) pro Tag das Zielgebiet bestrahlt wurde.",
+      "type" : [{
+        "code" : "Quantity"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/ValueSet/mii-vs-strahlentherapie-strahlungseinheit"
+      }
+    },
+    {
+      "id" : "Extension.value[x].system",
+      "path" : "Extension.value[x].system",
+      "patternUri" : "http://unitsofmeasure.org"
+    }]
+  }
+}
+
+```

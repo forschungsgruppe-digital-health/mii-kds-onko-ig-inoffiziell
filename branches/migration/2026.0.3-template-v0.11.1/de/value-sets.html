@@ -1,0 +1,778 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+
+
+<html xml:lang="de" xmlns="http://www.w3.org/1999/xhtml" lang="de" dir="ltr">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>ValueSets - MII IG Kerndatensatz-Modul Onkologie v2026.0.3</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+    <link href="assets/css/project.css" rel="stylesheet"/>
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Branding override for the fhir2.base.template CSS placeholder
+     (base ships includes/fragment-css.html as a single comment; it is included
+     in <head> AFTER all base stylesheets, so the linked files win the
+     cascade).
+     Load model (docs/styleguide.md §1/§10): bootstrap-accessibility.css
+     (PayPal Bootstrap Accessibility Plugin v1.0.7, vendored + pinned - §8)
+     patches Bootstrap-3 component styling for accessibility (focus outlines,
+     alert contrast) and loads FIRST so the template's own rules can override;
+     then template-base.css carries the
+     brand-INDEPENDENT rule blocks and always loads; then EXACTLY ONE palette
+     file follows - num-diz.css, the DEFAULT design, unless the consuming IG
+     ships input/data/brand.json with { "design": "mii" } (read as
+     site.data.brand.design via the base's input/data -> _data pre-process),
+     which selects mii.css instead. Only the exact value 'mii' selects the
+     MII design; anything else - including no brand.json at all and unknown
+     values - renders NUM-DIZ. Both palettes declare the same variable set
+     (scripts/brand-switch.test.mjs). -->
+<link href="assets/css/bootstrap-accessibility.css" rel="stylesheet"/>
+<link href="assets/css/template-base.css" rel="stylesheet"/>
+
+<link href="assets/css/num-diz.css" rel="stylesheet"/>
+
+
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+    <script type="text/javascript" src="assets/js/direction-management.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="fhir-logo" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="fhir-logo" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="fhir-logo" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"10"}
+    h3,h4,h5,h6{--heading-prefix:"10"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Branding override for the fhir2.base.template header placeholder
+     (base ships includes/fragment-header.html as a single comment; it is included
+     inside "#segment-header > .container", before the #ig-status block).
+     Language handling: only the asset and its descriptive alt text switch on
+     include.lang (the pattern kerndatensatz-basis uses); no translatable UI
+     strings are hard-coded.
+     Brand handling: the project logo additionally switches on
+     site.data.brand.design (input/data/brand.json in the consuming IG, see
+     docs/styleguide.md §10). Only the exact value 'mii' selects the MII
+     logos - anything else, including no brand.json at all, falls through to
+     the NUM-DIZ default.
+     Two logos, mirroring kerndatensatz-basis: the HL7 FHIR logo (links to the
+     FHIR spec) in #family-nav, and the project logo in #project-nav.
+     fhir-logo-www.png is shipped by fhir2.base.template
+     (content/assets/images/), so it resolves from the inherited assets without
+     shipping it here. -->
+<div id="family-nav">
+  <a id="family-logo" no-external="true" href="https://hl7.org/fhir">
+    <img height="50" alt="HL7 FHIR" src="assets/images/fhir-logo-www.png"/>
+  </a>
+</div>
+<div id="project-nav">
+
+  <a id="project-logo" no-external="true" href="https://www.netzwerk-universitaetsmedizin.de/forschung/num-diz">
+
+    <img height="50" alt="NUM-DIZ (Netzwerk Universitätsmedizin — Datenintegrationszentrum)" src="assets/images/logo-num-diz-de.svg"/>
+
+  </a>
+
+</div>
+<!-- Font-size control (A / A+ / A++): three reader-selectable levels; level A
+     is the untouched default. Logic in assets/js/font-size-control.js, the
+     zoom mapping + button styling in template-base.css ("font-size control"
+     block). All three buttons read "A" — the button's own font size shows the level; labels are language-neutral; only the aria texts switch
+     on include.lang. REMOVAL: delete this block, the js file and the CSS
+     block - one commit, styleguide §5a. -->
+
+<div class="ig-fontsize" role="group" aria-label="Schriftgröße">
+  <button type="button" data-level="0" aria-pressed="true" aria-label="Schriftgröße: Standard">A</button>
+  <button type="button" data-level="1" aria-pressed="false" aria-label="Schriftgröße: größer">A</button>
+  <button type="button" data-level="2" aria-pressed="false" aria-label="Schriftgröße: am größten">A</button>
+</div>
+
+<script src="assets/js/font-size-control.js" defer></script>
+<!-- PayPal Bootstrap Accessibility Plugin v1.0.7 (vendored + pinned, §8):
+     patches the Bootstrap-3 components the publisher renders - navbar
+     dropdowns gain ARIA menu semantics + arrow-key navigation, tab panels
+     (structure-tabs) the full ARIA tabs pattern, alerts live-region
+     announcements. `defer` guarantees it executes AFTER the parser-inserted
+     bootstrap.min.js at the end of the body. Vendored from
+     paypal/bootstrap-accessibility-plugin @ v1.0.7 (the admin-ch fork was
+     evaluated and rejected: 151 commits behind upstream, its 6 deltas are
+     site-specific tab tweaks). REMOVAL: delete this tag, both vendored
+     assets and the fragment-css link - guard test pins the hashes. -->
+<script src="assets/js/bootstrap-accessibility.min.js" defer></script>
+<!-- Back-to-top button: appears after one viewport of scrolling (logic in
+     assets/js/back-to-top.js, styling in template-base.css "back-to-top"
+     block). Rendered here inside #segment-header, which is OUTSIDE the
+     data-fontsize zoom regions, so the fixed button never scales. REMOVAL:
+     this block, the js file and the CSS block - one commit, styleguide §8. -->
+
+<button type="button" class="ig-back-to-top" aria-label="Zurück zum Seitenanfang">↑</button>
+
+<script src="assets/js/back-to-top.js" defer></script>
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">MII IG Kerndatensatz-Modul Onkologie</span>
+            <br/>
+            <span style="display:inline-block;">2026.0.3 - 
+
+
+
+  <img alt="Germany Flagge" src="assets/images/deu.svg" height="16" title="Germany"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- German translation of input/includes/menu.xml.
+     Keep the href targets IDENTICAL to the source menu; translate only labels.
+     Structure notes (OPTIONAL entries, link-only entries, the interim
+     meta-wiki links) are documented in the source menu's header and in
+     docs/page-structure.md / docs/optional-pages.md. -->
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Startseite</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="guidance.html" class="dropdown-toggle">Anleitung<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="guidance.html">Anleitung</a></li>
+      <!-- OPTIONAL (0..1) — siehe docs/optional-pages.md -->
+      <li><a href="researcher-guidance.html">Anleitung für Forschende (optional)</a></li>
+      <li><a href="implementer-guidance.html">Anleitung für Implementierende</a></li>
+      <!-- Nur-Link-Eintrag: die Seite "Logische Modelle" (Begründung im Quell-Menü) -->
+      <li><a href="logical-models.html">Datensätze und Beschreibungen</a></li>
+      <li><a href="uml-diagrams.html">UML-Diagramme</a></li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <!-- Eltern-Eintrag und die ersten vier Einträge verlinken die KDS-weiten
+         Konformitätsregeln des Meta-Moduls (INTERIM: Meta-Wiki; siehe
+         Quell-Menü). -->
+    <a data-toggle="dropdown" href="https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki/Conformance" class="dropdown-toggle">Konformität<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki/Conformance">Konformität</a></li>
+      <li><a href="https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki/Conformance#anforderungsdokumentation">Allgemeine Anforderungen</a></li>
+      <li><a href="https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki/Conformance#must-support-ms">Must-Support</a></li>
+      <li><a href="https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki/Conformance#fehlende-daten">Umgang mit fehlenden Daten</a></li>
+      <li><a href="security-and-privacy.html">Sicherheit und Datenschutz</a></li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="artifacts.html" class="dropdown-toggle">Artefakte<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="artifacts.html">Artefakt-Übersicht</a></li>
+      <li><a href="profiles.html">Profile</a></li>
+      <!-- OPTIONAL (0..1) — siehe docs/optional-pages.md -->
+      <li><a href="extensions.html">Extensions (optional)</a></li>
+      <li><a href="capability-statements.html">CapabilityStatements</a></li>
+      <!-- OPTIONAL (0..1) — siehe docs/optional-pages.md -->
+      <li><a href="search-parameters.html">Suchparameter (optional)</a></li>
+      <!-- OPTIONAL (0..1) — siehe docs/optional-pages.md -->
+      <li><a href="operations.html">Operationen (optional)</a></li>
+      <li><a href="logical-models.html">Logische Modelle</a></li>
+      <!-- OPTIONAL (0..1) — siehe docs/optional-pages.md -->
+      <li><a href="value-sets.html">ValueSets (optional)</a></li>
+      <!-- OPTIONAL (0..1) — siehe docs/optional-pages.md -->
+      <li><a href="code-systems.html">CodeSystems (optional)</a></li>
+      <li><a href="examples.html">Beispiele</a></li>
+    </ul>
+  </li>
+  <li><a href="downloads.html">Downloads</a></li>
+  <li><a href="changes.html">Änderungshistorie</a></li>
+  <li class="dropdown">
+    <!-- Der Eltern-Eintrag verlinkt bewusst das PFLICHT-Kind (Versionierung):
+         die Metadaten-Übersicht ist optional. -->
+    <a data-toggle="dropdown" href="version-history.html" class="dropdown-toggle">Metadaten<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <!-- OPTIONAL (0..1) — siehe docs/optional-pages.md -->
+      <li><a href="metadata.html">Metadaten-Übersicht (optional)</a></li>
+      <li><a href="version-history.html">Versionierung</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+
+              
+
+
+
+
+<div style="float: var(--ig-right);padding: 8px 0px;" id="language">
+  <div id="select_flg" class="flaglist" style="background-image: url(assets/images/icon_arrow_down.png);background-position: 133px 3px;">
+    <div><img class="flag" alt="flag en" src="assets/images/lang-de.png"/>Deutsch</div>
+  </div>
+  <div style="float: var(--ig-right); margin: 2px 0px; padding: 1px 0;color: var(--btn-text-color);font-size:12px">Sprache:</div>
+ 	<div id="flaglist" class="flaglist" style="display: none;position: absolute;right: 0;z-index: 100;background-image: url(assets/images/icon_arrow_up.png);background-position: 133px 3px;">
+    <div><img class="flag" alt="flag de" src="assets/images/lang-de.png"/>Deutsch</div>
+
+    <div><a href="../en/value-sets.html"><img class="flag" src="assets/images/lang-en.png" alt="flag en"/>English</a></div>
+
+  </div>
+</div>
+
+
+
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Inhaltsverzeichnis</b></a></li><li><b>ValueSets</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">MII IG Kerndatensatz-Modul Onkologie - Local Development build (v2026.0.3) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>ValueSets</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#valuesets" id="markdown-toc-valuesets">ValueSets</a></li>
+  <li><a href="#terminologien-der-systemischen-therapie" id="markdown-toc-terminologien-der-systemischen-therapie">Terminologien der Systemischen Therapie</a></li>
+  <li><a href="#terminologien-der-weiteren-klassifikationen" id="markdown-toc-terminologien-der-weiteren-klassifikationen">Terminologien der Weiteren Klassifikationen</a></li>
+  <li><a href="#terminologie-bindungen-nach-datenbereich" id="markdown-toc-terminologie-bindungen-nach-datenbereich">Terminologie-Bindungen nach Datenbereich</a></li>
+</ul>
+
+</div>
+<!-- markdownlint-disable MD041 -->
+<!-- Deutsche Übersetzung von input/pagecontent/value-sets.md (aufgeteilt aus
+     der früheren Seite terminology.md gemäß der TF-KDS-abgestimmten Menüstruktur).
+     Der IG-Publisher listet die ValueSets auf den Artefakt-Seiten automatisch;
+     hier stehen die MII-Hinweise dazu. -->
+<!-- OPTIONAL-PAGE (0..1) — Marker entfernen, wenn die Seite BLEIBT; andernfalls
+     die Seite gemäß docs/optional-pages.md entfernen. Der Konventions-Check
+     (M9) lässt ein Release mit diesem Marker fehlschlagen. -->
+
+<blockquote class="ig-highlight ig-highlight-grey">
+  <p><strong>Optionale Seite (0..1).</strong> Das KDS-Modulmenü führt diese Seite als
+<em>optional</em>. Entscheiden Sie für Ihr Modul: Seite <strong>behalten</strong> — Inhalte
+ausfüllen und dieses Banner samt <code class="language-plaintext highlighter-rouge">OPTIONAL-PAGE</code>-Marker-Kommentar löschen (in
+dieser Datei UND in der englischen Quellseite) — oder Seite <strong>entfernen</strong>,
+nach der Schritt-für-Schritt-Anleitung in <a href="https://github.com/forschungsgruppe-digital-health/mii-kds-onko-ig-inoffiziell/blob/main/docs/optional-pages.md"><code class="language-plaintext highlighter-rouge">docs/optional-pages.md</code></a> dieses
+Repositories. Ein Release darf dieses Banner nicht enthalten
+(Konventions-Check M9).</p>
+</blockquote>
+
+<h3 id="valuesets">ValueSets</h3>
+
+<p>Diese Seite beschreibt die ValueSets des Moduls <strong>Onkologie</strong>
+(Namenskonvention <code class="language-plaintext highlighter-rouge">MII_VS_&lt;Modul&gt;_&lt;Name&gt;</code>). Allgemeine Hinweise zur Verwendung
+von Codes: siehe
+<a href="http://hl7.org/fhir/R4/terminologies.html">FHIR Terminology</a>; die
+zugrunde liegenden CodeSystems beschreibt die Seite
+<a href="code-systems.html">CodeSystems</a>.</p>
+
+<p class="bg-info"><strong>Expansionen:</strong> ValueSet-Expansionen dieses Leitfadens werden über einen
+FHIR-Terminologieserver erzeugt — über SU-TermServ, sofern das
+Client-Zertifikat konfiguriert ist, sonst über den öffentlichen HL7-Server
+<code class="language-plaintext highlighter-rouge">tx.fhir.org</code> (dann expandieren einige KDS-spezifische ValueSets ggf. nicht
+vollständig).</p>
+
+<blockquote class="ig-highlight ig-highlight-grey">
+  <p>[TODO: Falls Ihr Modul SNOMED CT nutzt, geben Sie die verwendete
+Edition/Version an. Listen Sie die modul-eigenen ValueSets auf oder verweisen
+Sie auf die automatisch erzeugte Artefakt-Liste — oder entfernen Sie diese
+Seite, wenn Ihr Modul keine definiert.]</p>
+</blockquote>
+
+<!-- source: Systemische-Therapie-Terminologien.page.md (Simplifier-Guide,
+     TechnischeImplementierung/FHIR-Profile/Systemische-Therapie/) — eine
+     Gruppenseite zur CodeSystem-/ValueSet-Familie der Systemischen Therapie und
+     daher hier als Abschnitt statt als Artefakt-Intro-Note. FQL-Blöcke, die
+     Name/Status/Version/Code-Anzahl abfragten, wurden entfernt - der
+     IG-Publisher stellt diese Angaben auf den Artefaktseiten dar. -->
+<h3 id="terminologien-der-systemischen-therapie">Terminologien der Systemischen Therapie</h3>
+
+<h4 id="übersicht">Übersicht</h4>
+
+<p>Die MII stellt <strong>kuratierte, onkologierelevante Terminologien</strong> für systemische Therapien bereit:</p>
+
+<ul>
+  <li><strong>Therapieprotokolle</strong>: 96 oBDS-basierte Standardprotokolle (<a href="https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-systemische-therapie-protokolle">CodeSystem</a>)</li>
+  <li><strong>ATC-Substanzen</strong>: Haupt-ValueSet + 8 jahresspezifische ValueSets (2018-2025)</li>
+  <li><strong>UNII-Substanzen</strong>: Für Wirkstoffe ohne ATC-Code (<a href="https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/ValueSet/mii-vs-onko-systemische-therapie-substanzen-unii">ValueSet</a>)</li>
+</ul>
+
+<p><strong>Wichtig</strong>: Die ValueSets enthalten nur onkologisch relevante Substanzen, nicht die vollständige ATC-Klassifikation.</p>
+
+<h4 id="therapieprotokolle">Therapieprotokolle</h4>
+
+<p>Die Protokolle stehen im CodeSystem <code class="language-plaintext highlighter-rouge">mii-cs-onko-systemische-therapie-protokolle</code>.</p>
+
+<p><strong>Beispiele häufiger Protokolle</strong>: FOLFOX, R-CHOP, AC, BEACOPP, ICE</p>
+
+<p>Neue Protokolle bitte unter <a href="https://github.com/medizininformatik-initiative/kerndatensatzmodul-onkologie/issues">GitHub Issues</a> einreichen.</p>
+
+<h4 id="atc-substanzen">ATC-Substanzen</h4>
+
+<h5 id="haupt-valueset-aktuelle-codes">Haupt-ValueSet (Aktuelle Codes)</h5>
+
+<p>Die aktuellen Codes stehen im ValueSet <code class="language-plaintext highlighter-rouge">mii-vs-onko-systemische-therapie-substanzen</code>.</p>
+
+<h5 id="jahresspezifische-valuesets">Jahresspezifische ValueSets</h5>
+
+<p>Für die Validierung historischer Daten stehen jahresspezifische ValueSets zur Verfügung:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Jahr</th>
+      <th>ValueSet</th>
+      <th>Canonical URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025</td>
+      <td>mii-vs-onko-systemische-therapie-substanzen-2025</td>
+      <td><a href="https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/ValueSet/mii-vs-onko-systemische-therapie-substanzen-2025">Link</a></td>
+    </tr>
+    <tr>
+      <td>2024</td>
+      <td>mii-vs-onko-systemische-therapie-substanzen-2024</td>
+      <td><a href="https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/ValueSet/mii-vs-onko-systemische-therapie-substanzen-2024">Link</a></td>
+    </tr>
+    <tr>
+      <td>2023</td>
+      <td>mii-vs-onko-systemische-therapie-substanzen-2023</td>
+      <td><a href="https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/ValueSet/mii-vs-onko-systemische-therapie-substanzen-2023">Link</a></td>
+    </tr>
+    <tr>
+      <td>2022</td>
+      <td>mii-vs-onko-systemische-therapie-substanzen-2022</td>
+      <td><a href="https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/ValueSet/mii-vs-onko-systemische-therapie-substanzen-2022">Link</a></td>
+    </tr>
+    <tr>
+      <td>2021</td>
+      <td>mii-vs-onko-systemische-therapie-substanzen-2021</td>
+      <td><a href="https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/ValueSet/mii-vs-onko-systemische-therapie-substanzen-2021">Link</a></td>
+    </tr>
+    <tr>
+      <td>2020</td>
+      <td>mii-vs-onko-systemische-therapie-substanzen-2020</td>
+      <td><a href="https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/ValueSet/mii-vs-onko-systemische-therapie-substanzen-2020">Link</a></td>
+    </tr>
+    <tr>
+      <td>2019</td>
+      <td>mii-vs-onko-systemische-therapie-substanzen-2019</td>
+      <td><a href="https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/ValueSet/mii-vs-onko-systemische-therapie-substanzen-2019">Link</a></td>
+    </tr>
+    <tr>
+      <td>2018</td>
+      <td>mii-vs-onko-systemische-therapie-substanzen-2018</td>
+      <td><a href="https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/ValueSet/mii-vs-onko-systemische-therapie-substanzen-2018">Link</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="atc-code-transitionen">ATC-Code Transitionen</h5>
+
+<p>Die deutsche ATC-Klassifikation wird jährlich aktualisiert. <strong>Beispiel Quizartinib</strong> (FLT3-Inhibitor):</p>
+
+<ul>
+  <li><strong>Bis 31.12.2020</strong>: <code class="language-plaintext highlighter-rouge">L01XE52</code></li>
+  <li><strong>Ab 01.01.2021</strong>: <code class="language-plaintext highlighter-rouge">L01EX11</code></li>
+</ul>
+
+<p><strong>Kodierungsempfehlung</strong>: Verwenden Sie den ATC-Code, der zum Therapiezeitpunkt gültig war. Bei Unsicherheit kann alternativ der UNII-Code verwendet werden.</p>
+
+<p>Weitere Beispiele: Abemaciclib (L01XE50 → L01EF03), Acalabrutinib (L01XE51 → L01EL02).</p>
+
+<h5 id="post-hoc-annotation-von-freitext">Post-hoc Annotation von Freitext</h5>
+
+<p>DIZ <strong>dürfen</strong> historische Freitext-Medikationsdaten nachträglich auf ATC-Codes mappen, wenn:</p>
+
+<ol>
+  <li><strong>Provenance dokumentiert</strong> wird (nachträgliche Kodierung kennzeichnen)</li>
+  <li><strong>Aktuelle ATC-Codes</strong> verwendet werden (nicht historische)</li>
+  <li><strong>Originaltext erhalten</strong> bleibt in <code class="language-plaintext highlighter-rouge">medicationCodeableConcept.text</code></li>
+</ol>
+
+<details>
+<summary>Beispiel: Post-Annotation</summary>
+
+```fsh
+Instance: mii-exa-onko-medikation-quizartinib-postannotated
+InstanceOf: MII_PR_Onko_Systemische_Therapie_Medikation
+
+* status = #completed
+* subject = Reference(Patient/example)
+* medicationCodeableConcept.coding[atcClassDe] = $atc-de#L01EX11 "Quizartinib"
+* medicationCodeableConcept.text = "Quizartinib (Original: Freitext aus oBDS)"
+* effectivePeriod.start = "2020-09-15"  // Therapie vor Code-Änderung
+* effectivePeriod.end = "2020-12-15"
+```
+
+</details>
+
+<h4 id="unii-substanzen">UNII-Substanzen</h4>
+
+<p>Die UNII-Codes stehen im ValueSet <code class="language-plaintext highlighter-rouge">mii-vs-onko-systemische-therapie-substanzen-unii</code>.</p>
+
+<h5 id="substanzen-ohne-verfügbare-codes">Substanzen ohne verfügbare Codes</h5>
+
+<p>Die folgenden oBDS-Einträge haben weder ATC- noch UNII-Codes:</p>
+
+<ul>
+  <li><strong>EmboCept, Embozene, Hepasphere</strong>: Embolisations-Mikrosphären</li>
+  <li><strong>GcMAF</strong>: Gc protein-derived macrophage activating factor</li>
+  <li><strong>G-CSF</strong>: Granulocyte colony-stimulating factor (generische Bezeichnung)</li>
+  <li><strong>Studienmedikament</strong>: Generische Platzhalter-Bezeichnung</li>
+</ul>
+
+<p>→ Verwenden Sie <code class="language-plaintext highlighter-rouge">Coding.text</code> mit Freitext.</p>
+
+<p><strong>Neu verfügbar:</strong> <strong>Dinatriumfolinat</strong> ist nun als <strong>LEUCOVORIN SODIUM</strong> (UNII: 4MXU9LJS4Q) im UNII ValueSet und als <strong>Natriumfolinat</strong> (ATC: V03AF06) in den ATC ValueSets verfügbar.</p>
+
+<details>
+<summary>Besondere Hinweise zu UNII-Substanzen (Klicken zum Aufklappen)</summary>
+
+- **OLAPTESED PEGOL** (UNII: MTM792B442): Oft nur als "Olaptesed" dokumentiert
+- **GEBASAXTUREV** (UNII: 4B57CWT710): Auch bekannt als "Coxsackievirus A21"
+- **Daromun**: Entspricht **DARLEUKIN** (UNII: 2OQ3OPV2F8) oder **ONFEKAFUSP ALFA** (UNII: 6HXC0O6JMV)
+- **Fibromun**: Entspricht **ONFEKAFUSP ALFA** (UNII: 6HXC0O6JMV)
+- **LONCASTUXIMAB TESIRINE** (UNII: 7K5O7P6QIU): oBDS-Tippfehler "Ioncastuzimab tesiren"
+- **NIDANILIMAB** (UNII: ND296JF21I): In oBDS als "Nadunolimab" gelistet
+- **HUMAN PARVOVIRUS B19** (UNII: 94N635564T): Möglicherweise nicht identisch mit "Parvovirus H1"
+- **PACLITAXEL** (UNII: P88XT4IS4D): oBDS meint wahrscheinlich "nab-Paclitaxel" (separate UNII möglich)
+- **CYTARABINE** (UNII: 04079A1RDZ): oBDS meint wahrscheinlich liposomale Formulierung
+- **DEPATUXIZUMAB** (UNII: W984C353CG): Ohne "mafodotin"-Teil (Toxin)
+
+</details>
+
+<h4 id="terminologie-binding-in-profilen">Terminologie-Binding in Profilen</h4>
+
+<p><strong>Procedure (Protokoll)</strong>:</p>
+
+<pre><code class="language-fsh">* usedCode from MII_VS_Onko_Systemische_Therapie_Protokolle (extensible)
+</code></pre>
+
+<p><strong>MedicationStatement (Substanz)</strong>:</p>
+
+<pre><code class="language-fsh">* medicationCodeableConcept from MII_VS_Onko_Systemische_Therapie_Substanzen (extensible)
+</code></pre>
+
+<!-- source: Weitere-Klassifikationen-Terminologien.page.md (Simplifier-Guide,
+     TechnischeImplementierung/FHIR-Profile/Weitere-Klassifikationen/) — eine
+     Gruppenseite, die die CodeSystem- und ValueSet-Familie hinter dem Profil
+     Weitere Klassifikationen beschreibt; sie landet daher hier als Abschnitt und
+     nicht als Intro-Note eines Artefakts (der Quelltext spricht weiterhin von
+     "dieser Seite"). FQL-Blöcke, die Konzepte, ValueSets und Profilelemente
+     aufgelistet haben, wurden entfernt; der IG Publisher stellt diese auf den
+     Artefaktseiten dar. -->
+<h3 id="terminologien-der-weiteren-klassifikationen">Terminologien der Weiteren Klassifikationen</h3>
+
+<p>Diese Seite dokumentiert die Terminologien für weitere Klassifikationen in der Onkologie, einschließlich hämatologischer und organspezifischer Staging-Systeme.</p>
+
+<!-- DERIVED:bridge source=Weitere-Klassifikationen-Terminologien.page.md gate=B -->
+<blockquote class="ig-highlight ig-highlight-blue">
+  <p><strong>Written during migration - review before release.</strong> Dieser Abschnitt behandelt
+nur die Terminologie-Artefakte. Das Profil, das sie bindet, ist auf einer eigenen
+Seite dokumentiert: <a href="StructureDefinition-mii-pr-onko-weitere-klassifikationen.html">Weitere Klassifikationen</a>;
+dessen Intro beschreibt die Klassifikationssysteme klinisch und stellt das
+code+method+value-Pattern vollständig dar.</p>
+</blockquote>
+
+<h4 id="hintergrund">Hintergrund</h4>
+
+<!-- Quelldefekt, unverändert übernommen: dieser Absatz bricht zweimal mitten im
+     Satz ab ("... oder Ann Arbor bei" und "Die Plattform 65c stellt"), schreibt
+     "Nottingham" als "Nottigham", und der erste Satz ist in der Quelle
+     grammatikalisch defekt ("definiert ... aus"). Bei der Migration nicht
+     korrigiert - bitte prüfen. -->
+<p>Der oBDS definiert hauptsächlich TNM als Stagingsystem aus, viele weitere krankheits- ode rorganspezifischen Staging- und Gradingsysteme werden im oBDS über das Freitextfeld Weitere Klassifikationen abgebildet. Dazu gehören z.B. das Nottigham Grading beim Brustkrebs oder Ann Arbor bei
+Die Plattform 65c stellt
+Einige der Staging-Systeme sind international gebräuchlich und bereits in CodeSystems wie SNOMED-CT und NCIt/UMLS enthalten, während andere primär im deutschen/deutschsprachigen Kontext verwendet werden.</p>
+
+<p>Auch wenn für einige Staging-Systeme ein SNOMED-Code vorhanden ist und dieser für die Interoperabilität besser ist als ein eigenen CodeSystem, haben wir uns für die Abbildung gemäß des oBDS entschieden, da ggfs. die Daten an den Standorten direkt in diesem Format vorliegen. Eine SNOMED-Annotierung kann hier in zukünftigen Versionen via ConceptMaps angestrebt werden.</p>
+
+<h4 id="hierarchisches-codesystem-für-klassifikationssysteme">Hierarchisches CodeSystem für Klassifikationssysteme</h4>
+
+<p>Das <strong>Weitere Klassifikationen CodeSystem</strong> nutzt eine hierarchische Struktur zur Organisation verschiedener Staging- und Klassifikationssysteme. Es wird als <code class="language-plaintext highlighter-rouge">mii-cs-onko-weitere-klassifikationen-obds</code> veröffentlicht.</p>
+
+<!-- Quelldefekt: die Quellseite führt die Überschriften "Struktur des
+     hierarchischen Ansatzes" und "Alle Klassifikationssysteme (Elternkonzepte)"
+     ohne jeden Inhalt - die Konzeptliste wurde nie geschrieben. Die leeren
+     Überschriften wurden weggelassen; die DERIVED-Zusammenfassung unten nennt den
+     Inhalt der veröffentlichten Artefakte. -->
+
+<h4 id="valuesets-mit-descendant-of-filter">ValueSets mit descendant-of Filter</h4>
+
+<p>Die ValueSets nutzen <strong>descendant-of Filter</strong> für wartbare Terminologie-Verwaltung.</p>
+
+<!-- Quelldefekt: die Quellseite nennt mii-vs-onko-weitere-klassifikationen das
+     "Haupt-ValueSet für alle Klassifikationswerte" und bezeichnet den Filter-
+     Operator als "descendant-of". In den veröffentlichten Artefakten liegen die
+     Klassifikationswerte in mii-vs-onko-weitere-klassifikationen-auspraegungen,
+     der Filter-Operator ist "is-a", und mii-vs-onko-weitere-klassifikationen
+     enthält die Klassifikationssysteme. Bei der Migration nicht korrigiert -
+     bitte prüfen. -->
+
+<!-- DERIVED:summary source=Weitere-Klassifikationen-Terminologien.page.md gate=B -->
+<blockquote class="ig-highlight ig-highlight-blue">
+  <p><strong>Written during migration - review before release.</strong> Die Quellseite hat die
+Konzepte und die ValueSets über generierte Abfragen aufgelistet, die nicht in
+diesen Guide übernommen werden. Die veröffentlichte Familie besteht aus: dem
+CodeSystem
+<a href="CodeSystem-mii-cs-onko-weitere-klassifikationen-obds.html">Weitere Klassifikationen oBDS</a>,
+das 20 Klassifikationssysteme als oberste Konzepte und deren 161
+Klassifikationswerte als Unterkonzepte enthält; dem ValueSet
+<a href="ValueSet-mii-vs-onko-weitere-klassifikationen.html">Weitere Klassifikationen</a>,
+das die Klassifikationssysteme selbst aus SNOMED CT und dem NCI Thesaurus
+aufzählt; und dem ValueSet
+<a href="ValueSet-mii-vs-onko-weitere-klassifikationen-auspraegungen.html">Weitere Klassifikationen - Auspraegungen</a>,
+das die Werte je Klassifikationssystem über einen Filter auf das oBDS-CodeSystem
+auswählt. Überschrift und Einleitungssatz oben geben die Quellseite wieder, die
+die Werte dem ersten der beiden ValueSets zuordnet und den Filter-Operator
+<code class="language-plaintext highlighter-rouge">descendant-of</code> nennt - bitte vor dem Release abgleichen.</p>
+</blockquote>
+
+<h4 id="mcode-stu4-pattern-integration">mCODE STU4 Pattern Integration</h4>
+
+<p>Die Implementierung folgt dem <strong>mCODE STU4 code+method+value Pattern</strong>.</p>
+
+<p><strong>Beispiel-Implementierung:</strong></p>
+
+<!-- Quelldefekt, unverändert übernommen: der Block unten nennt die Instanz
+     mii-exa-onko-weitere-klassifikationen-binet und den Alias
+     $mii-cs-onko-weitere-klassifikationen; die veröffentlichten Artefakte sind
+     mii-exa-onko-weitere-klassifikationen-4 und das CodeSystem
+     mii-cs-onko-weitere-klassifikationen-obds. Bei der Migration nicht korrigiert -
+     bitte prüfen. -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Instance: mii-exa-onko-weitere-klassifikationen-binet
+InstanceOf: MII_PR_Onko_Weitere_Klassifikationen
+
+// Allgemeiner Code für Staging
+* code = $sct#385388004 "Tumorstadium-Befund"
+
+// Spezifische Methode
+* method = $mii-cs-onko-weitere-klassifikationen#binet "BINET Staging System"
+
+// Tatsächlicher Wert
+* valueCodeableConcept = $mii-cs-onko-weitere-klassifikationen#binet-a "BINET A"
+</code></pre></div></div>
+
+<h4 id="mapping-zu-obds">Mapping zu oBDS</h4>
+
+<p>Die Weitere Klassifikationen entsprechen dem <strong>oBDS Feld 9 "Weitere Klassifikationen"</strong>.</p>
+
+<h4 id="snomed-ct-mappings">SNOMED CT Mappings</h4>
+
+<p>Für einige Klassifikationssysteme existieren SNOMED CT Äquivalente:</p>
+
+<ul>
+  <li>BINET → SNOMED CT: 1149214008 (Binet chronic lymphocytic leukemia staging)</li>
+  <li>Ann Arbor → SNOMED CT: 254373007 (Ann Arbor lymphoma staging)</li>
+  <li>WHO Grade → SNOMED CT: 277612008 (WHO tumor grade)</li>
+</ul>
+
+<h4 id="beispiele">Beispiele</h4>
+
+<ul>
+  <li>FIGO Stadium IVB (Ovariale Tumore): <a href="Observation-mii-exa-onko-weitere-klassifikationen-1.html">mii-exa-onko-weitere-klassifikationen-1</a></li>
+  <li>Ann Arbor Stadium IIIX: <a href="Observation-mii-exa-onko-weitere-klassifikationen-2.html">mii-exa-onko-weitere-klassifikationen-2</a></li>
+  <li>FIGO Grad 2: <a href="Observation-mii-exa-onko-weitere-klassifikationen-3.html">mii-exa-onko-weitere-klassifikationen-3</a></li>
+</ul>
+
+<!-- source: Terminologien.page.md (Simplifier-Guide,
+     TechnischeImplementierung/Terminologien.page.md) — ValueSet-relevanter Teil;
+     die Terminologien selbst beschreibt code-systems.md. -->
+<h3 id="terminologie-bindungen-nach-datenbereich">Terminologie-Bindungen nach Datenbereich</h3>
+
+<!-- DERIVED:summary source=Terminologien.page.md gate=B -->
+<blockquote class="ig-highlight ig-highlight-blue">
+  <p><strong>Written during migration - review before release.</strong> Verdichtet aus der
+Seite <em>Terminologien</em> des Quell-Guides, die jede Terminologie ausführlich auf
+der Seite <a href="code-systems.html">CodeSystems</a> beschreibt. An welche Terminologie
+die ValueSets je Datenbereich binden:</p>
+
+  <ul>
+    <li>Primärdiagnose, Vorerkrankungen und Todesursache — ICD-10-GM; das Modul
+folgt hier bewusst den Vorgaben des oBDS und nicht der ICD-10-WHO, die das
+BfArM für Todesursachen empfiehlt</li>
+    <li>Lokalisierung des Primärtumors — ICD-O-3 Topographie; die morphologische
+Beschaffenheit — ICD-O-3 Morphologie</li>
+    <li>operative Prozeduren — OPS</li>
+    <li>Medikation der systemischen Therapie — ATC, mit UNII als zweitem System für
+Substanzen ohne etablierten ATC-Code; deshalb erlaubt das
+SystemischeTherapie-MedicationStatement-Profil eine duale Kodierung (die
+ValueSets listet der Abschnitt oben)</li>
+    <li>Nebenwirkungen — CTCAE im Nebenwirkungsprofil; MedDRA deckt den weiteren
+Umfang aus Pharmazeutika, Biologika, Vakzinen und
+Arzneimittel/Geräte-Kombinationen ab</li>
+    <li>Tumorstadium — die TNM-Klassifikation in ihrer 8. Auflage, herausgegeben
+zusammen mit der Union for International Cancer Control (UICC)</li>
+    <li>Codes und Maßeinheiten von Observations — LOINC, SNOMED-CT und UCUM</li>
+  </ul>
+</blockquote>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+  <script type="text/javascript" src="assets/js/flags.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+
+
+
+          IG © 2021+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.netzwerk-universitaetsmedizin.de">NUM-DIZ</a>.  
+          Package de.medizininformatikinitiative.kerndatensatz.onkologie#2026.0.3 basiert auf <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
+          Erstellt <span title="Sat, Aug 22, 2026 22:11+0000">2026-08-22</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+            <!-- Branding override for the fhir2.base.template footer fragment.
+     Unlike header/css, the base footer fragment is NOT an empty placeholder: it
+     renders "Links: Table of Contents | QA Report [| feedback dashboards]".
+     The base uses site.data.stringsBase[include.lang][...] for the labels. The
+     reason this override supplies its own is the Imprint label: the base ships no
+     stringsBase key for it and a child template cannot add one (docs/styleguide.md
+     section 6), and the same include.lang branch then has to carry the other
+     labels too. (The blank-label problem that first motivated this is separately
+     mitigated: this repo vendors the base's own German catalogs into
+     translations/ — see translations/README.md.) The override preserves the base
+     links (TOC, QA, feedback dashboards) and appends the project information links.
+     NUM-DIZ takes over IG development and maintenance when MII funding ends
+     (end-2026), so the NUM-DIZ website link renders BEFORE the MII website link —
+     in BOTH brand designs and both languages; the MII links stay because the
+     modules remain MII content. Both anchors are the SITE ROOTS with the bare
+     domain as anchor text (TF-KDS feedback 2026-08-14: aligned anchor style;
+     domains are language-neutral, styleguide §6).
+     Imprint: points at the NUM-DIZ website's legal pages since 2026-08-14
+     (TF-KDS: NUM-DIZ takes over from MII in 2027, so legal-aspect links use
+     the NUM-DIZ counterpart where one exists) - German /impressum and English
+     /en/legal-notice (both verified HTTP 200 on 2026-08-14). -->
+
+          Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Inhaltsverzeichnis</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="../qa.html">QA-Bericht</a>
+                 
+                 | <a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://www.netzwerk-universitaetsmedizin.de/">netzwerk-universitaetsmedizin.de</a>
+                 | <a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://www.medizininformatik-initiative.de/">medizininformatik-initiative.de</a>
+                 | <a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://www.netzwerk-universitaetsmedizin.de/impressum">Impressum</a>
+                 <br/>
+                 <!-- HL7 trademark attribution (required wherever the FHIR flame
+                      renders - the header shows it on every page; see HL7's
+                      trademark guidelines; permission request tracked in issue #109). The sentence is
+                      HL7's prescribed formula and stays in English on every
+                      language's pages (legal wording, styleguide §6). -->
+                 <span>HL7®, FHIR® and the FHIR flame design are registered trademarks of Health Level Seven International. Their use does not constitute endorsement by HL7.</span>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

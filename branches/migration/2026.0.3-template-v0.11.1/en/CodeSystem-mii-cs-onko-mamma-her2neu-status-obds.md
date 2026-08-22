@@ -1,0 +1,92 @@
+# MII CS Onkologie Mamma Her2neu Status oBDS - MII IG Kerndatensatz-Modul Onkologie v2026.0.3
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **MII CS Onkologie Mamma Her2neu Status oBDS**
+
+## CodeSystem: MII CS Onkologie Mamma Her2neu Status oBDS 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-mamma-her2neu-status-obds | *Version*:2026.0.3 |
+| Active as of 2026-08-22 | *Computable Name*:MII_CS_Onko_Mamma_Her2neu_Status_oBDS |
+
+ 
+oBDS-spezifisches Codesystem für Her2neu Status gemäß oBDS Feld M4 (243) 
+
+This Code system is referenced in the definition of the following value sets:
+
+* [MII VS Onkologie Mamma Her2neu Status oBDS](ValueSet-mii-vs-onko-mamma-her2neu-status-obds.md)
+
+-------
+
+ [Description of the above table(s)](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#terminology). 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "CodeSystem",
+  "id" : "mii-cs-onko-mamma-her2neu-status-obds",
+  "meta" : {
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablecodesystem"]
+  },
+  "url" : "https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-mamma-her2neu-status-obds",
+  "version" : "2026.0.3",
+  "name" : "MII_CS_Onko_Mamma_Her2neu_Status_oBDS",
+  "title" : "MII CS Onkologie Mamma Her2neu Status oBDS",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2026-08-22T22:11:44+00:00",
+  "publisher" : "NUM-DIZ",
+  "_publisher" : {
+    "extension" : [{
+      "extension" : [{
+        "url" : "lang",
+        "valueCode" : "de"
+      },
+      {
+        "url" : "content",
+        "valueString" : "NUM-DIZ"
+      }],
+      "url" : "http://hl7.org/fhir/StructureDefinition/translation"
+    }]
+  },
+  "contact" : [{
+    "name" : "NUM-DIZ",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.netzwerk-universitaetsmedizin.de"
+    }]
+  }],
+  "description" : "oBDS-spezifisches Codesystem für Her2neu Status gemäß oBDS Feld M4 (243)",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "DE",
+      "display" : "Germany"
+    }]
+  }],
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 3,
+  "concept" : [{
+    "code" : "P",
+    "display" : "positiv",
+    "definition" : "Positiv: IHC +++ (Score 3+) oder IHC ++ (Score 2+) und ISH (FISH, CISH o. Ä.) positiv"
+  },
+  {
+    "code" : "N",
+    "display" : "negativ",
+    "definition" : "Negativ"
+  },
+  {
+    "code" : "U",
+    "display" : "unbekannt",
+    "definition" : "Unbekannt"
+  }]
+}
+
+```

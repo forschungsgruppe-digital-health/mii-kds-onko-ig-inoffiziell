@@ -1,0 +1,1 @@
+The extension on Operation was necessary because the oBDS's own codes cannot otherwise be represented: the binding of the [Durchführungsabsicht](https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/StructureDefinition/Durchfuehrungsabsicht) extension introduced by the MII for the same purpose is too strong.
