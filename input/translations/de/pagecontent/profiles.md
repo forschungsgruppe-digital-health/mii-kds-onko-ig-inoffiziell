@@ -4,7 +4,6 @@
      TF-KDS-Menüstruktur — eine Seite je Artefakt-Typ). -->
 Diese Seite listet die FHIR-Profile des Moduls **Onkologie**. Als
 Ausgangspunkt liefert die Vorlage ein minimales Beispielprofil,
-[Example Patient](StructureDefinition-example-patient.html) — ersetzen Sie es
 durch die Profile Ihres Moduls (Namenskonvention `MII_PR_<Modul>_<Name>`, siehe
 [`docs/recipes/add-a-profile.md`](https://github.com/forschungsgruppe-digital-health/mii-kds-onko-ig-inoffiziell/blob/main/docs/recipes/add-a-profile.md) in diesem Repository sowie die
 MII-Namenskonventionen). Die Extensions des Moduls stehen auf der Seite
