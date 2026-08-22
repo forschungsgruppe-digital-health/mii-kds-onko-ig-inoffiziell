@@ -1,12 +1,13 @@
 id	layer	check	verdict	subject	evidence	autofix	action
 C1-933e2d	conservation	C1	IDENTISCH	488 source artefacts	all present in fsh-generated, matched by id or canonical url (source: fsh-generated/resources)	-	-
-C2-bd3456	conservation	C2	NICHT PRUEFBAR	artifact index	no rendered output with an artifacts.html under output	-	build the IG (step 7), then re-run verification
+C2-2bc470	conservation	C2	IDENTISCH	/private/tmp/claude-503/-Users-marcel-Development-cross-hub-patientportal/e2e22580-543a-4bf5-88cc-83677866f38a/scratchpad/onko-pages/branches/migration/2026.0.3-template-v0.11.1/de (488 artefacts)	every generated resource is rendered and listed in artifacts.html	-	-
+C2-5f27fb	conservation	C2	IDENTISCH	/private/tmp/claude-503/-Users-marcel-Development-cross-hub-patientportal/e2e22580-543a-4bf5-88cc-83677866f38a/scratchpad/onko-pages/branches/migration/2026.0.3-template-v0.11.1/en (488 artefacts)	every generated resource is rendered and listed in artifacts.html	-	-
 C3-5cae38	conservation	C3	NICHT PRUEFBAR	1 source pages	no page map at ./migration-log/page-map.tsv	-	write step 5's ledger: source_page<TAB>target_page|RETIRED<TAB>reason
 C4-ef59ff	conservation	C4	DIVERGIERT	index.md	1 of 1 PROSE runs of the source page are in no target page (first: # MII IG Modul Onkologie Feel free to modify this index page…)	-	map the missing text to a target page section, or record the loss in the report's content map
 C5-f09e26	conservation	C5	IDENTISCH	input/includes/menu.xml	all 29 menu entries resolve to a real page	-	-
 C5-d64c1f	conservation	C5	IDENTISCH	input/translations/de/includes/menu.xml	all 29 menu entries resolve to a real page	-	-
 C5-f01ede	conservation	C5	IDENTISCH	21 narrative pages	every one is reachable from a menu entry	-	-
-C5-2d86b5	conservation	C5	NICHT PRUEFBAR	target pages without a source counterpart	no page map at ./migration-log/page-map.tsv; 1 target page(s) are not the template's (ImplementationGuide-mii-ig-onko)	-	write step 5's ledger, then re-run: only it says which target page each source page became
+C5-2d86b5	conservation	C5	NICHT PRUEFBAR	target pages without a source counterpart	no page map at ./migration-log/page-map.tsv; 1 target page(s) are not the template's (ImplementationGuide-mii-ig-onko-de-v2026)	-	write step 5's ledger, then re-run: only it says which target page each source page became
 C7-b2b947	conservation	C7	NICHT PRUEFBAR	marker source= values	106 marker(s) to resolve, but no page map at migration-log/page-map.tsv to resolve them against	-	write step 5's ledger (source_page<TAB>target_page|RETIRED<TAB>reason); until it exists, a marker's source= names a page nothing can confirm
 C7-c16051	conservation	C7	NICHT PRUEFBAR	unmarked derived content	1 source page(s) lost prose (C4), but no page map at migration-log/page-map.tsv says which target page replaced them	-	write step 5's ledger, then re-run: without it the page that would have to carry the marker is unknown
 C7-331cdf	conservation	C7	IDENTISCH	106 derived-content marker(s)	both language mirrors carry it (de, default-language) (migration-log/derived-content.tsv). The markers are review items, not defects: they are queue 2 rows, and whether any may remain at publication is a Gate-D decision (spec section 9d).	-	-
@@ -31,17 +32,20 @@ F2-047205	fidelity	F2	NICHT PRUEFBAR	hl7.fhir.uv.extensions.r4	target-only depen
 F2-8f9355	fidelity	F2	NICHT PRUEFBAR	hl7.terminology.r4	target-only dependency 7.3.0 (not in the source)	-	confirm at Gate A that this is template machinery (hl7.fhir.uv.crmi is) and not an accidental addition
 F3-1a29c4	fidelity	F3	IDENTISCH	license	CC0-1.0 asserted from tier P (package/package.json)	-	-
 F4-e7fa94	fidelity	F4	IDENTISCH	368 FSH files	no fhir_comments rules, no whitespace-bearing code references	-	-
-P1-8d8889	provenance	P1	NICHT PRUEFBAR	rendered template version	no `Templates:` line in the rendered qa.html (qa.html not found)	-	build the IG (step 7); the rendered output is the only place this value can be READ rather than assumed
+P1-fded0e	provenance	P1	IDENTISCH	template	rendered de.medizininformatikinitiative.template#1.3.2 == vendored de.medizininformatikinitiative.template#1.3.2	-	-
 P2-264584	provenance	P2	IDENTISCH	vendored template ref	v0.11.1 == latest release v0.11.1	-	-
-P3-a28a47	provenance	P3	NICHT PRUEFBAR	IG Publisher version	no `IG Publisher Version:` in the rendered qa output	-	build the IG (step 7)
+P3-a28a47	provenance	P3	IDENTISCH	IG Publisher version	2.3.2 == the workflow pin	-	-
 P4-379bde	provenance	P4	NICHT PRUEFBAR	source guide version	no `?version=` recorded in the run log or the harvest manifest	-	record the pinned, PUBLISHED guide version like the source commit SHA (spec 5.1c.3)
-R1-32a7b3	rendering	R1	NICHT PRUEFBAR	rendered output	no built site under output	-	build the IG (step 7); rendering integrity is not a property of the sources
-R2-9639ec	rendering	R2	NICHT PRUEFBAR	rendered output	no built site under output	-	build the IG (step 7); rendering integrity is not a property of the sources
-R3-f02a27	rendering	R3	NICHT PRUEFBAR	rendered output	no built site under output	-	build the IG (step 7); rendering integrity is not a property of the sources
+R1-c9a75b	rendering	R1	IDENTISCH	/private/tmp/claude-503/-Users-marcel-Development-cross-hub-patientportal/e2e22580-543a-4bf5-88cc-83677866f38a/scratchpad/onko-pages/branches/migration/2026.0.3-template-v0.11.1/de	tables, tabs and images all non-empty and resolvable	-	-
+R2-d9eac4	rendering	R2	DIVERGIERT	/private/tmp/claude-503/-Users-marcel-Development-cross-hub-patientportal/e2e22580-543a-4bf5-88cc-83677866f38a/scratchpad/onko-pages/branches/migration/2026.0.3-template-v0.11.1/de id="ig-status" [{{]	on 1 page(s), e.g. searchform.html: Search {{title}} (Current Build)	-	rendered header/footer metadata defect -- qa.txt does not report it. Fix the metadata it renders (a jurisdiction code the template cannot resolve is the measured case)
+R1-d38d9f	rendering	R1	IDENTISCH	/private/tmp/claude-503/-Users-marcel-Development-cross-hub-patientportal/e2e22580-543a-4bf5-88cc-83677866f38a/scratchpad/onko-pages/branches/migration/2026.0.3-template-v0.11.1/en	tables, tabs and images all non-empty and resolvable	-	-
+R2-53bae0	rendering	R2	DIVERGIERT	/private/tmp/claude-503/-Users-marcel-Development-cross-hub-patientportal/e2e22580-543a-4bf5-88cc-83677866f38a/scratchpad/onko-pages/branches/migration/2026.0.3-template-v0.11.1/en id="ig-status" [{{]	on 1 page(s), e.g. searchform.html: Search {{title}} (Current Build)	-	rendered header/footer metadata defect -- qa.txt does not report it. Fix the metadata it renders (a jurisdiction code the template cannot resolve is the measured case)
+R1-76f413	rendering	R1	NICHT PRUEFBAR	source-versus-target rendering	no harvested source HTML (./migration-log/guide-harvest/html) and/or no page map	-	harvest with --keep-html and write the page map; without a source rendering, 'non-empty where non-empty in the source' has no reference
+R3-2552c4	rendering	R3	IDENTISCH	/private/tmp/claude-503/-Users-marcel-Development-cross-hub-patientportal/e2e22580-543a-4bf5-88cc-83677866f38a/scratchpad/onko-pages/branches/migration/2026.0.3-template-v0.11.1/de	all 21 narrative pages differ from the default language	-	-
 R4-84ad62	rendering	R4	IDENTISCH	template example links	none, over 1 token(s) from template-artifacts.tsv (verified against template package 1.3.2)	-	-
-R5-de10c7	rendering	R5	IDENTISCH	input/translations/de/ImplementationGuide-mii-ig-onko.po	a translated unit for every one of the 22 page titles	-	-
-L0-28d3e4	log	L0	IDENTISCH	./migration-log/run.log	166 parsed lines, 1 runs	-	-
-L1-72b929	log	L1	IDENTISCH	silent-partial-success WARNs	the log carries none across 166 lines	-	-
+R5-86955d	rendering	R5	IDENTISCH	input/translations/de/ImplementationGuide-mii-ig-onko-de-v2026.po	a translated unit for every one of the 22 page titles	-	-
+L0-28d3e4	log	L0	IDENTISCH	./migration-log/run.log	214 parsed lines, 1 runs	-	-
+L1-72b929	log	L1	IDENTISCH	silent-partial-success WARNs	the log carries none across 214 lines	-	-
 L2-0e48db	log	L2	IDENTISCH	1 preflight-analysis	present in the log	-	-
 L2-5e1c48	log	L2	IDENTISCH	pre.2 classify-source-shape	present in the log	-	-
 L2-4fd559	log	L2	IDENTISCH	pre.5 toolchain	present in the log	-	-
@@ -74,4 +78,4 @@ L3-fac1a0	log	L3	DIVERGIERT	identity field title	2 unresolved contradiction WARN
 L3-8766f8	log	L3	IDENTISCH	identity ledger	migration-log/identity-claims.tsv present, 31 claim(s)	-	-
 L4-106e61	log	L4	NICHT PRUEFBAR	conversion count	no `gofsh-convert … actual=` line in the log	-	shape B only; for shape A there is nothing to convert
 L4-f17740	log	L4	NICHT PRUEFBAR	page count	no harvested count in the log and/or no harvest manifest	-	harvest the guide (step 2c) where the narrative is not in the repo
-L4-40cf60	log	L4	NICHT PRUEFBAR	artifact count	no rendered artifacts.html to count	-	build the IG (step 7)
+L4-40cf60	log	L4	IDENTISCH	artifact count	artifacts.html lists 488 for 488 generated resources	-	-
