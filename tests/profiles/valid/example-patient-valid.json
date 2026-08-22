@@ -3,7 +3,7 @@
   "id": "example-patient-valid",
   "meta": {
     "profile": [
-      "https://www.medizininformatik-initiative.de/fhir/modul-{{MODULE_SLUG}}/StructureDefinition/example-patient"
+      "https://www.medizininformatik-initiative.de/fhir/modul-onko/StructureDefinition/example-patient"
     ],
     "security": [
       {

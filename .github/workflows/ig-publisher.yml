@@ -441,6 +441,11 @@ jobs:
           rm -rf "${branch_dir}"
           mkdir -p "${branch_dir}"
           cp -R "output/." "${branch_dir}/"
+          # GitHub rejects any single file above 100 MB, and this module's
+          # full-ig.zip is 142 MB, so the whole preview push was declined.
+          # The preview is for READING the guide; the bulk downloads are not
+          # part of that, and the package is published by the release flow.
+          find "${branch_dir}" -type f -size +95M -print -delete
           # Marker consumed by cleanup-gh-pages.yml to detect deleted branches.
           echo "${BRANCH}" > "${branch_dir}/.branch-name"
           cd gh-pages

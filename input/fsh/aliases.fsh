@@ -1,97 +1,110 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Aliases shared by every .fsh file in this module.
-//
-// Ported from kerndatensatz-basis (main): input/fsh/aliases.fsh — reduced to the
-// entries that are MODULE-INDEPENDENT. basis's module-specific blocks (Diagnose,
-// Fall, Person: $Vitalstatus, $Abteilungsfallklasse, $Aufnahmegrund, …) are
-// deliberately NOT here; add the ones your module actually binds.
-//
-// An `Alias:` is plain text substitution — SUSHI replaces `$name` with the URL
-// before parsing, so aliases work in any rule, in any file of the project. Keep
-// them here rather than per file: a duplicate alias with a different value is a
-// SUSHI error, and one list makes the module's terminology surface reviewable.
-//
-// NOT here on purpose (declared next to the RuleSet that uses them, exactly as
-// in basis — do not re-declare them):
-//   $exp                    → input/fsh/rulesets/cps-rules.fsh
-//   $spdx-license           → input/fsh/rulesets/license-terms.fsh
-//   $v3-ActReason           → input/fsh/rulesets/test-data-label.fsh
-//   $artifact-versionAlgorithm, $version-algorithm → input/fsh/rulesets/version.fsh
-// ─────────────────────────────────────────────────────────────────────────────
+// DE Basisprofile
+ Alias: $icd-seitenlokalisation = https://fhir.kbv.de/CodeSystem/KBV_CS_SFHIR_ICD_SEITENLOKALISATION
 
-// ── SNOMED CT ────────────────────────────────────────────────────────────────
-// $sct pins the SNOMED CT International release bound to this MII CalVer line;
-// $sct-no-ver is the plain system URI for instance-level codings.
-//
-// The MII binds each CalVer release to ONE SNOMED CT International release so
-// that ValueSet expansions are reproducible — MII meta wiki, "Terminology
-// Version Policy" (https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki/Terminology-Version-Policy):
-//
-//   MII release (CalVer) | SNOMED CT International release | version string
-//   v2025.*              | 2024-07-01 | http://snomed.info/sct/900000000000207008/version/20240701
-//   v2026.*              | 2025-07-01 | http://snomed.info/sct/900000000000207008/version/20250701
-//
-// The value below is the verified v2026.* pin (this template's dependencies are
-// pinned to the 2026 line). When your module moves to a later CalVer line, look
-// the release up in that wiki table and update BOTH this alias and
-// input/resources/Parameters-expansion-manifest.json — do not guess.
-// Note the policy applies to ValueSet expansion; MII profiles do not currently
-// require Coding.version for SNOMED CT in instance data.
-Alias: $sct = http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250701
-Alias: $sct-no-ver = http://snomed.info/sct
+// MII KDS
+Alias: $mii-procedure  = https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/StructureDefinition/Procedure
 
-// ── Further code systems used across MII modules ─────────────────────────────
-Alias: $loinc = http://loinc.org
-Alias: $icd-10 = http://hl7.org/fhir/sid/icd-10
-Alias: $icd-10-gm = http://fhir.de/CodeSystem/bfarm/icd-10-gm
-Alias: $icd-o-3 = http://terminology.hl7.org/CodeSystem/icd-o-3
-Alias: $alpha-id = http://fhir.de/CodeSystem/bfarm/alpha-id
-Alias: $alpha-id-vs = http://fhir.de/ValueSet/bfarm/alpha-id
-Alias: $ops = http://fhir.de/CodeSystem/bfarm/ops
-Alias: $orpha = http://www.orpha.net
-
-// ── HL7 terminology ──────────────────────────────────────────────────────────
-Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
-Alias: $v3-ObservationValue = http://terminology.hl7.org/CodeSystem/v3-ObservationValue
-Alias: $v3-ActCode = http://terminology.hl7.org/CodeSystem/v3-ActCode
-Alias: $v3-ActPriority = http://terminology.hl7.org/CodeSystem/v3-ActPriority
+// FHIR Core
+Alias: $EventStatus = http://hl7.org/fhir/event-status
+Alias: $condition-ver-status = http://terminology.hl7.org/CodeSystem/condition-ver-status
+Alias: $verification-status-vs = http://hl7.org/fhir/ValueSet/condition-ver-status
 Alias: $observation-category = http://terminology.hl7.org/CodeSystem/observation-category
+Alias: $condition-clinical = http://terminology.hl7.org/CodeSystem/condition-clinical
+Alias: $request-status = http://hl7.org/fhir/request-status
+Alias: $request-intent = http://hl7.org/fhir/request-intent
+Alias: $care-plan-activity-status = http://hl7.org/fhir/care-plan-activity-status
+Alias: $observation-interpretation = http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
+// Code Systems
+Alias: $CTCAE = http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl
+Alias: $OPS = http://fhir.de/CodeSystem/bfarm/ops
+Alias: $SCT = http://snomed.info/sct
+Alias: $ICD10GM = http://fhir.de/CodeSystem/bfarm/icd-10-gm
+Alias: $ICDO3 = http://terminology.hl7.org/CodeSystem/icd-o-3
+Alias: $LNC = http://loinc.org
+Alias: $UICC = https://www.uicc.org/resources/tnm
+Alias: $UCUM =  http://unitsofmeasure.org
+Alias: $ATC_DE = http://fhir.de/CodeSystem/bfarm/atc
+Alias: $UNII = http://fdasis.nlm.nih.gov
+Alias: $NCIT =  http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl
+Alias: $RADLEX = http://radlex.org
+Alias: $MEDDRA = https://www.meddra.org
 
-// ── German base profiles (de.basisprofil.r4, a pinned dependency) ────────────
-Alias: $identifier-type-de-basis = http://fhir.de/CodeSystem/identifier-type-de-basis
-Alias: $gender-amtlich-de = http://fhir.de/CodeSystem/gender-amtlich-de
-Alias: $ags = http://fhir.de/sid/destatis/ags
+//MII Onko
+//Allgemeines CodeSystem
+Alias: $mii-cs-onko-intention = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-intention
+Alias: $mii-cs-onko-therapie-stellungzurop = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-therapie-stellungzurop
+Alias: $mii-cs-onko-therapie-ende-grund = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-therapie-ende-grund
+Alias: $mii-cs-onko-therapie-typ = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-therapie-typ
+Alias: $mii-cs-onko-residualstatus = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-residualstatus
 
-// ── FHIR core extensions / MII cross-module ──────────────────────────────────
-Alias: $data-absent-reason = http://hl7.org/fhir/StructureDefinition/data-absent-reason
-Alias: $MII-Reference = https://www.medizininformatik-initiative.de/fhir/core/StructureDefinition/MII-Reference
+//05
+Alias: $mii-cs-onko-primaertumor-diagnosesicherung = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-primaertumor-diagnosesicherung
+Alias: $mii-cs-onko-seitenlokalisation = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-seitenlokalisation
+//06
+Alias: $mii-cs-onko-grading = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-grading
 
-// ── CRMI (hl7.fhir.uv.crmi, a pinned dependency) ─────────────────────────────
-// The full basis block. The profiles are claimed via the RuleSets in
-// input/fsh/rulesets/crmi.fsh; these aliases let you reference them directly.
-Alias: $crmi-license = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-license
-Alias: $crmi-license-detail = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-licenseDetail
-Alias: $crmi-manifestlibrary = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary
-Alias: $crmi-manifestparameters = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestparameters
-Alias: $crmi-referenceSource = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource
-Alias: $crmi-softwaresystem = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem
-//Alias: $crmi-artifact-signature = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifact-signature
-Alias: $crmi-shareableimplementationguide = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableimplementationguide
-Alias: $crmi-publishableimplementationguide = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableimplementationguide
-Alias: $crmi-shareablestructuredefinition = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablestructuredefinition
-Alias: $crmi-publishablestructuredefinition = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablestructuredefinition
-Alias: $crmi-shareablevalueset = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset
-Alias: $crmi-computablevalueset = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablevalueset
-Alias: $crmi-publishablevalueset = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset
-Alias: $crmi-expandedvalueset = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-expandedvalueset
-Alias: $crmi-shareablecodesystem = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecodesystem
-Alias: $crmi-publishablecodesystem = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablecodesystem
-Alias: $crmi-shareablecapabilitystatement = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecapabilitystatement
-Alias: $crmi-publishablecapabilitystatement = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablecapabilitystatement
-Alias: $crmi-shareablesearchparameter = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablesearchparameter
-Alias: $crmi-publishablesearchparameter = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablesearchparameter
-Alias: $crmi-publishable-bundle = http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishable-bundle
-Alias: $crmi-release-version-behavior-codes = http://hl7.org/fhir/uv/crmi/CodeSystem/crmi-release-version-behavior-codes
-Alias: $crmi-release-experimental-behavior-codes = http://hl7.org/fhir/uv/crmi/CodeSystem/crmi-release-experimental-behavior-codes
-Alias: $crmi-release-version-behavior = http://hl7.org/fhir/uv/crmi/ValueSet/crmi-release-version-behavior
-Alias: $crmi-release-experimental-behavior = http://hl7.org/fhir/uv/crmi/ValueSet/crmi-release-experimental-behavior
+//08
+Alias: $mii-cs-onko-tnm-version = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-tnm-version
+
+//13
+Alias: $mii-cs-onko-operation-komplikation = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-operation-komplikation
+Alias: $mii-cs-onko-operation-urgency = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-operation-urgency
+
+//14
+Alias: $mii-cs-onko-strahlentherapie-strahlenart = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-strahlentherapie-strahlenart
+Alias: $mii-cs-onko-strahlentherapie-applikationsart = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-strahlentherapie-applikationsart
+Alias: $mii-cs-onko-strahlentherapie-zielgebiet = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-strahlentherapie-zielgebiet
+Alias: $mii-cs-onko-strahlentherapie-zielgebiet-2014 = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-strahlentherapie-zielgebiet-2014
+Alias: $mii-cs-onko-strahlentherapie-boost = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-strahlentherapie-boost
+Alias: $mii-ex-onko-strahlentherapie-intention = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/StructureDefinition/mii-ex-onko-strahlentherapie-intention
+Alias: $mii-ex-onko-strahlentherapie-bestrahlung = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/StructureDefinition/mii-ex-onko-strahlentherapie-bestrahlung
+Alias: $mii-ex-onko-strahlentherapie-stellungzurop = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/StructureDefinition/mii-ex-onko-strahlentherapie-stellungzurop
+
+//16
+Alias: $mii-cs-onko-systemische-therapie-protokolle = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-systemische-therapie-protokolle
+Alias: $mii-ex-onko-systemische-therapie-intention = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/StructureDefinition/mii-ex-onko-systemische-therapie-intention
+Alias: $mii-ex-onko-systemische-therapie-stellungzurop = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/StructureDefinition/mii-ex-onko-systemische-therapie-stellungzurop
+
+//10
+
+//11
+Alias: $mii-cs-onko-fernmetastasen = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-fernmetastasen
+
+//12
+
+//09
+Alias: $mii-cs-onko-weitere-klassifikationen-obds = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-weitere-klassifikationen-obds
+Alias: $mii-cs-onko-allgemeiner-leistungszustand-ecog = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-allgemeiner-leistungszustand-ecog
+Alias: $mii-cs-onko-allgemeiner-leistungszustand-karnofsky = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-allgemeiner-leistungszustand-karnofsky
+
+//15
+Alias: $mii-cs-onko-nebenwirkung-ctcae-grad = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-nebenwirkung-ctcae-grad
+
+//20
+Alias: $mii-cs-onko-tod = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-tod
+
+//18-19
+Alias: $mii-cs-onko-therapieplanung-typ = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-therapieplanung-typ
+Alias: $mii-cs-onko-therapieabweichung = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-therapieabweichung
+
+//17
+Alias: $mii-cs-onko-verlauf-gesamtbeurteilung = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-verlauf-gesamtbeurteilung
+Alias: $mii-cs-onko-verlauf-primaertumor = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-verlauf-primaertumor
+Alias: $mii-cs-onko-verlauf-lymphknoten = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-verlauf-lymphknoten
+Alias: $mii-cs-onko-verlauf-fernmetastasen = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-verlauf-fernmetastasen
+
+//23
+Alias: $mii-cs-onko-genetische-variante-auspraegung = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-genetische-variante-auspraegung
+
+//24
+Alias: $mii-cs-onko-studienteilnahme = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-studienteilnahme
+
+//Prostata
+Alias: $mii-vs-onko-prostata-gleason-primary-secondary-tertiary = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/ValueSet/mii-vs-onko-prostata-gleason-primary-secondary-tertiary
+Alias: $mii-vs-onko-prostata-gleason-patterns = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/ValueSet/mii-vs-onko-prostata-gleason-patterns
+Alias: $mii-cs-onko-prostata-postsurgical-complications = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/CodeSystem/mii-cs-onko-prostata-postsurgical-complications
+
+Alias: $mii-vs-onko-prostata-postsurgical-complications = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/ValueSet/mii-vs-onko-prostata-postsurgical-complications
+Alias: $mii-vs-onko-prostata-clavien-dindo = https://www.medizininformatik-initiative.de/fhir/ext/modul-onko/ValueSet/mii-vs-onko-prostata-clavien-dindo
+// licenses
+Alias: $spdx-license = http://hl7.org/fhir/spdx-license

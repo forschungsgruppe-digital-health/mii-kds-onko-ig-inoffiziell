@@ -1,0 +1,81 @@
+id	layer	check	verdict	subject	evidence	autofix	action
+C1-933e2d	conservation	C1	IDENTISCH	488 source artefacts	all present in fsh-generated, matched by id or canonical url (source: fsh-generated/resources)	-	-
+C2-2bc470	conservation	C2	IDENTISCH	/private/tmp/claude-503/-Users-marcel-Development-cross-hub-patientportal/e2e22580-543a-4bf5-88cc-83677866f38a/scratchpad/onko-pages/branches/migration/2026.0.3-template-v0.11.1/de (488 artefacts)	every generated resource is rendered and listed in artifacts.html	-	-
+C2-5f27fb	conservation	C2	IDENTISCH	/private/tmp/claude-503/-Users-marcel-Development-cross-hub-patientportal/e2e22580-543a-4bf5-88cc-83677866f38a/scratchpad/onko-pages/branches/migration/2026.0.3-template-v0.11.1/en (488 artefacts)	every generated resource is rendered and listed in artifacts.html	-	-
+C3-5cae38	conservation	C3	NICHT PRUEFBAR	1 source pages	no page map at ./migration-log/page-map.tsv	-	write step 5's ledger: source_page<TAB>target_page|RETIRED<TAB>reason
+C4-ef59ff	conservation	C4	DIVERGIERT	index.md	1 of 1 PROSE runs of the source page are in no target page (first: # MII IG Modul Onkologie Feel free to modify this index page…)	-	map the missing text to a target page section, or record the loss in the report's content map
+C5-f09e26	conservation	C5	IDENTISCH	input/includes/menu.xml	all 29 menu entries resolve to a real page	-	-
+C5-d64c1f	conservation	C5	IDENTISCH	input/translations/de/includes/menu.xml	all 29 menu entries resolve to a real page	-	-
+C5-f01ede	conservation	C5	IDENTISCH	21 narrative pages	every one is reachable from a menu entry	-	-
+C5-2d86b5	conservation	C5	NICHT PRUEFBAR	target pages without a source counterpart	no page map at ./migration-log/page-map.tsv; 1 target page(s) are not the template's (ImplementationGuide-mii-ig-onko-de-v2026)	-	write step 5's ledger, then re-run: only it says which target page each source page became
+C7-b2b947	conservation	C7	NICHT PRUEFBAR	marker source= values	106 marker(s) to resolve, but no page map at migration-log/page-map.tsv to resolve them against	-	write step 5's ledger (source_page<TAB>target_page|RETIRED<TAB>reason); until it exists, a marker's source= names a page nothing can confirm
+C7-c16051	conservation	C7	NICHT PRUEFBAR	unmarked derived content	1 source page(s) lost prose (C4), but no page map at migration-log/page-map.tsv says which target page replaced them	-	write step 5's ledger, then re-run: without it the page that would have to carry the marker is unknown
+C7-331cdf	conservation	C7	IDENTISCH	106 derived-content marker(s)	both language mirrors carry it (de, default-language) (migration-log/derived-content.tsv). The markers are review items, not defects: they are queue 2 rows, and whether any may remain at publication is a Gate-D decision (spec section 9d).	-	-
+F1-093008	fidelity	F1	IDENTISCH	id	mii-ig-onko-de-v2026 (identical to the source)	-	-
+F1-bacf3c	fidelity	F1	IDENTISCH	packageId	de.medizininformatikinitiative.kerndatensatz.onkologie (identical to the source)	-	-
+F1-489e82	fidelity	F1	IDENTISCH	canonical	https://www.medizininformatik-initiative.de/fhir/ext/modul-o… (identical to the source)	-	-
+F1-6cbfea	fidelity	F1	IDENTISCH	version	2026.0.3 (identical to the source)	-	-
+F1-8a3995	fidelity	F1	IDENTISCH	status	active (identical to the source)	-	-
+F1-b5b102	fidelity	F1	IDENTISCH	title	MII IG Kerndatensatz-Modul Onkologie (identical to the source)	-	-
+F1-7bae24	fidelity	F1	IDENTISCH	license	CC0-1.0 (identical to the source)	-	-
+F1-5451f2	fidelity	F1	IDENTISCH	publisher	target NUM-DIZ (template >= v1.1 publisher chrome, spec 2.2); source declared Medizininformatik Initiative -- deliberately not carried	-	-
+F1-f60f40	fidelity	F1	IDENTISCH	fhirVersion	4.0.1 (identical to the source)	-	-
+F2-d14403	fidelity	F2	DIVERGIERT	de.basisprofil.r4	target 1.5.4  vs  source pin 1.5.x (the source tree (--source))	-	the source pin is the evidence; a registry dist-tag is not. Restore the pin or make the bump a Gate-A decision
+F2-0519f5	fidelity	F2	DIVERGIERT	de.medizininformatikinitiative.kerndatensatz.base	target 2026.0.1  vs  source pin 2026.0.x (the source tree (--source))	-	the source pin is the evidence; a registry dist-tag is not. Restore the pin or make the bump a Gate-A decision
+F2-ce5cda	fidelity	F2	DIVERGIERT	de.medizininformatikinitiative.kerndatensatz.meta	target 2026.0.0  vs  source pin 2026.0.x (the source tree (--source))	-	the source pin is the evidence; a registry dist-tag is not. Restore the pin or make the bump a Gate-A decision
+F2-6bfac0	fidelity	F2	NICHT PRUEFBAR	de.medizininformatikinitiative.kerndatensatz.biobank	target-only dependency 2026.0.0 (not in the source)	-	confirm at Gate A that this is template machinery (hl7.fhir.uv.crmi is) and not an accidental addition
+F2-fb1c14	fidelity	F2	NICHT PRUEFBAR	de.medizininformatikinitiative.kerndatensatz.medikation	target-only dependency 2026.0.1 (not in the source)	-	confirm at Gate A that this is template machinery (hl7.fhir.uv.crmi is) and not an accidental addition
+F2-60512e	fidelity	F2	NICHT PRUEFBAR	de.medizininformatikinitiative.kerndatensatz.molgen	target-only dependency 2026.0.4 (not in the source)	-	confirm at Gate A that this is template machinery (hl7.fhir.uv.crmi is) and not an accidental addition
+F2-ec259d	fidelity	F2	NICHT PRUEFBAR	de.medizininformatikinitiative.kerndatensatz.studie	target-only dependency 2026.0.2 (not in the source)	-	confirm at Gate A that this is template machinery (hl7.fhir.uv.crmi is) and not an accidental addition
+F2-fd0e73	fidelity	F2	NICHT PRUEFBAR	hl7.fhir.uv.crmi	target-only dependency 2.0.0 (not in the source)	-	confirm at Gate A that this is template machinery (hl7.fhir.uv.crmi is) and not an accidental addition
+F2-047205	fidelity	F2	NICHT PRUEFBAR	hl7.fhir.uv.extensions.r4	target-only dependency 5.3.0 (not in the source)	-	confirm at Gate A that this is template machinery (hl7.fhir.uv.crmi is) and not an accidental addition
+F2-8f9355	fidelity	F2	NICHT PRUEFBAR	hl7.terminology.r4	target-only dependency 7.3.0 (not in the source)	-	confirm at Gate A that this is template machinery (hl7.fhir.uv.crmi is) and not an accidental addition
+F3-1a29c4	fidelity	F3	IDENTISCH	license	CC0-1.0 asserted from tier P (package/package.json)	-	-
+F4-e7fa94	fidelity	F4	IDENTISCH	368 FSH files	no fhir_comments rules, no whitespace-bearing code references	-	-
+P1-fded0e	provenance	P1	IDENTISCH	template	rendered de.medizininformatikinitiative.template#1.3.2 == vendored de.medizininformatikinitiative.template#1.3.2	-	-
+P2-264584	provenance	P2	IDENTISCH	vendored template ref	v0.11.1 == latest release v0.11.1	-	-
+P3-a28a47	provenance	P3	IDENTISCH	IG Publisher version	2.3.2 == the workflow pin	-	-
+P4-379bde	provenance	P4	NICHT PRUEFBAR	source guide version	no `?version=` recorded in the run log or the harvest manifest	-	record the pinned, PUBLISHED guide version like the source commit SHA (spec 5.1c.3)
+R1-c9a75b	rendering	R1	IDENTISCH	/private/tmp/claude-503/-Users-marcel-Development-cross-hub-patientportal/e2e22580-543a-4bf5-88cc-83677866f38a/scratchpad/onko-pages/branches/migration/2026.0.3-template-v0.11.1/de	tables, tabs and images all non-empty and resolvable	-	-
+R2-d9eac4	rendering	R2	DIVERGIERT	/private/tmp/claude-503/-Users-marcel-Development-cross-hub-patientportal/e2e22580-543a-4bf5-88cc-83677866f38a/scratchpad/onko-pages/branches/migration/2026.0.3-template-v0.11.1/de id="ig-status" [{{]	on 1 page(s), e.g. searchform.html: Search {{title}} (Current Build)	-	rendered header/footer metadata defect -- qa.txt does not report it. Fix the metadata it renders (a jurisdiction code the template cannot resolve is the measured case)
+R1-d38d9f	rendering	R1	IDENTISCH	/private/tmp/claude-503/-Users-marcel-Development-cross-hub-patientportal/e2e22580-543a-4bf5-88cc-83677866f38a/scratchpad/onko-pages/branches/migration/2026.0.3-template-v0.11.1/en	tables, tabs and images all non-empty and resolvable	-	-
+R2-53bae0	rendering	R2	DIVERGIERT	/private/tmp/claude-503/-Users-marcel-Development-cross-hub-patientportal/e2e22580-543a-4bf5-88cc-83677866f38a/scratchpad/onko-pages/branches/migration/2026.0.3-template-v0.11.1/en id="ig-status" [{{]	on 1 page(s), e.g. searchform.html: Search {{title}} (Current Build)	-	rendered header/footer metadata defect -- qa.txt does not report it. Fix the metadata it renders (a jurisdiction code the template cannot resolve is the measured case)
+R1-76f413	rendering	R1	NICHT PRUEFBAR	source-versus-target rendering	no harvested source HTML (./migration-log/guide-harvest/html) and/or no page map	-	harvest with --keep-html and write the page map; without a source rendering, 'non-empty where non-empty in the source' has no reference
+R3-2552c4	rendering	R3	IDENTISCH	/private/tmp/claude-503/-Users-marcel-Development-cross-hub-patientportal/e2e22580-543a-4bf5-88cc-83677866f38a/scratchpad/onko-pages/branches/migration/2026.0.3-template-v0.11.1/de	all 21 narrative pages differ from the default language	-	-
+R4-84ad62	rendering	R4	IDENTISCH	template example links	none, over 1 token(s) from template-artifacts.tsv (verified against template package 1.3.2)	-	-
+R5-86955d	rendering	R5	IDENTISCH	input/translations/de/ImplementationGuide-mii-ig-onko-de-v2026.po	a translated unit for every one of the 22 page titles	-	-
+L0-28d3e4	log	L0	IDENTISCH	./migration-log/run.log	214 parsed lines, 1 runs	-	-
+L1-72b929	log	L1	IDENTISCH	silent-partial-success WARNs	the log carries none across 214 lines	-	-
+L2-0e48db	log	L2	IDENTISCH	1 preflight-analysis	present in the log	-	-
+L2-5e1c48	log	L2	IDENTISCH	pre.2 classify-source-shape	present in the log	-	-
+L2-4fd559	log	L2	IDENTISCH	pre.5 toolchain	present in the log	-	-
+L2-541189	log	L2	IDENTISCH	5.1 source-inventory	present in the log	-	-
+L2-9a6da6	log	L2	IDENTISCH	2.1 read-identity	present in the log	-	-
+L2-23b069	log	L2	IDENTISCH	2.1 package-identity	present in the log	-	-
+L2-7163a2	log	L2	IDENTISCH	2.1 repo-identity	present in the log	-	-
+L2-07bdbb	log	L2	NICHT PRUEFBAR	5.1c simplifier-discover	no line in the log; the step is conditional (no rendered-IG URL was supplied)	-	confirm the condition did not hold -- Without the discovery chain the guide is not found, and a migration then ships the template's starter pages.
+L2-930ba2	log	L2	NICHT PRUEFBAR	5.1d guide-harvest	no line in the log; the step is conditional (the narrative is not in the repository)	-	confirm the condition did not hold -- This is the step whose absence shipped the template's starter pages under a module's name.
+L2-666ef6	log	L2	IDENTISCH	5.2 skeleton-vendored	present in the log	-	-
+L2-200a9d	log	L2	IDENTISCH	5.2 sushi-skeleton	present in the log	-	-
+L2-9a700e	log	L2	IDENTISCH	5.3 transfer-artefacts	present in the log	-	-
+L2-8fadca	log	L2	IDENTISCH	5.4 fql-scan	present in the log	-	-
+L2-ec69ec	log	L2	NICHT PRUEFBAR	5.4a optional-page-decisions	no line in the log; the step is conditional (target template >= v0.8)	-	confirm the condition did not hold -- The seven OPTIONAL (0..1) pages must each be decided — keep (banner + marker deleted, both languages) or remove per the template's procedure (spec §9a); the template's M9 fails a module release while undecided, and a migration with no line here silently shipped seven "decide me" banners.
+L2-b6ec8c	log	L2	NICHT PRUEFBAR	5.4b security-privacy-decision	no line in the log; the step is conditional (target template >= v0.8)	-	confirm the condition did not hold -- Stage 3 of security-and-privacy: module aspects written or the default text adopted, and the scaffold's Person example + ILLUSTRATIVE-EXAMPLE marker deleted in both languages (spec §9a); the template's M11 fails a release branch while it is present.
+L2-254dc3	log	L2	IDENTISCH	5.4c page-routing	present in the log	-	-
+L2-21c0ec	log	L2	IDENTISCH	5.4d derived-scan	present in the log	-	-
+L2-a85d96	log	L2	NICHT PRUEFBAR	5.5 gen-page-title-po	no line in the log; the step is conditional (bilingual target)	-	confirm the condition did not hold -- Page titles fall back to the default language with no error anywhere.
+L2-619c38	log	L2	IDENTISCH	5.6 sushi-build	present in the log	-	-
+L2-a60619	log	L2	IDENTISCH	5.6 ig-publisher	present in the log	-	-
+L2-d8144d	log	L2	IDENTISCH	5.6a sibling-skill-check	present in the log	-	-
+L2-3b5912	log	L2	IDENTISCH	11 verify-migration	present in the log	-	-
+L3-117415	log	L3	DIVERGIERT	identity field dependency:de.basisprofil.r4	1 unresolved contradiction WARN(s), first at 2026-08-22T19:43:18Z: identity-contradiction: field=dependency:de.basisprofil.r4 now=1.5.4 (tier R, sushi-config.yaml + registry res…	-	unresolved at verification time. It is a Gate-A decision, never a precedence puzzle to settle mechanically -- record it with a `decision:` line naming the field
+L3-e74aae	log	L3	DIVERGIERT	identity field dependency:de.medizininformatikinitiative.kerndatensatz.base	1 unresolved contradiction WARN(s), first at 2026-08-22T19:43:18Z: identity-contradiction: field=dependency:de.medizininformatikinitiative.kerndatensatz.base now=2026.0.1 (tier …	-	unresolved at verification time. It is a Gate-A decision, never a precedence puzzle to settle mechanically -- record it with a `decision:` line naming the field
+L3-b02d70	log	L3	DIVERGIERT	identity field dependency:de.medizininformatikinitiative.kerndatensatz.biobank	1 unresolved contradiction WARN(s), first at 2026-08-22T19:43:18Z: identity-contradiction: field=dependency:de.medizininformatikinitiative.kerndatensatz.biobank now=2026.0.1 (ti…	-	unresolved at verification time. It is a Gate-A decision, never a precedence puzzle to settle mechanically -- record it with a `decision:` line naming the field
+L3-525d25	log	L3	DIVERGIERT	identity field dependency:de.medizininformatikinitiative.kerndatensatz.medikation	1 unresolved contradiction WARN(s), first at 2026-08-22T19:43:18Z: identity-contradiction: field=dependency:de.medizininformatikinitiative.kerndatensatz.medikation now=2026.0.1 …	-	unresolved at verification time. It is a Gate-A decision, never a precedence puzzle to settle mechanically -- record it with a `decision:` line naming the field
+L3-dce37c	log	L3	DIVERGIERT	identity field dependency:de.medizininformatikinitiative.kerndatensatz.meta	1 unresolved contradiction WARN(s), first at 2026-08-22T19:43:18Z: identity-contradiction: field=dependency:de.medizininformatikinitiative.kerndatensatz.meta now=2026.0.0 (tier …	-	unresolved at verification time. It is a Gate-A decision, never a precedence puzzle to settle mechanically -- record it with a `decision:` line naming the field
+L3-b2c4cd	log	L3	DIVERGIERT	identity field dependency:de.medizininformatikinitiative.kerndatensatz.molgen	1 unresolved contradiction WARN(s), first at 2026-08-22T19:43:18Z: identity-contradiction: field=dependency:de.medizininformatikinitiative.kerndatensatz.molgen now=2026.0.4 (tie…	-	unresolved at verification time. It is a Gate-A decision, never a precedence puzzle to settle mechanically -- record it with a `decision:` line naming the field
+L3-fac1a0	log	L3	DIVERGIERT	identity field title	2 unresolved contradiction WARN(s), first at 2026-08-22T19:41:44Z: identity-contradiction: field=title now=MII Kerndatensatz Modul Onkologie (tier R, README.md first heading) vs…	-	unresolved at verification time. It is a Gate-A decision, never a precedence puzzle to settle mechanically -- record it with a `decision:` line naming the field
+L3-8766f8	log	L3	IDENTISCH	identity ledger	migration-log/identity-claims.tsv present, 31 claim(s)	-	-
+L4-106e61	log	L4	NICHT PRUEFBAR	conversion count	no `gofsh-convert … actual=` line in the log	-	shape B only; for shape A there is nothing to convert
+L4-f17740	log	L4	NICHT PRUEFBAR	page count	no harvested count in the log and/or no harvest manifest	-	harvest the guide (step 2c) where the narrative is not in the repo
+L4-40cf60	log	L4	IDENTISCH	artifact count	artifacts.html lists 488 for 488 generated resources	-	-

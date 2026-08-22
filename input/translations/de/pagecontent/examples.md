@@ -1,5 +1,5 @@
 <!-- markdownlint-disable MD041 -->
-Diese Seite führt die Beispielinstanzen des Moduls **{{MODULE_TITLE}}** auf. Die
+Diese Seite führt die Beispielinstanzen des Moduls **Onkologie** auf. Die
 Vorlage enthält das synthetische Beispiel
 [Max Mustermann-Testpatient](Patient-ExamplePatientInstance.html).
 
