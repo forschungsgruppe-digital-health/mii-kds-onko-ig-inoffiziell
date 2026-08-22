@@ -224,7 +224,7 @@ Other representations of profile: [CSV](../StructureDefinition-mii-pr-onko-syste
   "name" : "MII_PR_Onko_Systemische_Therapie",
   "title" : "MII PR Onkologie Systemische Therapie",
   "status" : "active",
-  "date" : "2026-08-22T22:11:44+00:00",
+  "date" : "2026-08-22T22:31:14+00:00",
   "publisher" : "NUM-DIZ",
   "_publisher" : {
     "extension" : [{

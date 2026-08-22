@@ -7,8 +7,8 @@
   "status" : "active",
   "package-id" : "de.medizininformatikinitiative.kerndatensatz.onkologie",
   "ig-ver" : "2026.0.3",
-  "date" : "Sat, 22 Aug, 2026 22:11:44 +0000",
-  "dateISO8601" : "2026-08-22T22:11:44+00:00",
+  "date" : "Sat, 22 Aug, 2026 22:31:14 +0000",
+  "dateISO8601" : "2026-08-22T22:31:14+00:00",
   "errs" : 480,
   "warnings" : 2328,
   "hints" : 12231,
@@ -16,5 +16,5 @@
   "suppressed-warnings" : 0,
   "version" : "4.0.1",
   "tool" : "5.0.0 (3)",
-  "maxMemory" : 6381991448
+  "maxMemory" : 6382609224
 }

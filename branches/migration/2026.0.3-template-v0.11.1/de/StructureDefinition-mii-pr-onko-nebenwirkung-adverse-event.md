@@ -114,7 +114,7 @@ Weitere Repräsentationen des Profils: [CSV](../StructureDefinition-mii-pr-onko-
   "name" : "MII_PR_Onko_Nebenwirkung_Adverse_Event",
   "title" : "MII PR Onkologie Nebenwirkung von Strahlentherapie und systemische Therapie",
   "status" : "active",
-  "date" : "2026-08-22T22:11:44+00:00",
+  "date" : "2026-08-22T22:31:14+00:00",
   "publisher" : "NUM-DIZ",
   "_publisher" : {
     "extension" : [{

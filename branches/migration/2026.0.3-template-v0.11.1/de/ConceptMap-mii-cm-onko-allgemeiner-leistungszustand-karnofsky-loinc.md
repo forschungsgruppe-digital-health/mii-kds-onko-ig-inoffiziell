@@ -27,7 +27,7 @@ Mapping der oBDS-Codes für Karnofsky Performance Status zu LOINC Answer List LA
   "title" : "Mapping oBDS Karnofsky zu LOINC",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-22T22:11:44+00:00",
+  "date" : "2026-08-22T22:31:14+00:00",
   "publisher" : "NUM-DIZ",
   "_publisher" : {
     "extension" : [{

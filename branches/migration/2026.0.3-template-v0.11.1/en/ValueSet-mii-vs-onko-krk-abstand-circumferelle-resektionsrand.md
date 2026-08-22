@@ -44,7 +44,7 @@ Value Set für semantische Kodierung des oBDS-Abstand des Tumorrandes zur circum
   "name" : "MII_VS_Onko_KRK_Abstand_Circumferelle_Resektionsrand",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-08-22T22:11:44+00:00",
+  "date" : "2026-08-22T22:31:14+00:00",
   "publisher" : "NUM-DIZ",
   "_publisher" : {
     "extension" : [{

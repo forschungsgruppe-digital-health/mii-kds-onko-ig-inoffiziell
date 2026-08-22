@@ -89,7 +89,7 @@ Other representations of profile: [CSV](../StructureDefinition-mii-pr-onko-mamma
   "name" : "MII_PR_Onko_Mamma_Rezeptorstatus_Estrogen",
   "title" : "MII PR Onkologie Rezeptorstatus Estrogen",
   "status" : "active",
-  "date" : "2026-08-22T22:11:44+00:00",
+  "date" : "2026-08-22T22:31:14+00:00",
   "publisher" : "NUM-DIZ",
   "_publisher" : {
     "extension" : [{
